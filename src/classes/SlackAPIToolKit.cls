@@ -30,12 +30,14 @@ public with sharing class SlackAPIToolKit {
 
         HttpResponse response = new Http().send(createRequest(slackURL, 'POST', parameters, header, body));
 
-//        if(response.getStatusCode() == 200){
-//            System.debug(response.getBody());
-//            Map<String, String> deserialize = (Map<String, String>)JSON.deserializeUntyped(response.getBody());
-//            String channelId = deserialize.get('Id');
-//            System.debug(channelId);
-//        }
+        if(response.getStatusCode() == 200){
+            System.debug(response.getBody());
+            Map<String, Object> deserialize = (Map<String, Object>)JSON.deserializeUntyped(response.getBody());
+            Map<String, Object> sss = (Map<String, Object>)deserialize.get('channel');
+            String channelId = sss.get('id').toString();
+            System.debug(channelId);
+        }
+
     }
     private static HttpRequest createRequest(String endpoint, String requestMethod, Map<String, String> parameters,
             Map<String, String> headers, String body) {
