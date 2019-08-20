@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5ca758cf-13f7-427b-8d21-0a53c11081ce" name="Default Changelist" comment="" />
+    <list default="true" id="5ca758cf-13f7-427b-8d21-0a53c11081ce" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/SlackAPIToolKit.cls" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/SlackAPIToolKit.cls" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Org" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -16,6 +23,9 @@
         <option value="Apex Metadata" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IlluminatedCloudWorkspaceSettings">
     <option name="moduleWorkspaceSettings">
@@ -52,7 +62,7 @@
                   <option name="buildSuccessDatesBySourceRootRelativePath">
                     <map>
                       <entry key="APEXCLASS:SHARINGOPP" value="1566289522000" />
-                      <entry key="APEXCLASS:SLACKAPITOOLKIT" value="1566304769630" />
+                      <entry key="APEXCLASS:SLACKAPITOOLKIT" value="1566305361608" />
                       <entry key="AURADEFINITIONBUNDLE:SLACK" value="1566291147795" />
                     </map>
                   </option>
@@ -1107,10 +1117,12 @@
     </option>
   </component>
   <component name="ProjectId" id="1PdmNPYKxEQmKB57yo6YunvpDIj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
     <option name="STATE" value="1" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RunDashboard">
@@ -1138,22 +1150,22 @@
       <workItem from="1566212307481" duration="149000" />
       <workItem from="1566212457602" duration="9195000" />
       <workItem from="1566224056900" duration="19736000" />
-      <workItem from="1566297540626" duration="3899000" />
+      <workItem from="1566297540626" duration="4433000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="ApexOfflineDebuggerBreakpointType">
-          <url>file://$PROJECT_DIR$/src/classes/SlackAPIToolKit.cls</url>
-          <line>17</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
