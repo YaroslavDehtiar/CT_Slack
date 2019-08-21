@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ca758cf-13f7-427b-8d21-0a53c11081ce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/UpdateChannelLink.cls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/UpdateChannelLink.cls-meta.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Org.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Org.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/SlackAPIToolKit.cls" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/SlackAPIToolKit.cls" afterDir="false" />
     </list>
@@ -18,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Apex Class" />
         <option value="Lightning Component" />
+        <option value="Apex Class" />
         <option value="Apex Metadata" />
       </list>
     </option>
@@ -33,7 +35,7 @@
         <entry key="Org">
           <value>
             <ModuleWorkspaceSettings>
-              <option name="moduleContentsLastModified" value="1566292442243" />
+              <option name="moduleContentsLastModified" value="1566375530601" />
             </ModuleWorkspaceSettings>
           </value>
         </entry>
@@ -61,8 +63,10 @@
                 <ConnectionWorkspaceSettings>
                   <option name="buildSuccessDatesBySourceRootRelativePath">
                     <map>
+                      <entry key="APEXCLASS:CREATECHANNELLINK" value="1566374711539" />
                       <entry key="APEXCLASS:SHARINGOPP" value="1566289522000" />
-                      <entry key="APEXCLASS:SLACKAPITOOLKIT" value="1566305361608" />
+                      <entry key="APEXCLASS:SLACKAPITOOLKIT" value="1566382498996" />
+                      <entry key="APEXCLASS:UPDATECHANNELLINK" value="1566382498996" />
                       <entry key="AURADEFINITIONBUNDLE:SLACK" value="1566291147795" />
                     </map>
                   </option>
@@ -1137,6 +1141,9 @@
       </list>
     </option>
   </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",SHOW_INHERITED" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -1150,7 +1157,10 @@
       <workItem from="1566212307481" duration="149000" />
       <workItem from="1566212457602" duration="9195000" />
       <workItem from="1566224056900" duration="19736000" />
-      <workItem from="1566297540626" duration="4433000" />
+      <workItem from="1566297540626" duration="7787000" />
+      <workItem from="1566309287153" duration="8473000" />
+      <workItem from="1566371535649" duration="1288000" />
+      <workItem from="1566372879971" duration="10071000" />
     </task>
     <servers />
   </component>
@@ -1162,7 +1172,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
