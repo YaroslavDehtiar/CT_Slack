@@ -6,17 +6,17 @@ public with sharing class SlackAPIToolKit {
 
     private static final String slackURL = 'https://slack.com/api/channels.create';
     private static final String token = 'xoxp-730456088816-729990865092-732783034006-9cdf7c554d5edb18bc9bd65a5d4ff67d';
+    public static String linkId;
 
-
-    public class slack {
+    public class Slack {
         @InvocableVariable(label='Channel' required=true)
         public String channel;
     }
 
     @InvocableMethod(label='Publish to Slack')
-    public static void publishToSlack(List<slack> requests) {
-        System.debug('create');
+    public static void publishToSlack(List<Slack> requests) {
         String req = String.valueOf(requests[0]);
+        System.debug(req);
 
         Map<String, String> parameters = new Map<String, String>();
         parameters.put('token', token);
@@ -30,15 +30,15 @@ public with sharing class SlackAPIToolKit {
 
         HttpResponse response = new Http().send(createRequest(slackURL, 'POST', parameters, header, body));
 
-        if(response.getStatusCode() == 200){
+        if (response.getStatusCode() == 200) {
             System.debug(response.getBody());
-            Map<String, Object> deserialize = (Map<String, Object>)JSON.deserializeUntyped(response.getBody());
-            Map<String, Object> sss = (Map<String, Object>)deserialize.get('channel');
-            String channelId = sss.get('id').toString();
-            System.debug(channelId);
+            Map<String, Object> deserialize = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
+            Map<String, Object> deserialize2 = (Map<String, Object>) deserialize.get('channel');
+            linkId = deserialize2.get('id').toString();
+            System.debug(linkId);
         }
-
     }
+
     private static HttpRequest createRequest(String endpoint, String requestMethod, Map<String, String> parameters,
             Map<String, String> headers, String body) {
         HttpRequest request = new HttpRequest();
@@ -67,4 +67,9 @@ public with sharing class SlackAPIToolKit {
         request.setTimeout(20000);
         return request;
     }
+
+    public String getChannelLink(){
+        return linkId;
+    }
+
 }
