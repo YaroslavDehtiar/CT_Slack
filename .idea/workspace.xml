@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ca758cf-13f7-427b-8d21-0a53c11081ce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/classes/UpdateChannelLink.cls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/classes/UpdateChannelLink.cls-meta.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Org.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Org.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/SlackAPIToolKit.cls" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/SlackAPIToolKit.cls" afterDir="false" />
     </list>
@@ -65,7 +62,7 @@
                     <map>
                       <entry key="APEXCLASS:CREATECHANNELLINK" value="1566374711539" />
                       <entry key="APEXCLASS:SHARINGOPP" value="1566289522000" />
-                      <entry key="APEXCLASS:SLACKAPITOOLKIT" value="1566382498996" />
+                      <entry key="APEXCLASS:SLACKAPITOOLKIT" value="1566393730680" />
                       <entry key="APEXCLASS:UPDATECHANNELLINK" value="1566382498996" />
                       <entry key="AURADEFINITIONBUNDLE:SLACK" value="1566291147795" />
                     </map>
@@ -77,7 +74,7 @@
         </option>
         <option name="logAnalyzerSettings">
           <LogAnalyzerSettings>
-            <option name="splitterProportion" value="0.34513274" />
+            <option name="splitterProportion" value="0.3502825" />
           </LogAnalyzerSettings>
         </option>
         <option name="metadataContents">
@@ -1160,7 +1157,7 @@
       <workItem from="1566297540626" duration="7787000" />
       <workItem from="1566309287153" duration="8473000" />
       <workItem from="1566371535649" duration="1288000" />
-      <workItem from="1566372879971" duration="10071000" />
+      <workItem from="1566372879971" duration="14973000" />
     </task>
     <servers />
   </component>

@@ -11,16 +11,27 @@ public with sharing class SlackAPIToolKit {
     public class Slack {
         @InvocableVariable(label='Channel' required=true)
         public String channel;
+        @InvocableVariable(label='Channel Link')
+        public String channel1;
     }
 
     @InvocableMethod(label='Publish to Slack')
     public static void publishToSlack(List<Slack> requests) {
         String req = String.valueOf(requests[0]);
-        System.debug(req);
+        List<String> channelName = new List<String>();
+        String replace = req.replaceAll('\\W', ' ').replaceAll('\\s+', ' ').trim();
+        String[] strings = replace.split('\\s');
+        for (Integer i = 0; i < strings.size(); i++) {
+            System.debug(strings[i]);
+            if(strings[i].equals('channel') && (i+1) <= strings.size()){
+                channelName.add(strings[i+1]);
+            }
+        }
+        System.debug(channelName[0]);
 
         Map<String, String> parameters = new Map<String, String>();
         parameters.put('token', token);
-        parameters.put('name', req);
+        parameters.put('name', channelName[0]);
         parameters.put('variable', 'true');
 
         Map<String, String> header = new Map<String, String>();
