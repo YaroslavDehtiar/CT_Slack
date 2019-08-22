@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ca758cf-13f7-427b-8d21-0a53c11081ce" name="Default Changelist" comment="">
+<<<<<<< Updated upstream
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/Org.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Org.iml" afterDir="false" />
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/SlackAPIToolKit.cls" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/SlackAPIToolKit.cls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Tests/SingleRequestMock.cls" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/SingleRequestMock.cls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Tests/SingleRequestMock.cls-meta.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/SingleRequestMock.cls-meta.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Tests/TestSlackAPIToolKit.cls" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/SlackAPIToolKitTest.cls" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,8 +68,15 @@
                     <map>
                       <entry key="APEXCLASS:CREATECHANNELLINK" value="1566374711539" />
                       <entry key="APEXCLASS:SHARINGOPP" value="1566289522000" />
+<<<<<<< Updated upstream
                       <entry key="APEXCLASS:SLACKAPITOOLKIT" value="1566393730680" />
                       <entry key="APEXCLASS:UPDATECHANNELLINK" value="1566382498996" />
+=======
+                      <entry key="APEXCLASS:SINGLEREQUESTMOCK" value="1566484367628" />
+                      <entry key="APEXCLASS:SLACKAPITOOLKIT" value="1566480079652" />
+                      <entry key="APEXCLASS:TESTSLACKAPITOOLKIT" value="1566482537775" />
+                      <entry key="APEXCLASS:UPDATECHANNELLINK" value="1566484426509" />
+>>>>>>> Stashed changes
                       <entry key="AURADEFINITIONBUNDLE:SLACK" value="1566291147795" />
                     </map>
                   </option>
@@ -82,9 +95,27 @@
             <entry key="Org">
               <value>
                 <MetadataContents>
-                  <option name="lastPopulated" value="1566213516213" />
+                  <option name="lastPopulated" value="1566474722332" />
                   <option name="metadataTypes">
                     <set>
+                      <MetadataType>
+                        <option name="members">
+                          <set>
+                            <option value="Case.Silver Support" />
+                            <option value="Case.Standard" />
+                            <option value="Case.Booyah" />
+                          </set>
+                        </option>
+                        <option name="name" value="EscalationRule" />
+                      </MetadataType>
+                      <MetadataType>
+                        <option name="members">
+                          <set>
+                            <option value="Case" />
+                          </set>
+                        </option>
+                        <option name="name" value="EscalationRules" />
+                      </MetadataType>
                       <MetadataType>
                         <option name="members">
                           <set>
@@ -106,10 +137,10 @@
                             <option value="Customer Community Plus User" />
                             <option value="Partner Community User" />
                             <option value="StandardAul" />
-                            <option value="Chatter Moderator User" />
                             <option value="Gold Partner User" />
-                            <option value="SolutionManager" />
+                            <option value="Chatter Moderator User" />
                             <option value="ReadOnly" />
+                            <option value="SolutionManager" />
                             <option value="Chatter Free User" />
                             <option value="HighVolumePortal" />
                             <option value="MarketingProfile" />
@@ -117,9 +148,9 @@
                             <option value="Customer Community Login User" />
                             <option value="Analytics Cloud Security User" />
                             <option value="Admin" />
-                            <option value="Silver Partner User" />
                             <option value="Partner App Subscription User" />
                             <option value="Work%2Ecom Only User" />
+                            <option value="Silver Partner User" />
                             <option value="Authenticated Website" />
                             <option value="Customer Community User" />
                             <option value="Custom%3A Marketing Profile" />
@@ -135,6 +166,7 @@
                             <option value="animals_http" />
                             <option value="Slack" />
                             <option value="animals_soap" />
+                            <option value="HookSlack" />
                           </set>
                         </option>
                         <option name="name" value="RemoteSiteSetting" />
@@ -143,12 +175,355 @@
                         <option name="members">
                           <set>
                             <option value="Account" />
-                            <option value="TestObject__c" />
+                            <option value="Company" />
+                            <option value="Address" />
+                            <option value="Org" />
+                            <option value="Macro" />
+                            <option value="Product" />
+                            <option value="Security" />
+                            <option value="Knowledge" />
+                            <option value="Name" />
+                            <option value="Ideas" />
+                            <option value="Case" />
+                            <option value="IoT" />
+                            <option value="FieldService" />
+                            <option value="OmniChannel" />
                             <option value="Opportunity" />
-                            <option value="Contact" />
+                            <option value="Search" />
+                            <option value="FileUploadAndDownloadSecurity" />
+                            <option value="Activities" />
+                            <option value="Order" />
+                            <option value="OrgPreference" />
+                            <option value="GoogleApps" />
+                            <option value="Bot" />
+                            <option value="BusinessHours" />
+                            <option value="UserInterface" />
+                            <option value="Mobile" />
+                            <option value="Forecasting" />
+                            <option value="Analytics" />
+                            <option value="LiveAgent" />
+                            <option value="ExperienceBundle" />
+                            <option value="Quote" />
+                            <option value="UserManagement" />
+                            <option value="Entitlement" />
+                            <option value="Notifications" />
+                            <option value="Contract" />
+                            <option value="PathAssistant" />
                           </set>
                         </option>
-                        <option name="name" value="Workflow" />
+                        <option name="name" value="Settings" />
+                      </MetadataType>
+                      <MetadataType>
+                        <option name="members">
+                          <set>
+                            <option value="DataCloudGeoLocation" />
+                          </set>
+                        </option>
+                        <option name="name" value="CleanDataService" />
+                      </MetadataType>
+                      <MetadataType>
+                        <option name="members">
+                          <set>
+                            <option value="Order.AllActivatedOrders" />
+                            <option value="Opportunity.NewThisWeek" />
+                            <option value="Case.AllOpenCases" />
+                            <option value="Drink_Order__c.All" />
+                            <option value="Order.AllDraftOrders" />
+                            <option value="Case.MyCases" />
+                            <option value="User.ActiveUsers" />
+                            <option value="Order.AllOrders" />
+                            <option value="Scorecard.MyScorecards" />
+                            <option value="Opportunity.ClosingNextMonth" />
+                            <option value="Contact.AllContacts" />
+                            <option value="Case.MyOpenCases" />
+                            <option value="Opportunity.Default_Opportunity_Pipeline" />
+                            <option value="Opportunity.Private" />
+                            <option value="Contract.AllContracts" />
+                            <option value="Contract.MyActivatedContracts" />
+                            <option value="Recommendation.All_Recommendations" />
+                            <option value="Contract.AllDraftContracts" />
+                            <option value="Quote.mine" />
+                            <option value="WorkFeedbackRequest.AboutTopics" />
+                            <option value="ConsumptionSchedule.My_ConsumptionSchedules" />
+                            <option value="Contact.NewLastWeek" />
+                            <option value="Task.DelegatedTasks" />
+                            <option value="SocialPersona.AllSocialPersonas" />
+                            <option value="User.AllUsers" />
+                            <option value="Task.UnscheduledTasks" />
+                            <option value="Contract.MyDraftContracts" />
+                            <option value="Lead.TodaysLeads" />
+                            <option value="Task.CompletedTasks" />
+                            <option value="Slack__c.All" />
+                            <option value="Solution.AllUnreviewedSolutions" />
+                            <option value="Activity.UpcomingEvents" />
+                            <option value="Account.NewLastWeek" />
+                            <option value="Account.MyAccounts" />
+                            <option value="Opportunity.AllOpportunities" />
+                            <option value="Task.OpenTasks" />
+                            <option value="Task.OverdueTasks" />
+                            <option value="Contact.BirthdaysThisMonth" />
+                            <option value="Opportunity.ClosingThisMonth" />
+                            <option value="Account.AllAccounts" />
+                            <option value="ContactRequest.My_ContactRequests" />
+                            <option value="CollaborationGroup.All_ChatterGroups" />
+                            <option value="Contact.NewThisWeek" />
+                            <option value="Activity.AllActivities" />
+                            <option value="Opportunity.NewLastWeek" />
+                            <option value="Asset.AllAssets" />
+                            <option value="User.AdminUsers" />
+                            <option value="Case.Booyah_Case" />
+                            <option value="Scorecard.AllScorecards" />
+                            <option value="Opportunity.MyOpportunities" />
+                            <option value="Case.Platinum_Support_Case" />
+                            <option value="Campaign.MyActiveCampaigns" />
+                            <option value="Lead.MyUnreadLeads" />
+                            <option value="Campaign.AllActiveCampaigns" />
+                            <option value="Product2.AllProducts" />
+                            <option value="Contact.MyContacts" />
+                            <option value="Activity.TodaysTasks" />
+                            <option value="ConsumptionSchedule.All_ConsumptionSchedules" />
+                            <option value="Task.RecurringTasks" />
+                            <option value="Case.AllClosedCases" />
+                            <option value="Opportunity.Won" />
+                            <option value="Solution.AllReviewedSolutions" />
+                            <option value="Account.PlatinumandGoldSLACustomers" />
+                            <option value="Task.TodaysTasks" />
+                            <option value="Contract.MyInApprovalContracts" />
+                            <option value="Activity.MyActivities" />
+                            <option value="TestObject__c.All" />
+                            <option value="Contract.AllInApprovalContracts" />
+                            <option value="WorkFeedbackTemplate.All" />
+                            <option value="Lead.AllOpenLeads" />
+                            <option value="Account.NewThisWeek" />
+                            <option value="WorkFeedbackRequest.All" />
+                            <option value="Lead.ViewCustom1" />
+                            <option value="Idea.Ideas_Last_7_Days" />
+                            <option value="Lead.ViewCustom2" />
+                            <option value="Contract.AllActivatedContracts" />
+                          </set>
+                        </option>
+                        <option name="name" value="ListView" />
+                      </MetadataType>
+                      <MetadataType>
+                        <option name="members">
+                          <set>
+                            <option value="DirectorDirectSales" />
+                            <option value="SVPSalesMarketing" />
+                            <option value="MarketingTeam" />
+                            <option value="COO" />
+                            <option value="DirectorChannelSales" />
+                            <option value="InstallationRepairServices" />
+                            <option value="SVPHumanResources" />
+                            <option value="SVPCustomerServiceSupport" />
+                            <option value="VPInternationalSales" />
+                            <option value="ChannelSalesTeam" />
+                            <option value="CEO" />
+                            <option value="EasternSalesTeam" />
+                            <option value="CustomerSupportInternational" />
+                            <option value="CFO" />
+                            <option value="CustomerSupportNorthAmerica" />
+                            <option value="WesternSalesTeam" />
+                            <option value="VPMarketing" />
+                            <option value="VPNorthAmericanSales" />
+                          </set>
+                        </option>
+                        <option name="name" value="Role" />
+                      </MetadataType>
+                      <MetadataType>
+                        <option name="members">
+                          <set>
+                            <option value="th_con_app" />
+                          </set>
+                        </option>
+                        <option name="name" value="InstalledPackage" />
+                      </MetadataType>
+                      <MetadataType>
+                        <option name="members">
+                          <set>
+                            <option value="standard-Macro" />
+                            <option value="standard-Case" />
+                            <option value="standard-Solution" />
+                            <option value="standard-ContentSubscriptions" />
+                            <option value="TestObject__c" />
+                            <option value="standard-Quote" />
+                            <option value="standard-Recognition" />
+                            <option value="standard-DuplicateRecordSet" />
+                            <option value="Drink_Order__c" />
+                            <option value="standard-Account" />
+                            <option value="standard-home" />
+                            <option value="standard-OtherUserProfile" />
+                            <option value="standard-AppLauncher" />
+                            <option value="standard-DandBCompany" />
+                            <option value="standard-Campaign" />
+                            <option value="standard-Sites" />
+                            <option value="standard-WorkBadgeDefinition" />
+                            <option value="standard-report" />
+                            <option value="standard-Recommendation" />
+                            <option value="standard-ConsumptionSchedule" />
+                            <option value="standard-Contract" />
+                            <option value="standard-Chatter" />
+                            <option value="standard-Contact" />
+                            <option value="standard-Product2" />
+                            <option value="standard-Asset" />
+                            <option value="standard-Idea" />
+                            <option value="standard-Image" />
+                            <option value="standard-StreamingChannel" />
+                            <option value="standard-Dashboard" />
+                            <option value="standard-File" />
+                            <option value="th_con_app__Welcome" />
+                            <option value="standard-Document" />
+                            <option value="standard-Pricebook2" />
+                            <option value="standard-ListEmail" />
+                            <option value="Slack__c" />
+                            <option value="standard-UserProfile" />
+                            <option value="standard-Order" />
+                            <option value="standard-Workspace" />
+                            <option value="standard-Forecasting3" />
+                            <option value="standard-ProfilePlatformFeed" />
+                            <option value="standard-CollaborationGroup" />
+                            <option value="standard-WorkBadge" />
+                            <option value="standard-JigsawSearch" />
+                            <option value="standard-ContentSearch" />
+                            <option value="standard-Lead" />
+                            <option value="standard-ContentContribute" />
+                            <option value="standard-ProfilePlatformOverview" />
+                            <option value="standard-Console" />
+                            <option value="standard-ContactRequest" />
+                            <option value="standard-UserProvisioningRequest" />
+                            <option value="standard-Opportunity" />
+                          </set>
+                        </option>
+                        <option name="name" value="CustomTab" />
+                      </MetadataType>
+                      <MetadataType>
+                        <option name="members">
+                          <set>
+                            <option value="Process_Automation_Home" />
+                            <option value="LightningSalesConsole_UtilityBar" />
+                            <option value="EasyContactCreator" />
+                            <option value="LightningService_UtilityBar" />
+                            <option value="Home_Page" />
+                          </set>
+                        </option>
+                        <option name="name" value="FlexiPage" />
+                      </MetadataType>
+                      <MetadataType>
+                        <option name="members">
+                          <set>
+                            <option value="Salesforce1" />
+                            <option value="AppSwitcher" />
+                          </set>
+                        </option>
+                        <option name="name" value="AppMenu" />
+                      </MetadataType>
+                      <MetadataType>
+                        <option name="members">
+                          <set>
+                            <option value="PT1_profileSessionSetting1479361192857" />
+                          </set>
+                        </option>
+                        <option name="name" value="ProfileSessionSetting" />
+                      </MetadataType>
+                      <MetadataType>
+                        <option name="members">
+                          <set>
+                            <option value="Slack" />
+                          </set>
+                        </option>
+                        <option name="name" value="AuraDefinitionBundle" />
+                      </MetadataType>
+                      <MetadataType>
+                        <option name="members">
+                          <set>
+                            <option value="Platinum_Support" />
+                            <option value="Booyah" />
+                          </set>
+                        </option>
+                        <option name="name" value="Queue" />
+                      </MetadataType>
+                      <MetadataType>
+                        <option name="members">
+                          <set>
+                            <option value="GetAnimalResource" />
+                          </set>
+                        </option>
+                        <option name="name" value="StaticResource" />
+                      </MetadataType>
+                      <MetadataType>
+                        <option name="members">
+                          <set>
+                            <option value="SlackAPIToolKit" />
+                            <option value="AnimalLocatorMock" />
+                            <option value="AnimalsHttpCalloutMock" />
+                            <option value="AnimalLocator" />
+                            <option value="AnimalLocatorTest" />
+                            <option value="AnimalsCalloutsTest" />
+                            <option value="SingleRequestMock" />
+                            <option value="AnimalsCallouts" />
+                            <option value="UpdateChannelLink" />
+                          </set>
+                        </option>
+                        <option name="name" value="ApexClass" />
+                      </MetadataType>
+                      <MetadataType>
+                        <option name="members">
+                          <set>
+                            <option value="Internal Zone" />
+                          </set>
+                        </option>
+                        <option name="name" value="Community" />
+                      </MetadataType>
+                      <MetadataType>
+                        <option name="members">
+                          <set>
+                            <option value="Lead.Standard" />
+                            <option value="Case.Standard" />
+                            <option value="Lead.NiceRules" />
+                            <option value="Case.Awesome Admin Assignment" />
+                            <option value="Case.Assign Booyah" />
+                          </set>
+                        </option>
+                        <option name="name" value="AssignmentRule" />
+                      </MetadataType>
+                      <MetadataType>
+                        <option name="members">
+                          <set>
+                            <option value="trailhead_SAML_SSO_Setting" />
+                          </set>
+                        </option>
+                        <option name="name" value="SamlSsoConfig" />
+                      </MetadataType>
+                      <MetadataType>
+                        <option name="members">
+                          <set>
+                            <option value="th_con_app__Trailhead_Playground" />
+                            <option value="standard__Sales" />
+                            <option value="standard__LightningService" />
+                            <option value="standard__ServiceConsole" />
+                            <option value="standard__Community" />
+                            <option value="standard__AppLauncher" />
+                            <option value="standard__LightningInstrumentation" />
+                            <option value="standard__Chatter" />
+                            <option value="standard__Platform" />
+                            <option value="standard__LightningSales" />
+                            <option value="standard__Service" />
+                            <option value="standard__Content" />
+                            <option value="standard__Marketing" />
+                            <option value="standard__Sites" />
+                            <option value="standard__LightningBolt" />
+                            <option value="standard__LightningSalesConsole" />
+                            <option value="standard__Insights" />
+                          </set>
+                        </option>
+                        <option name="name" value="CustomApplication" />
+                      </MetadataType>
+                      <MetadataType>
+                        <option name="members">
+                          <set>
+                            <option value="Trailhead" />
+                          </set>
+                        </option>
+                        <option name="name" value="PermissionSet" />
                       </MetadataType>
                       <MetadataType>
                         <option name="members">
@@ -162,6 +537,17 @@
                           </set>
                         </option>
                         <option name="name" value="WorkflowFieldUpdate" />
+                      </MetadataType>
+                      <MetadataType>
+                        <option name="members">
+                          <set>
+                            <option value="Account" />
+                            <option value="TestObject__c" />
+                            <option value="Opportunity" />
+                            <option value="Contact" />
+                          </set>
+                        </option>
+                        <option name="name" value="Workflow" />
                       </MetadataType>
                       <MetadataType>
                         <option name="members">
@@ -192,76 +578,9 @@
                       <MetadataType>
                         <option name="members">
                           <set>
-                            <option value="Account" />
-                            <option value="Company" />
-                            <option value="Address" />
-                            <option value="Org" />
-                            <option value="Macro" />
-                            <option value="Product" />
-                            <option value="Security" />
-                            <option value="Knowledge" />
-                            <option value="IoT" />
-                            <option value="Case" />
-                            <option value="Name" />
-                            <option value="Ideas" />
-                            <option value="FieldService" />
-                            <option value="OmniChannel" />
-                            <option value="Search" />
-                            <option value="Opportunity" />
-                            <option value="FileUploadAndDownloadSecurity" />
-                            <option value="Order" />
-                            <option value="Activities" />
-                            <option value="OrgPreference" />
-                            <option value="GoogleApps" />
-                            <option value="Bot" />
-                            <option value="BusinessHours" />
-                            <option value="UserInterface" />
-                            <option value="Forecasting" />
-                            <option value="Mobile" />
-                            <option value="Analytics" />
-                            <option value="Quote" />
-                            <option value="LiveAgent" />
-                            <option value="ExperienceBundle" />
-                            <option value="UserManagement" />
-                            <option value="Entitlement" />
-                            <option value="PathAssistant" />
-                            <option value="Contract" />
-                            <option value="Notifications" />
-                          </set>
-                        </option>
-                        <option name="name" value="Settings" />
-                      </MetadataType>
-                      <MetadataType>
-                        <option name="members">
-                          <set>
-                            <option value="DataCloudGeoLocation" />
-                          </set>
-                        </option>
-                        <option name="name" value="CleanDataService" />
-                      </MetadataType>
-                      <MetadataType>
-                        <option name="members">
-                          <set>
-                            <option value="Case.Silver Support" />
-                            <option value="Case.Standard" />
-                            <option value="Case.Booyah" />
-                          </set>
-                        </option>
-                        <option name="name" value="EscalationRule" />
-                      </MetadataType>
-                      <MetadataType>
-                        <option name="members">
-                          <set>
-                            <option value="Case" />
-                          </set>
-                        </option>
-                        <option name="name" value="EscalationRules" />
-                      </MetadataType>
-                      <MetadataType>
-                        <option name="members">
-                          <set>
-                            <option value="Slack__c.Channel__c" />
+                            <option value="Contact.Loan_Amount__c" />
                             <option value="Opportunity.TrackingNumber__c" />
+                            <option value="Slack__c.Channel__c" />
                             <option value="Account.Active__c" />
                             <option value="Case.SLAViolation__c" />
                             <option value="Lead.Primary__c" />
@@ -270,19 +589,20 @@
                             <option value="Lead.CurrentGenerators__c" />
                             <option value="Account.NumberofLocations__c" />
                             <option value="Contact.Level__c" />
-                            <option value="Opportunity.Discount_Percent__c" />
                             <option value="Opportunity.MainCompetitors__c" />
+                            <option value="Opportunity.Discount_Percent__c" />
                             <option value="Account.SLASerialNumber__c" />
-                            <option value="Account.UpsellOpportunity__c" />
                             <option value="Goal.OrigGoalId__c" />
+                            <option value="Account.UpsellOpportunity__c" />
                             <option value="Account.CustomerPriority__c" />
                             <option value="TestObject__c.TextField__c" />
                             <option value="Account.SLA__c" />
+                            <option value="Case.SlackChannelLink__c" />
                             <option value="Lead.SICCode__c" />
                             <option value="Contact.Languages__c" />
                             <option value="Opportunity.OrderNumber__c" />
-                            <option value="Metric.OrigMetricId__c" />
                             <option value="Case.EngineeringReqNumber__c" />
+                            <option value="Metric.OrigMetricId__c" />
                             <option value="CaseComment.CommentBody" />
                             <option value="Account.SLAExpirationDate__c" />
                             <option value="Opportunity.CurrentGenerators__c" />
@@ -290,8 +610,8 @@
                             <option value="Lead.ProductInterest__c" />
                             <option value="Lead.NumberofLocations__c" />
                             <option value="Case.Product__c" />
-                            <option value="Slack__c.Workspace__c" />
                             <option value="Slack__c.Message__c" />
+                            <option value="Slack__c.Workspace__c" />
                           </set>
                         </option>
                         <option name="name" value="CustomField" />
@@ -313,28 +633,28 @@
                             <option value="ScorecardMetric" />
                             <option value="PushTopic" />
                             <option value="TestObject__c" />
-                            <option value="ContractContactRole" />
                             <option value="FeedItem" />
+                            <option value="ContractContactRole" />
                             <option value="ExchangeUserMapping" />
                             <option value="SocialPersona" />
                             <option value="Asset" />
                             <option value="PromptAction" />
                             <option value="Drink_Order__c" />
                             <option value="CampaignMember" />
-                            <option value="CollaborationGroupMember" />
                             <option value="Order" />
-                            <option value="StreamingChannel" />
+                            <option value="CollaborationGroupMember" />
                             <option value="AccountContactRole" />
-                            <option value="WorkBadge" />
+                            <option value="StreamingChannel" />
                             <option value="EmailMessage" />
-                            <option value="Pricebook2" />
+                            <option value="WorkBadge" />
                             <option value="AccountCleanInfo" />
+                            <option value="Pricebook2" />
                             <option value="UserProvisioningRequest" />
-                            <option value="Recommendation" />
-                            <option value="PricebookEntry" />
                             <option value="OrgDeleteRequest" />
-                            <option value="Campaign" />
+                            <option value="PricebookEntry" />
+                            <option value="Recommendation" />
                             <option value="LeadCleanInfo" />
+                            <option value="Campaign" />
                             <option value="Idea" />
                             <option value="WorkThanks" />
                             <option value="ExpressionFilter" />
@@ -345,10 +665,10 @@
                             <option value="PartnerRole" />
                             <option value="MacroAction" />
                             <option value="Site" />
-                            <option value="User" />
                             <option value="ContactRequest" />
-                            <option value="ProductConsumptionSchedule" />
+                            <option value="User" />
                             <option value="Product2" />
+                            <option value="ProductConsumptionSchedule" />
                             <option value="Macro" />
                             <option value="MacroInstruction" />
                             <option value="ExpressionFilterCriteria" />
@@ -359,13 +679,13 @@
                             <option value="Opportunity" />
                             <option value="Lead" />
                             <option value="DuplicateRecordSet" />
-                            <option value="Scorecard" />
                             <option value="Topic" />
-                            <option value="Slack__c" />
+                            <option value="Scorecard" />
                             <option value="Solution" />
+                            <option value="Slack__c" />
+                            <option value="StreamActivityAccess" />
                             <option value="AssetRelationship" />
                             <option value="QuickText" />
-                            <option value="StreamActivityAccess" />
                             <option value="DandBCompany" />
                             <option value="OpportunityContactRole" />
                             <option value="QuoteLineItem" />
@@ -425,85 +745,10 @@
                       <MetadataType>
                         <option name="members">
                           <set>
-                            <option value="Order.AllActivatedOrders" />
-                            <option value="Opportunity.NewThisWeek" />
-                            <option value="Case.AllOpenCases" />
-                            <option value="Drink_Order__c.All" />
-                            <option value="Order.AllDraftOrders" />
-                            <option value="Case.MyCases" />
-                            <option value="User.ActiveUsers" />
-                            <option value="Order.AllOrders" />
-                            <option value="Scorecard.MyScorecards" />
-                            <option value="Opportunity.ClosingNextMonth" />
-                            <option value="Contact.AllContacts" />
-                            <option value="Case.MyOpenCases" />
-                            <option value="Opportunity.Default_Opportunity_Pipeline" />
-                            <option value="Opportunity.Private" />
-                            <option value="Contract.AllContracts" />
-                            <option value="Contract.MyActivatedContracts" />
-                            <option value="Recommendation.All_Recommendations" />
-                            <option value="Contract.AllDraftContracts" />
-                            <option value="Quote.mine" />
-                            <option value="WorkFeedbackRequest.AboutTopics" />
-                            <option value="ConsumptionSchedule.My_ConsumptionSchedules" />
-                            <option value="Contact.NewLastWeek" />
-                            <option value="Task.DelegatedTasks" />
-                            <option value="SocialPersona.AllSocialPersonas" />
-                            <option value="User.AllUsers" />
-                            <option value="Contract.MyDraftContracts" />
-                            <option value="Task.UnscheduledTasks" />
-                            <option value="Lead.TodaysLeads" />
-                            <option value="Task.CompletedTasks" />
-                            <option value="Slack__c.All" />
-                            <option value="Solution.AllUnreviewedSolutions" />
-                            <option value="Activity.UpcomingEvents" />
-                            <option value="Account.NewLastWeek" />
-                            <option value="Account.MyAccounts" />
-                            <option value="Opportunity.AllOpportunities" />
-                            <option value="Task.OpenTasks" />
-                            <option value="Task.OverdueTasks" />
-                            <option value="Contact.BirthdaysThisMonth" />
-                            <option value="Opportunity.ClosingThisMonth" />
-                            <option value="Account.AllAccounts" />
-                            <option value="ContactRequest.My_ContactRequests" />
-                            <option value="Contact.NewThisWeek" />
-                            <option value="CollaborationGroup.All_ChatterGroups" />
-                            <option value="Activity.AllActivities" />
-                            <option value="Opportunity.NewLastWeek" />
-                            <option value="Asset.AllAssets" />
-                            <option value="User.AdminUsers" />
-                            <option value="Case.Booyah_Case" />
-                            <option value="Scorecard.AllScorecards" />
-                            <option value="Opportunity.MyOpportunities" />
-                            <option value="Case.Platinum_Support_Case" />
-                            <option value="Campaign.MyActiveCampaigns" />
-                            <option value="Lead.MyUnreadLeads" />
-                            <option value="Product2.AllProducts" />
-                            <option value="Campaign.AllActiveCampaigns" />
-                            <option value="Activity.TodaysTasks" />
-                            <option value="Contact.MyContacts" />
-                            <option value="ConsumptionSchedule.All_ConsumptionSchedules" />
-                            <option value="Task.RecurringTasks" />
-                            <option value="Case.AllClosedCases" />
-                            <option value="Opportunity.Won" />
-                            <option value="Solution.AllReviewedSolutions" />
-                            <option value="Account.PlatinumandGoldSLACustomers" />
-                            <option value="Task.TodaysTasks" />
-                            <option value="Activity.MyActivities" />
-                            <option value="Contract.MyInApprovalContracts" />
-                            <option value="TestObject__c.All" />
-                            <option value="Contract.AllInApprovalContracts" />
-                            <option value="WorkFeedbackTemplate.All" />
-                            <option value="Lead.AllOpenLeads" />
-                            <option value="Account.NewThisWeek" />
-                            <option value="WorkFeedbackRequest.All" />
-                            <option value="Lead.ViewCustom1" />
-                            <option value="Idea.Ideas_Last_7_Days" />
-                            <option value="Contract.AllActivatedContracts" />
-                            <option value="Lead.ViewCustom2" />
+                            <option value="DE Default" />
                           </set>
                         </option>
-                        <option name="name" value="ListView" />
+                        <option name="name" value="HomePageLayout" />
                       </MetadataType>
                       <MetadataType>
                         <option name="members">
@@ -513,8 +758,8 @@
                             <option value="User" />
                             <option value="Case" />
                             <option value="Contact" />
-                            <option value="TestObject__c" />
                             <option value="FlowInterview" />
+                            <option value="TestObject__c" />
                             <option value="Campaign" />
                             <option value="ListEmail" />
                             <option value="Opportunity" />
@@ -529,39 +774,6 @@
                       <MetadataType>
                         <option name="members">
                           <set>
-                            <option value="DE Default" />
-                          </set>
-                        </option>
-                        <option name="name" value="HomePageLayout" />
-                      </MetadataType>
-                      <MetadataType>
-                        <option name="members">
-                          <set>
-                            <option value="DirectorDirectSales" />
-                            <option value="SVPSalesMarketing" />
-                            <option value="COO" />
-                            <option value="MarketingTeam" />
-                            <option value="DirectorChannelSales" />
-                            <option value="InstallationRepairServices" />
-                            <option value="SVPHumanResources" />
-                            <option value="SVPCustomerServiceSupport" />
-                            <option value="VPInternationalSales" />
-                            <option value="ChannelSalesTeam" />
-                            <option value="CEO" />
-                            <option value="EasternSalesTeam" />
-                            <option value="CFO" />
-                            <option value="CustomerSupportInternational" />
-                            <option value="CustomerSupportNorthAmerica" />
-                            <option value="WesternSalesTeam" />
-                            <option value="VPMarketing" />
-                            <option value="VPNorthAmericanSales" />
-                          </set>
-                        </option>
-                        <option name="name" value="Role" />
-                      </MetadataType>
-                      <MetadataType>
-                        <option name="members">
-                          <set>
                             <option value="Account.Account_Approval_Post_Template" />
                           </set>
                         </option>
@@ -570,78 +782,11 @@
                       <MetadataType>
                         <option name="members">
                           <set>
-                            <option value="th_con_app" />
-                          </set>
-                        </option>
-                        <option name="name" value="InstalledPackage" />
-                      </MetadataType>
-                      <MetadataType>
-                        <option name="members">
-                          <set>
-                            <option value="standard-Macro" />
-                            <option value="standard-Case" />
-                            <option value="standard-Solution" />
-                            <option value="standard-ContentSubscriptions" />
-                            <option value="TestObject__c" />
-                            <option value="standard-Quote" />
-                            <option value="standard-Recognition" />
-                            <option value="standard-DuplicateRecordSet" />
-                            <option value="Drink_Order__c" />
-                            <option value="standard-Account" />
-                            <option value="standard-home" />
-                            <option value="standard-WaveHome" />
-                            <option value="standard-OtherUserProfile" />
-                            <option value="standard-AppLauncher" />
-                            <option value="standard-DandBCompany" />
-                            <option value="standard-Campaign" />
-                            <option value="standard-Sites" />
-                            <option value="standard-WorkBadgeDefinition" />
-                            <option value="standard-report" />
-                            <option value="standard-Recommendation" />
-                            <option value="standard-ConsumptionSchedule" />
-                            <option value="standard-Contract" />
-                            <option value="standard-Chatter" />
-                            <option value="standard-Contact" />
-                            <option value="standard-Product2" />
-                            <option value="standard-Asset" />
-                            <option value="standard-Idea" />
-                            <option value="standard-Image" />
-                            <option value="standard-StreamingChannel" />
-                            <option value="standard-Dashboard" />
-                            <option value="standard-File" />
-                            <option value="th_con_app__Welcome" />
-                            <option value="standard-Document" />
-                            <option value="standard-Pricebook2" />
-                            <option value="standard-ListEmail" />
-                            <option value="Slack__c" />
-                            <option value="standard-UserProfile" />
-                            <option value="standard-Order" />
-                            <option value="standard-Workspace" />
-                            <option value="standard-Forecasting3" />
-                            <option value="standard-ProfilePlatformFeed" />
-                            <option value="standard-CollaborationGroup" />
-                            <option value="standard-WorkBadge" />
-                            <option value="standard-JigsawSearch" />
-                            <option value="standard-ContentSearch" />
-                            <option value="standard-Lead" />
-                            <option value="standard-ContentContribute" />
-                            <option value="standard-ProfilePlatformOverview" />
-                            <option value="standard-Console" />
-                            <option value="standard-ContactRequest" />
-                            <option value="standard-UserProvisioningRequest" />
-                            <option value="standard-Opportunity" />
-                          </set>
-                        </option>
-                        <option name="name" value="CustomTab" />
-                      </MetadataType>
-                      <MetadataType>
-                        <option name="members">
-                          <set>
                             <option value="Order" />
                             <option value="Account" />
                             <option value="Task" />
-                            <option value="Contact" />
                             <option value="Case" />
+                            <option value="Contact" />
                             <option value="ContentDocument" />
                             <option value="TestObject__c" />
                             <option value="Campaign" />
@@ -677,43 +822,6 @@
                       <MetadataType>
                         <option name="members">
                           <set>
-                            <option value="Process_Automation_Home" />
-                            <option value="EasyContactCreator" />
-                            <option value="LightningSalesConsole_UtilityBar" />
-                            <option value="LightningService_UtilityBar" />
-                            <option value="Home_Page" />
-                          </set>
-                        </option>
-                        <option name="name" value="FlexiPage" />
-                      </MetadataType>
-                      <MetadataType>
-                        <option name="members">
-                          <set>
-                            <option value="Salesforce1" />
-                            <option value="AppSwitcher" />
-                          </set>
-                        </option>
-                        <option name="name" value="AppMenu" />
-                      </MetadataType>
-                      <MetadataType>
-                        <option name="members">
-                          <set>
-                            <option value="PT1_profileSessionSetting1479361192857" />
-                          </set>
-                        </option>
-                        <option name="name" value="ProfileSessionSetting" />
-                      </MetadataType>
-                      <MetadataType>
-                        <option name="members">
-                          <set>
-                            <option value="PT1_profilePasswordPolicy1479361192949" />
-                          </set>
-                        </option>
-                        <option name="name" value="ProfilePasswordPolicy" />
-                      </MetadataType>
-                      <MetadataType>
-                        <option name="members">
-                          <set>
                             <option value="Account.Approve_New_Account" />
                             <option value="Opportunity.Approve_Opportunity_Discount" />
                           </set>
@@ -723,19 +831,10 @@
                       <MetadataType>
                         <option name="members">
                           <set>
-                            <option value="Platinum_Support" />
-                            <option value="Booyah" />
+                            <option value="PT1_profilePasswordPolicy1479361192949" />
                           </set>
                         </option>
-                        <option name="name" value="Queue" />
-                      </MetadataType>
-                      <MetadataType>
-                        <option name="members">
-                          <set>
-                            <option value="GetAnimalResource" />
-                          </set>
-                        </option>
-                        <option name="name" value="StaticResource" />
+                        <option name="name" value="ProfilePasswordPolicy" />
                       </MetadataType>
                       <MetadataType>
                         <option name="members">
@@ -758,69 +857,70 @@
                       <MetadataType>
                         <option name="members">
                           <set>
-                            <option value="SlackAPIToolKit" />
-                            <option value="AnimalLocatorMock" />
-                            <option value="AnimalLocator" />
-                            <option value="AnimalsHttpCalloutMock" />
-                            <option value="AnimalsCalloutsTest" />
-                            <option value="AnimalLocatorTest" />
-                            <option value="AnimalsCallouts" />
+                            <option value="Account" />
+                            <option value="Lead" />
+                            <option value="Contact" />
                           </set>
                         </option>
-                        <option name="name" value="ApexClass" />
+                        <option name="name" value="MatchingRules" />
                       </MetadataType>
                       <MetadataType>
                         <option name="members">
                           <set>
-                            <option value="Internal Zone" />
+                            <option value="Contact.Contact_with_Fuzzy_Logic" />
+                            <option value="Contact.Standard_Contact_Match_Rule_v1_1" />
+                            <option value="Account.Standard_Account_Match_Rule_v1_0" />
+                            <option value="Lead.Standard_Lead_Match_Rule_v1_0" />
                           </set>
                         </option>
-                        <option name="name" value="Community" />
+                        <option name="name" value="MatchingRule" />
                       </MetadataType>
                       <MetadataType>
                         <option name="members">
                           <set>
-                            <option value="th_con_app__Trailhead_Playground" />
-                            <option value="standard__Sales" />
-                            <option value="standard__LightningService" />
-                            <option value="standard__ServiceConsole" />
-                            <option value="standard__Community" />
-                            <option value="standard__AppLauncher" />
-                            <option value="standard__Chatter" />
-                            <option value="standard__LightningInstrumentation" />
-                            <option value="standard__Platform" />
-                            <option value="standard__Service" />
-                            <option value="standard__LightningSales" />
-                            <option value="standard__Marketing" />
-                            <option value="standard__Content" />
-                            <option value="standard__Sites" />
-                            <option value="standard__Insights" />
-                            <option value="standard__LightningSalesConsole" />
-                            <option value="standard__LightningBolt" />
+                            <option value="Lead" />
+                            <option value="Case" />
                           </set>
                         </option>
-                        <option name="name" value="CustomApplication" />
+                        <option name="name" value="AssignmentRules" />
+                      </MetadataType>
+                      <MetadataType>
+                        <option name="members">
+                          <set>
+                            <option value="Trailhead" />
+                            <option value="Quick_Account" />
+                            <option value="SlackChannels" />
+                            <option value="Renew_Opportunity" />
+                            <option value="Closed_Won_Opportunities" />
+                            <option value="PostToSlack" />
+                            <option value="New_Lead" />
+                            <option value="EasyContact" />
+                            <option value="TestProcessBuilder" />
+                          </set>
+                        </option>
+                        <option name="name" value="FlowDefinition" />
                       </MetadataType>
                       <MetadataType>
                         <option name="members">
                           <set>
                             <option value="NewGroup" />
-                            <option value="SendEmail" />
                             <option value="NewLead" />
+                            <option value="SendEmail" />
                             <option value="NewOpportunity" />
                             <option value="NewTask" />
                             <option value="Task.UpdatePriority_2" />
-                            <option value="Task.UpdatePriority_1" />
                             <option value="NewAccount" />
+                            <option value="Task.UpdatePriority_1" />
                             <option value="Task.UpdatePriority" />
                             <option value="Task.UpdatePriority_0" />
+                            <option value="Case.slack" />
                             <option value="Task.Defer" />
                             <option value="Quote.SendEmail" />
                             <option value="Task.EditDescription_2" />
                             <option value="Task.EditDescription" />
-                            <option value="CreateNewContact" />
                             <option value="FeedItem.NewTaskFromFeedItem" />
                             <option value="NewNote" />
+                            <option value="Case.CreateSlackChannel" />
                             <option value="CollaborationGroup.NewGroupMember" />
                             <option value="Task.EditDescription_0" />
                             <option value="Account.CreateContact" />
@@ -829,10 +929,12 @@
                             <option value="Task.UpdateStatus" />
                             <option value="Task.Defer_2" />
                             <option value="Task.Defer_0" />
+                            <option value="Case.TestFieldUpdates" />
                             <option value="Task.Defer_1" />
                             <option value="Task.UpdateStatus_0" />
                             <option value="Task.UpdateStatus_1" />
                             <option value="Task.UpdateStatus_2" />
+                            <option value="Create_Slack_Channel" />
                             <option value="Case.NewChildCase" />
                             <option value="Case.LogACall" />
                             <option value="NewContact" />
@@ -851,28 +953,28 @@
                             <option value="Product2-Product Layout" />
                             <option value="Lead-Lead Layout" />
                             <option value="ConsumptionRate-Consumption Rate Layout" />
-                            <option value="Contact-Contact Layout" />
                             <option value="Case-Case %28Sales%29 Layout" />
-                            <option value="CollaborationGroup-Group Layout" />
+                            <option value="Contact-Contact Layout" />
                             <option value="Lead-Lead %28Support%29 Layout" />
+                            <option value="CollaborationGroup-Group Layout" />
                             <option value="DandBCompany-D%26B Company Layout" />
-                            <option value="Case-Case %28Support%29 Layout" />
                             <option value="AssetRelationship-Asset Relationship Layout" />
+                            <option value="Case-Case %28Support%29 Layout" />
                             <option value="Macro-Macro Layout" />
                             <option value="Order-Order Layout" />
                             <option value="Solution-Solution Layout" />
                             <option value="UserProvisioningRequest-User Provisioning Request Layout" />
                             <option value="ScorecardMetric-Scorecard Metric Layout" />
-                            <option value="Event-Event Layout" />
                             <option value="Pricebook2-Price Book Layout" />
+                            <option value="Event-Event Layout" />
                             <option value="UserProvisioningLog-User Provisioning Log Layout" />
                             <option value="UserProvAccount-User Provisioning Account Layout" />
                             <option value="Contact-Contact %28Marketing%29 Layout" />
                             <option value="Task-Task Layout" />
                             <option value="ConsumptionSchedule-Consumption Schedule Layout" />
                             <option value="WorkBadgeDefinition-Badge Layout" />
-                            <option value="Opportunity-Opportunity Layout" />
                             <option value="Asset-Asset Layout" />
+                            <option value="Opportunity-Opportunity Layout" />
                             <option value="DuplicateRecordSet-Duplicate Record Set Layout" />
                             <option value="OrderItem-Order Product Layout" />
                             <option value="Quote-Quote Layout" />
@@ -890,8 +992,8 @@
                             <option value="SocialPersona-Social Persona Layout" />
                             <option value="Scorecard-Scorecard Layout" />
                             <option value="Case-Case %28Marketing%29 Layout" />
-                            <option value="PricebookEntry-Price Book Entry Layout" />
                             <option value="QuoteLineItem-Quote Line Item Layout" />
+                            <option value="PricebookEntry-Price Book Entry Layout" />
                             <option value="CaseClose-Close Case Layout" />
                             <option value="FeedItem-Feed Item Layout" />
                             <option value="Idea-Idea Layout" />
@@ -910,8 +1012,8 @@
                             <option value="Account-Account %28Support%29 Layout" />
                             <option value="CampaignMember-Campaign Member Page Layout" />
                             <option value="QuickText-Quick Text Layout" />
-                            <option value="Contact-Contact %28Sales%29 Layout" />
                             <option value="User-User Layout" />
+                            <option value="Contact-Contact %28Sales%29 Layout" />
                             <option value="TestObject__c-TestObject Layout" />
                             <option value="Lead-Lead %28Marketing%29 Layout" />
                             <option value="AccountContactRelation-Account Contact Relationship Layout" />
@@ -923,12 +1025,10 @@
                       <MetadataType>
                         <option name="members">
                           <set>
-                            <option value="GetAccountId" />
                             <option value="Trailhead" />
                             <option value="Quick_Account" />
-                            <option value="CreateContact_EmailSending" />
+                            <option value="SlackChannels" />
                             <option value="Renew_Opportunity" />
-                            <option value="EasyContactCreator" />
                             <option value="Closed_Won_Opportunities" />
                             <option value="PostToSlack" />
                             <option value="New_Lead" />
@@ -937,74 +1037,6 @@
                           </set>
                         </option>
                         <option name="name" value="Flow" />
-                      </MetadataType>
-                      <MetadataType>
-                        <option name="members">
-                          <set>
-                            <option value="Lead" />
-                            <option value="Case" />
-                          </set>
-                        </option>
-                        <option name="name" value="AssignmentRules" />
-                      </MetadataType>
-                      <MetadataType>
-                        <option name="members">
-                          <set>
-                            <option value="Contact.Contact_with_Fuzzy_Logic" />
-                            <option value="Contact.Standard_Contact_Match_Rule_v1_1" />
-                            <option value="Lead.Standard_Lead_Match_Rule_v1_0" />
-                            <option value="Account.Standard_Account_Match_Rule_v1_0" />
-                          </set>
-                        </option>
-                        <option name="name" value="MatchingRule" />
-                      </MetadataType>
-                      <MetadataType>
-                        <option name="members">
-                          <set>
-                            <option value="Account" />
-                            <option value="Lead" />
-                            <option value="Contact" />
-                          </set>
-                        </option>
-                        <option name="name" value="MatchingRules" />
-                      </MetadataType>
-                      <MetadataType>
-                        <option name="members">
-                          <set>
-                            <option value="Case.Standard" />
-                            <option value="Lead.Standard" />
-                            <option value="Lead.NiceRules" />
-                            <option value="Case.Assign Booyah" />
-                            <option value="Case.Awesome Admin Assignment" />
-                          </set>
-                        </option>
-                        <option name="name" value="AssignmentRule" />
-                      </MetadataType>
-                      <MetadataType>
-                        <option name="members">
-                          <set>
-                            <option value="trailhead_SAML_SSO_Setting" />
-                          </set>
-                        </option>
-                        <option name="name" value="SamlSsoConfig" />
-                      </MetadataType>
-                      <MetadataType>
-                        <option name="members">
-                          <set>
-                            <option value="GetAccountId" />
-                            <option value="Trailhead" />
-                            <option value="Quick_Account" />
-                            <option value="CreateContact_EmailSending" />
-                            <option value="Renew_Opportunity" />
-                            <option value="EasyContactCreator" />
-                            <option value="Closed_Won_Opportunities" />
-                            <option value="PostToSlack" />
-                            <option value="New_Lead" />
-                            <option value="EasyContact" />
-                            <option value="TestProcessBuilder" />
-                          </set>
-                        </option>
-                        <option name="name" value="FlowDefinition" />
                       </MetadataType>
                       <MetadataType>
                         <option name="members">
@@ -1089,11 +1121,11 @@
                         <option name="members">
                           <set>
                             <option value="unfiled$public/CreateNewContact" />
-                            <option value="unfiled$public/SUPPORTSelfServiceResetPasswordSAMPLE" />
                             <option value="unfiled$public/Approve_Opportunity_Discount" />
+                            <option value="unfiled$public/SUPPORTSelfServiceResetPasswordSAMPLE" />
                             <option value="unfiled$public/SupportSelfServiceResetPassword" />
-                            <option value="unfiled$public/SupportSelfServiceNewLoginandPassword" />
                             <option value="unfiled$public/SupportCaseCreatedPhoneInquiries" />
+                            <option value="unfiled$public/SupportSelfServiceNewLoginandPassword" />
                             <option value="unfiled$public/SUPPORTSelfServiceNewUserLoginInformationSAMPLE" />
                             <option value="unfiled$public/SupportCaseAssignmentNotification" />
                             <option value="unfiled$public/SupportCaseResponse" />
@@ -1114,6 +1146,7 @@
             </entry>
           </map>
         </option>
+        <option name="retrieveAndMergeDefault" value="false" />
       </ProjectWorkspaceSettings>
     </option>
   </component>
@@ -1126,6 +1159,15 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
+<<<<<<< Updated upstream
+=======
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\YaroslavDehtiar\WebstormProjects\Org\src\classes" />
+      <recent name="C:\Users\YaroslavDehtiar\WebstormProjects\Org\src\classes\Tests" />
+    </key>
+  </component>
+>>>>>>> Stashed changes
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -1157,7 +1199,15 @@
       <workItem from="1566297540626" duration="7787000" />
       <workItem from="1566309287153" duration="8473000" />
       <workItem from="1566371535649" duration="1288000" />
+<<<<<<< Updated upstream
       <workItem from="1566372879971" duration="14973000" />
+=======
+      <workItem from="1566372879971" duration="15663000" />
+      <workItem from="1566456263908" duration="7342000" />
+      <workItem from="1566475992326" duration="687000" />
+      <workItem from="1566476845210" duration="7660000" />
+      <workItem from="1566484579493" duration="308000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>

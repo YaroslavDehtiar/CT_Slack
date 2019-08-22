@@ -53,7 +53,15 @@
                             <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
+                            <option name="name" value="SingleRequestMock" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="SlackAPIToolKit" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="SlackAPIToolKitTest" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
