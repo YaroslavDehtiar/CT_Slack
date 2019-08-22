@@ -1,5 +1,5 @@
 @isTest
-public with sharing class SlackAPIToolKitTest1 {
+public with sharing class SlackAPIToolKitTest {
     @isTest
     public static void checkRightChannel() {
         SlackAPIToolKit.Slack s = new SlackAPIToolKit.Slack();
