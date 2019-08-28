@@ -9,13 +9,8 @@ public with sharing class QueryBuilder {
         Map<String, Schema.SObjectType> allObjects = Schema.getGlobalDescribe();
         List<String> getAllObjectLabels = new List<String>();
 
-//        Integer count = 0;
         for(Schema.SObjectType thisObj : allObjects.values()) {
             getAllObjectLabels.add(String.valueOf(thisObj));
-//            count++;
-//            if (count >= 50) {
-//                break;
-//            }
         }
         getAllObjectLabels.sort();
 
@@ -23,13 +18,14 @@ public with sharing class QueryBuilder {
     }
 
     @AuraEnabled
-    public static List<String> getFields(String str){
-        String query = 'SELECT ID FROM ' + str;
-        List<String> objects = new List<String>();
-        objects.add('asdasd');
-        objects.add('asdasd1');
-        objects.add('asdasd12');
-        return objects;
+    public static List<String> getFields(String objectName){
+        List<String> fieldNames = new List<String>(
+                Schema.getGlobalDescribe().get(objectName).getDescribe().fields.getMap().keySet());
+        List<String> fieldNamesToUpperCase = new List<String>();
+        for (String str : fieldNames) {
+            fieldNamesToUpperCase.add(str.substring(0,1).toUpperCase() + str.substring(1, str.length()));
+        }
+        return fieldNamesToUpperCase;
     }
 
 }

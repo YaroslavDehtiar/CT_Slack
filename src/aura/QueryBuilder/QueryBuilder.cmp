@@ -5,28 +5,22 @@
 <aura:component description="QueryBuilder" controller="QueryBuilder" implements="flexipage:availableForAllPageTypes">
         <aura:attribute name="picklist" type="List" default="[]"/>
         <aura:attribute name="objects" type="List" default="[]"/>
+        <aura:attribute name="fieldList" type="List" default="[]"/>
         <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
     <lightning:combobox name="progress" label="Pick Object" value="inProgress" placeholder="Objects"
-                        options="{! v.objects }"
-                        onchange="{! c.handleOptionSelected }"/>
+                        options="{!v.objects}"
+                        onchange="{!c.handleOptionSelected}"/>
 
-
-    <aura:attribute name="options" type="List" default="[
-        { label: 'English', value: 'en' },
-        { label: 'German', value: 'de' },
-        { label: 'Spanish', value: 'es' },
-        { label: 'French', value: 'fr' },
-        { label: 'Italian', value: 'it' },
-        { label: 'Japanese', value: 'ja' }]"/>
 
     <lightning:dualListbox name="languages"
                            label="Select Fields"
                            sourceLabel="Available"
                            selectedLabel="Selected"
                            fieldLevelHelp="This is a dual listbox"
-                           options="{!v.options}"
-                           onchange="{! c.choiceFields }"/>
+                           options="{!v.fieldList}"
+                           onchange="{!c.choiceFields}"/>
 
+        <lightning:button variant="brand" label="Execute" title="Execute" onclick="{! c.handleClick }" />
 
 </aura:component>

@@ -4,7 +4,11 @@
 @isTest
 public with sharing class QueryBuilderTest {
     @isTest
-public static void check(){
-    QueryBuilder.getObjects();
-}
+    public static void checkObjects() {
+        QueryBuilder.getObjects();
+    }
+    @isTest
+    public static void checkFields() {
+        QueryBuilder.getFields('Contact');
+    }
 }
