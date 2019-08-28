@@ -9,13 +9,13 @@ public with sharing class QueryBuilder {
         Map<String, Schema.SObjectType> allObjects = Schema.getGlobalDescribe();
         List<String> getAllObjectLabels = new List<String>();
 
-        Integer count = 0;
+//        Integer count = 0;
         for(Schema.SObjectType thisObj : allObjects.values()) {
             getAllObjectLabels.add(String.valueOf(thisObj));
-            count++;
-            if (count >= 50) {
-                break;
-            }
+//            count++;
+//            if (count >= 50) {
+//                break;
+//            }
         }
         getAllObjectLabels.sort();
 
