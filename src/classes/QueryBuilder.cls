@@ -28,4 +28,16 @@ public with sharing class QueryBuilder {
         return fieldNamesToUpperCase;
     }
 
+    @AuraEnabled
+    public static List<Object> finalExecute(String objectName, List<String> fieldList){
+        String allFields = '';
+        for (String str : fieldList) {
+            allFields += str + ',';
+        }
+        allFields = allFields.substring(0, allFields.length()-1);
+        String query = 'Select ' + allFields + ' From ' + objectName;
+        List<Object> allPickedObjects = Database.query(query);
+        return allPickedObjects;
+    }
+
 }
