@@ -3,30 +3,39 @@
  -->
 
 <aura:component description="QueryBuilder" controller="QueryBuilder" implements="flexipage:availableForAllPageTypes">
-        <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
-        <aura:attribute name="picklist" type="List" default=" "/>
+        <aura:attribute name="picklist" type="List" default="[]"/>
+        <aura:attribute name="objects" type="List" default="[]"/>
+        <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
-        <lightning:combobox name="progress" label="Pick Object" value="inProgress" placeholder="Select Progress"
-                            options="{! v.picklist }" onchange="{! c.picklist }"/>
+    <lightning:combobox name="progress" label="Pick Object" value="inProgress" placeholder="Objects"
+                        options="{! v.objects }"
+                        onchange="{! c.handleOptionSelected }"/>
 
-        <aura:attribute name="options" type="List" default="[
-        { label: 'English', value: 'en' },
-        { label: 'German', value: 'de' },
-        { label: 'Spanish', value: 'es' },
-        { label: 'French', value: 'fr' },
-        { label: 'Italian', value: 'it' },
-        { label: 'Japanese', value: 'ja' }]"/>
 
-        <lightning:dualListbox name="languages"
-                               label= "Select Fields"
-                               sourceLabel="Available"
-                               selectedLabel="Selected"
-                               fieldLevelHelp="This is a dual listbox"
-                               options="{!v.options}"
-                               onchange="{! c.choiceFields }"/>
-        <tr scope="row">
-                <td> {!c.getObjects}</td>
-        </tr>
+<!--    <aura:attribute name="options" type="List" default="[-->
+<!--        { label: 'English', value: 'en' },-->
+<!--        { label: 'German', value: 'de' },-->
+<!--        { label: 'Spanish', value: 'es' },-->
+<!--        { label: 'French', value: 'fr' },-->
+<!--        { label: 'Italian', value: 'it' },-->
+<!--        { label: 'Japanese', value: 'ja' }]"/>-->
+
+<!--    <lightning:dualListbox name="languages"-->
+<!--                           label="Select Fields"-->
+<!--                           sourceLabel="Available"-->
+<!--                           selectedLabel="Selected"-->
+<!--                           fieldLevelHelp="This is a dual listbox"-->
+<!--                           options="{!v.options}"-->
+<!--                           onchange="{! c.choiceFields }"/>-->
+<!--    <table class="slds-table slds-table_bordered slds-table_cell-buffer">-->
+<!--        <tbody>-->
+<!--        <aura:iteration items="{!v.objects}" var="obj">-->
+<!--            <tr>-->
+<!--                <td> {!obj}</td>-->
+<!--            </tr>-->
+<!--        </aura:iteration>-->
+<!--        </tbody>-->
+<!--    </table>-->
 
 
 </aura:component>
