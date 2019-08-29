@@ -37,7 +37,7 @@
         var action = component.get("c.finalExecute");
         action.setParams({objectName: component.get("v.mainObject"), fieldList: component.get("v.newFields")});
         action.setCallback(this, function (resp) {
-            var arr = resp.getReturnValue();
+            /*var arr = resp.getReturnValue();
             let item = [];
 
             for (const arrElement of arr) {
@@ -57,7 +57,32 @@
             }
             console.log(item);
             component.set("v.fieldForExecute", item);
-            console.log(component.get("v.fieldForExecute"));
+            console.log(component.get("v.fieldForExecute"));*/
+            var data = resp.getReturnValue();
+            var parentBranches = [];
+        	var parentKeys = Object.keys(data);
+        	for(var i = 0; i < parentKeys.length; i++){
+            	var parentValue = data[parentKeys[i]];
+                var childBranches = [];
+            	var childKeys = Object.keys(parentValue);
+            	for(var j = 0; j < childKeys.length; j++){
+                    var childValue = parentValue[childKeys[j]];
+                    var secondChildLabel = childKeys[j] + ": " + childValue;
+                    childBranches.push( {
+                        label: secondChildLabel,
+                        name: parentValue.Id + childKeys[j],
+                        items: []
+                	});
+                }
+            	var parentLabel = parentValue.Id;
+            	var parentName = parentValue.Id;
+            	parentBranches.push({
+            		label: parentLabel,
+            		name: parentName,
+            		items: childBranches
+        		});
+        	}
+            component.set("v.fieldForExecute", parentBranches);
         });
         $A.enqueueAction(action);
     }
