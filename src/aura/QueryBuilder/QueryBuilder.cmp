@@ -27,15 +27,15 @@
 
 
     <!--    Спочатку пробував так, не вийшло-->
-    <tbody>
-    <aura:iteration items="{!v.fieldForExecute}" var="obj">
-        <tr>
-            <td>{!obj}</td>
-        </tr>
-    </aura:iteration>
-    </tbody>
+<!--    <tbody>-->
+<!--    <aura:iteration items="{!v.fieldForExecute}" var="obj">-->
+<!--        <tr>-->
+<!--            <td>{!obj}</td>-->
+<!--        </tr>-->
+<!--    </aura:iteration>-->
+<!--    </tbody>-->
 
     <!--    Так теж :(    -->
-    <lightning:tree items="{!v.fieldForExecute}"/>
+    <lightning:tree items="{!v.fieldForExecute}" header="Tree"/>
 
 </aura:component>
