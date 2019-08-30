@@ -4,8 +4,6 @@
 
 public with sharing class SlackAPIToolKit {
 
-    private static final String slackURL = 'https://slack.com/api/channels.create';
-    private static final String token = 'xoxp-730456088816-729990865092-732783034006-9cdf7c554d5edb18bc9bd65a5d4ff67d';
     public static String linkId;
 
     public class Slack {
@@ -22,12 +20,17 @@ public with sharing class SlackAPIToolKit {
         String replace = req.replaceAll('\\W', ' ').replaceAll('\\s+', ' ').trim();
         String[] strings = replace.split('\\s');
         for (Integer i = 0; i < strings.size(); i++) {
-            System.debug(strings[i]);
-            if(strings[i].equals('channel') && (i+1) <= strings.size()){
-                channelName.add(strings[i+1]);
+            if (strings[i].equals('channel') && (i + 1) <= strings.size()) {
+                channelName.add(strings[i + 1]);
             }
         }
-        System.debug(channelName[0]);
+        String token = '';
+
+        List<AuthProvider> tokenList = Database.query('SELECT ConsumerSecret FROM AuthProvider');
+        for (AuthProvider obj : tokenList) {
+            token = (String)obj.get('ConsumerSecret');
+        }
+        System.debug(token);
 
         Map<String, String> parameters = new Map<String, String>();
         parameters.put('token', token);
@@ -39,7 +42,8 @@ public with sharing class SlackAPIToolKit {
 
         String body = '';
 
-        HttpResponse response = new Http().send(createRequest(slackURL, 'POST', parameters, header, body));
+        HttpResponse response = new Http().send(createRequest('callout:Connect_To_Slack',
+                'POST', parameters, header, body));
 
         if (response.getStatusCode() == 200) {
             System.debug(response.getBody());
@@ -79,7 +83,7 @@ public with sharing class SlackAPIToolKit {
         return request;
     }
 
-    public String getChannelLink(){
+    public String getChannelLink() {
         return linkId;
     }
 
