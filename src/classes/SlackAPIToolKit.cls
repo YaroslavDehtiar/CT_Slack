@@ -35,7 +35,12 @@ public with sharing class SlackAPIToolKit {
 
         Http http = new Http();
         HttpResponse response = http.send(request);
-        System.debug(response.getBody());
+        if (response.getStatusCode() == 200) {
+            System.debug(response.getBody());
+            Map<String, Object> deserialize = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
+            Map<String, Object> deserialize2 = (Map<String, Object>) deserialize.get('channel');
+            linkId = deserialize2.get('id').toString();
+        }
     }
 
 
