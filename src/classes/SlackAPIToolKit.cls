@@ -24,64 +24,81 @@ public with sharing class SlackAPIToolKit {
                 channelName.add(strings[i + 1]);
             }
         }
-        String token = '';
-
-        List<AuthProvider> tokenList = Database.query('SELECT ConsumerSecret FROM AuthProvider');
-        for (AuthProvider obj : tokenList) {
-            token = (String)obj.get('ConsumerSecret');
-        }
-        System.debug(token);
-
-        Map<String, String> parameters = new Map<String, String>();
-        parameters.put('token', token);
-        parameters.put('name', channelName[0]);
-        parameters.put('variable', 'true');
-
-        Map<String, String> header = new Map<String, String>();
-        header.put('Content-Type', 'application/json;charset=UTF-8');
-
-        String body = '';
-
-        HttpResponse response = new Http().send(createRequest('callout:Connect_To_Slack',
-                'POST', parameters, header, body));
-
-        if (response.getStatusCode() == 200) {
-            System.debug(response.getBody());
-            Map<String, Object> deserialize = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
-            Map<String, Object> deserialize2 = (Map<String, Object>) deserialize.get('channel');
-            linkId = deserialize2.get('id').toString();
-            System.debug(linkId);
-        }
-    }
-
-    private static HttpRequest createRequest(String endpoint, String requestMethod, Map<String, String> parameters,
-            Map<String, String> headers, String body) {
         HttpRequest request = new HttpRequest();
-        if (parameters != null && !parameters.isEmpty()) {
-            endpoint = endpoint + '?';
-            Integer counter = 1;
-            for (String key : parameters.keySet()) {
-                if (counter < parameters.size()) {
-                    endpoint = endpoint + key + '=' + parameters.get(key) + '&';
-                    counter++;
-                } else {
-                    endpoint = endpoint + key + '=' + parameters.get(key);
-                }
-            }
-        }
-        if (headers != null && !headers.isEmpty()) {
-            for (String key : headers.keySet()) {
-                request.setHeader(key, headers.get(key));
-            }
-        }
-        if (String.isNotBlank(body)) {
-            request.setBody(body);
-        }
-        request.setEndpoint(endpoint);
-        request.setMethod(requestMethod);
-        request.setTimeout(20000);
-        return request;
+        request.setEndpoint('callout:Connect_To_Slack');
+        request.setMethod('POST');
+        request.setHeader('Content-Type', 'application/json;charset=UTF-8');
+        request.setHeader('Authorization', 'Bearer {!$Credential.Password}');
+        String jsonBody = '{"name" : "' + channelName[0] + '"}';
+        request.setBody(jsonBody);
+        System.debug(request.getBody());
+
+        Http http = new Http();
+        HttpResponse response = http.send(request);
+        System.debug(response.getBody());
     }
+
+
+//        String token = ' {!$Credential.Password} ';
+//        String token = '';
+//
+//        List<AuthProvider> tokenList = Database.query('SELECT ConsumerSecret FROM AuthProvider');
+//        for (AuthProvider obj : tokenList) {
+//            token = (String)obj.get('ConsumerSecret');
+//        }
+//
+//        Map<String, String> parameters = new Map<String, String>();
+//        parameters.put('token', token);
+//        parameters.put('name', channelName[0]);
+//        parameters.put('variable', 'true');
+//        System.debug(parameters);
+//
+//        Map<String, String> header = new Map<String, String>();
+//        header.put('Content-Type', 'application/json;charset=UTF-8');
+//
+//        String body = '';
+//
+//        HttpResponse response = new Http().send(createRequest('callout:Connect_To_Slack',
+//                'POST', parameters, header, body));
+//        System.debug(response);
+//
+//        if (response.getStatusCode() == 200) {
+//            System.debug(response.getBody());
+//            Map<String, Object> deserialize = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
+//            Map<String, Object> deserialize2 = (Map<String, Object>) deserialize.get('channel');
+//            linkId = deserialize2.get('id').toString();
+//            System.debug(linkId);
+//        }
+//    }
+//
+//    private static HttpRequest createRequest(String endpoint, String requestMethod, Map<String, String> parameters,
+//            Map<String, String> headers, String body) {
+//        HttpRequest request = new HttpRequest();
+//        if (parameters != null && !parameters.isEmpty()) {
+//            endpoint = endpoint + '?';
+//            Integer counter = 1;
+//            for (String key : parameters.keySet()) {
+//                if (counter < parameters.size()) {
+//                    endpoint = endpoint + key + '=' + parameters.get(key) + '&';
+//                    counter++;
+//                } else {
+//                    endpoint = endpoint + key + '=' + parameters.get(key);
+//                }
+//            }
+//        }
+//        if (headers != null && !headers.isEmpty()) {
+//            for (String key : headers.keySet()) {
+//                request.setHeader(key, headers.get(key));
+//            }
+//        }
+//        if (String.isNotBlank(body)) {
+//            request.setBody(body);
+//        }
+//        request.setEndpoint(endpoint);
+//        request.setMethod(requestMethod);
+//        request.setTimeout(20000);
+//        return request;
+//    }
 
     public String getChannelLink() {
         return linkId;
