@@ -40,7 +40,7 @@ public with sharing class CustomRollOut implements Database.Batchable<SObject>, 
     public void execute(SchedulableContext ctx) {
         CustomRollOut b = new CustomRollOut();
         Database.executeBatch(b);
-        String sch = '0 43 14 * *';
+        String sch = '0 36 16 * *';
         String jobID = System.schedule('Update Job', sch, b);
     }
 }
