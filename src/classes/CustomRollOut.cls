@@ -2,18 +2,17 @@
  * Created by YaroslavDehtiar on 03.09.2019.
  */
 
-public with sharing class CustomRollOut implements Database.Batchable<SObject>, Schedulable  {
+public with sharing class CustomRollOut implements Database.Batchable<SObject>, Queueable {
 
 
     public Iterable<SObject> start(Database.BatchableContext bc) {
-        return Database.getQueryLocator('SELECT Id FROM GrandChild__c');
+        return Database.getQueryLocator('SELECT Id, Contact__r.AccountId, Contact__c FROM GrandChild__c');
     }
 
     public void execute(Database.BatchableContext bc, List<GrandChild__c> scope) {
         List<Account> accountList = new List<Account>();
-        List<GrandChild__c> updatedChild = [SELECT Id, Contact__r.AccountId FROM GrandChild__c WHERE Id = :scope];
 
-        for (GrandChild__c child : updatedChild) {
+        for (GrandChild__c child : scope) {
             for (Account account : [
                     SELECT Id, Quantity_Child__c
                     FROM Account
@@ -37,10 +36,7 @@ public with sharing class CustomRollOut implements Database.Batchable<SObject>, 
 
     }
 
-    public void execute(SchedulableContext ctx) {
-        CustomRollOut b = new CustomRollOut();
-        Database.executeBatch(b);
-        String sch = '0 36 16 * *';
-        String jobID = System.schedule('Update Job', sch, b);
+    public void execute(QueueableContext param1) {
+        Database.executeBatch(this, 1);
     }
 }
