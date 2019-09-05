@@ -33,7 +33,29 @@ public with sharing class CustomRollOut implements Database.Batchable<SObject>, 
     }
 
     public void finish(Database.BatchableContext bc) {
+        List<String> errorMessages = new List<String>();
+        AsyncApexJob aaj = [
+                SELECT Id, Status, NumberOfErrors, JobItemsProcessed, MethodName,
+                        TotalJobItems, CreatedBy.Email
+                FROM AsyncApexJob
+                WHERE Id = :bc.getJobId()
+        ];
 
+// Send an email to the Apex job's submitter notifying of job completion.
+        Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+        String[] toAddresses = new String[]{
+                aaj.CreatedBy.Email
+        };
+        mail.setToAddresses(toAddresses);
+        mail.setSubject('JOB Salesforce RenewalEmailNotification Finished: ' + aaj.Status);
+        String bodyText = 'Total Job Items ' + aaj.TotalJobItems + ' Number of records processed ' +
+                aaj.JobItemsProcessed + ' with ' + aaj.NumberOfErrors + ' failures.\n';
+        bodyText += 'Number of Error Messages ' + errorMessages.size() + '\n';
+        bodyText += 'Error Message' + String.join(errorMessages, '\n');
+        mail.setPlainTextBody(bodyText);
+        Messaging.sendEmail(new Messaging.SingleEmailMessage[]{
+                mail
+        });
     }
 
     public void execute(QueueableContext param1) {
