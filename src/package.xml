@@ -1,27 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>*</members>
+        <members>AnimalLocator</members>
+        <members>AnimalLocatorMock</members>
+        <members>AnimalLocatorTest</members>
+        <members>AnimalsCallouts</members>
+        <members>AnimalsCalloutsTest</members>
+        <members>AnimalsHttpCalloutMock</members>
+        <members>CustomRollOut</members>
+        <members>GrandChildTriggerHandler</members>
+        <members>QueryBuilder</members>
+        <members>QueryBuilderTest</members>
+        <members>RollOut</members>
+        <members>SingleRequestMock</members>
+        <members>SlackAPIToolKit</members>
+        <members>SlackAPIToolKitTest</members>
+        <members>UpdateChannelLink</members>
+        <members>getAllContactSObjects</members>
+        <members>getAllContactSObjectsTest</members>
         <name>ApexClass</name>
     </types>
     <types>
-        <members>*</members>
-        <name>ApexComponent</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexPage</name>
-    </types>
-    <types>
-        <members>*</members>
+        <members>RollOut</members>
         <name>ApexTrigger</name>
     </types>
     <types>
-        <members>*</members>
+        <members>App</members>
+        <members>QueryBuilder</members>
+        <members>Slack</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
-        <members>*</members>
+        <members>GetAnimalResource</members>
         <name>StaticResource</name>
     </types>
     <version>46.0</version>
