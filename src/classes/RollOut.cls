@@ -27,4 +27,33 @@ public with sharing class RollOut {
         }
         update accountList;
     }
+
+    public static void deleteRecord(Map<Id, GrandChild__c> childMap) {
+        List<Account> accounts = new List<Account>();
+        List<GrandChild__c> childToDelete = [SELECT Id, Name, Contact__r.AccountId FROM GrandChild__c WHERE Id = :childMap.keySet()];
+        System.debug(childMap.keySet());
+
+        for (GrandChild__c child : childToDelete) {
+            System.debug('iter');
+            for (Account account : [
+                    SELECT Id, Quantity_Child__c
+                    FROM Account
+                    WHERE Id = :child.Contact__r.AccountId
+            ]) {
+                System.debug('0');
+                if (child.Contact__c != null && child.Contact__r.AccountId == account.Id) {
+                    System.debug('1');
+                    if (account.Quantity_Child__c != null && account.Quantity_Child__c != 0) {
+                        System.debug(accounts);
+                        account.Quantity_Child__c--;
+                        System.debug(accounts);
+                        if (!accounts.contains(account)) {
+                            accounts.add(account);
+                        }
+                    }
+                }
+            }
+        }
+        update accounts;
+    }
 }

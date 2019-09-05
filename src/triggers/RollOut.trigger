@@ -1,4 +1,4 @@
-trigger RollOut on GrandChild__c (after insert, after update, after delete ) {
+trigger RollOut on GrandChild__c (after insert, after update, before delete ) {
 
     if (Trigger.isAfter) {
         if (Trigger.isInsert) {
@@ -7,8 +7,10 @@ trigger RollOut on GrandChild__c (after insert, after update, after delete ) {
         if (Trigger.isUpdate) {
             GrandChildTriggerHandler.afterUpdate(Trigger.newMap);
         }
-//        if (Trigger.isDelete) {
-//            GrandChildTriggerHandler.afterDelete(Trigger.new);
-//        }
+    }
+    if(Trigger.isBefore){
+        if (Trigger.isDelete) {
+            GrandChildTriggerHandler.afterDelete(Trigger.oldMap);
+        }
     }
 }

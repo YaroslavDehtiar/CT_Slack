@@ -9,11 +9,11 @@ public with sharing class GrandChildTriggerHandler {
     }
 
     public static void afterUpdate(Map<Id, GrandChild__c> child){
-        
+        RollOut.insertQuantity(child);
     }
 
-    public static void afterDelete(List<GrandChild__c> child){
-
+    public static void afterDelete(Map<Id, GrandChild__c> child){
+        RollOut.deleteRecord(child);
     }
 
 }
