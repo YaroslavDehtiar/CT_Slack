@@ -5,28 +5,32 @@
 public with sharing class CustomRollOut implements Database.Batchable<SObject>, Queueable {
 
 
-    public Iterable<SObject> start(Database.BatchableContext bc) {
+    public Database.QueryLocator start(Database.BatchableContext bc) {
         return Database.getQueryLocator('SELECT Id, Contact__r.AccountId, Contact__c FROM GrandChild__c');
     }
 
     public void execute(Database.BatchableContext bc, List<GrandChild__c> scope) {
         List<Account> accountList = new List<Account>();
-
+        Set<Id> accountIds = new Set<Id>();
         for (GrandChild__c child : scope) {
-            for (Account account : [
-                    SELECT Id, Quantity_Child__c
-                    FROM Account
-                    WHERE Id = :child.Contact__r.AccountId
-            ]) {
-                if (child.Contact__c != null && child.Contact__r.AccountId == account.Id) {
-                    if (account.Quantity_Child__c == null) {
-                        account.Quantity_Child__c = 0;
-                    }
-                    account.Quantity_Child__c++;
-                    if (!accountList.contains(account)) {
-                        accountList.add(account);
-                    }
-                }
+            accountIds.add(child.Contact__r.AccountId);
+        }
+        Map<Id, Account> accountMap = new Map<Id, Account>([
+                SELECT Id, Quantity_Child__c
+                FROM Account
+                WHERE Id IN :accountIds
+        ]);
+        for (Account account : accountMap.values()) {
+            account.Quantity_Child__c = 0;
+        }
+        for (GrandChild__c child : scope) {
+            Account accountId = accountMap.get(child.Contact__r.AccountId);
+            accountId.Quantity_Child__c++;
+            if (!accountList.contains(accountId)) {
+                accountList.add(accountId);
+            } else {
+                accountList.remove(accountList.size() - 1);
+                accountList.add(accountId);
             }
         }
         update accountList;
