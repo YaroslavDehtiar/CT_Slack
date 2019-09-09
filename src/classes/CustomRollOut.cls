@@ -2,56 +2,33 @@
  * Created by YaroslavDehtiar on 03.09.2019.
  */
 
-public with sharing class CustomRollOut implements Database.Batchable<SObject>, Queueable {
+public with sharing class CustomRollOut implements Database.Batchable<SObject>, Queueable, Database.Stateful {
 
+    private Map<Id, Account> accountMap = new Map<Id, Account>();
 
     public Iterable<SObject> start(Database.BatchableContext bc) {
-        List<GrandChild__c> childs = [SELECT Id, Contact__r.AccountId, Contact__c FROM GrandChild__c];
-        List<Account> accountsForZeroing = new List<Account>();
-        Set<Id> accountIds = new Set<Id>();
-        for (GrandChild__c child : childs) {
-            accountIds.add(child.Contact__r.AccountId);
-        }
-        Map<Id, Account> accountMap = new Map<Id, Account>([
-                SELECT Id, Quantity_Child__c
-                FROM Account
-                WHERE Id IN :accountIds
-        ]);
-        for (Account account : accountMap.values()) {
-            account.Quantity_Child__c = 0;
-            accountsForZeroing.add(account);
-        }
-        update accountsForZeroing;
         return Database.getQueryLocator('SELECT Id, Contact__r.AccountId, Contact__c FROM GrandChild__c');
     }
 
     public void execute(Database.BatchableContext bc, List<GrandChild__c> scope) {
-        List<Account> accountList = new List<Account>();
-        Set<Id> accountIds = new Set<Id>();
-        for (GrandChild__c child : scope) {
-            accountIds.add(child.Contact__r.AccountId);
-        }
-        Map<Id, Account> accountMap = new Map<Id, Account>([
-                SELECT Id, Quantity_Child__c
-                FROM Account
-                WHERE Id IN :accountIds
-        ]);
 
         for (GrandChild__c child : scope) {
-            Account accountId = accountMap.get(child.Contact__r.AccountId);
-            accountId.Quantity_Child__c++;
-            if (!accountList.contains(accountId)) {
-                accountList.add(accountId);
-            } else {
-                accountList.remove(accountList.size() - 1);
-                accountList.add(accountId);
+            if(accountMap.containsKey(child.Contact__r.AccountId)){
+                if(accountMap.get(child.Contact__r.AccountId).Quantity_Child__c == null){
+                    accountMap.get(child.Contact__r.AccountId).Quantity_Child__c = 0;
+                }
+                accountMap.get(child.Contact__r.AccountId).Quantity_Child__c ++;
+            }else{
+                accountMap.put(child.Contact__r.AccountId, new Account(
+                        Id = child.Contact__r.AccountId,
+                        Quantity_Child__c = 1
+                ));
             }
         }
-        update accountList;
     }
 
     public void finish(Database.BatchableContext bc) {
-
+        update accountMap.values();
 //        List<String> errorMessages = new List<String>();
 //        AsyncApexJob asyncApexJobs = [
 //                SELECT Id, Status, NumberOfErrors, JobItemsProcessed, MethodName,
