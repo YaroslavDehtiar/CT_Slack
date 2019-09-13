@@ -1,0 +1,24 @@
+<!--
+ - Created by YaroslavDehtiar on 12.09.2019.
+ -->
+
+<aura:component description="inputs">
+
+    <div id="filterList" class="divForPicklist" aura:id="filter123">
+    <lightning:combobox name="field" class="picklist" label="Pick Field"
+                        value="inProgress"
+                        placeholder="Fields"
+                        options="{!v.fieldList}"
+                        onchange="{!c.pickFieldForFilter}"
+    />
+    <lightning:combobox name="operator" class="picklist" label="Pick Operator"
+                        value="inProgress" placeholder="Operator"
+                        options="{!v.operators}"
+                        onchange="{!c.pickOperator}"
+    />
+    <lightning:input name="value" class="picklist" label="Pick Value"
+                     placeholder="Value" value="{!v.inputValue}"
+    />
+    </div>
+
+</aura:component>
