@@ -11,9 +11,6 @@
     margin: 0 auto;
     align-items: center;
 }
-.THIS .buttons{
-    height: fit-content;
-}
 
 .THIS #filterList lightning-combobox label{
     display: none;

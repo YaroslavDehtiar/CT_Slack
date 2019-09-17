@@ -14,12 +14,13 @@
     <aura:attribute name="fieldForExecute" type="Object"/>
     <aura:attribute name="inputs" type="Aura.Component[]"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:registerEvent name="inputEvent" type="c:setInputs"/>
 
     <lightning:combobox name="progress" label="Pick Object" value="inProgress" placeholder="Objects"
                         options="{!v.objects}"
                         onchange="{!c.handleOptionSelected}"/>
 
-    <div style="margin: auto">
+        <div style="margin: auto">
         <lightning:dualListbox aura:id="fields"
                                name="fields"
                                label="Select Fields"
@@ -45,12 +46,19 @@
             <lightning:input name="value" class="picklist" label="Pick Value"
                              placeholder="Value" value="{!v.inputValue}"
             />
-            <div id="'fs"></div>
-            <lightning:button class="buttons" iconName="utility:add" title="Add Filter" onclick="{!c.cloneInputs}"/>
-            <lightning:button class="buttons" iconName="utility:dash" title="Remove Filter" onclick="{!c.removeLastInputs}"/>
+            <div id="'fs">
+                <lightning:button class="buttons" iconName="utility:add" title="Add Filter"
+                                  onclick="{!c.cloneInputs}"/>
+                <!--                                  onclick="{!c.inpEvent}"/>-->
+                <lightning:button class="buttons" iconName="utility:dash" title="Remove Filter"
+                                  onclick="{!c.removeLastInputs}"/>
+            </div>
         </div>
+        <div class="divForPicklist" aura:id="inputsId">
+            {!v.inputs}
         </div>
-        {!v.inputs}
+    </div>
+
 
 
     <lightning:button variant="brand" label="Execute" title="Execute" onclick="{!c.executeQuery}"/>

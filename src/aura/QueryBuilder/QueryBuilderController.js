@@ -16,7 +16,6 @@
             });
             component.set('v.operators', opers);
         });
-
         $A.enqueueAction(action);
     },
 
@@ -33,6 +32,8 @@
         });
         component.set("v.mainObject", event.getParam("value"));
         $A.enqueueAction(action);
+
+
     },
 
     choiceFields: function (component, event) {
@@ -50,26 +51,59 @@
         component.set("v.pickOperator", event.getParam('value'));
     },
 
+    // cloneInputs: function (component, event, helper) {
+    //     const asd = component.find('filter123');
+    //     $A.createComponent(
+    //         "c:Inputs",
+    //         {},
+    //         function (newInput, status, errorMessage) {
+    //             if (status === "SUCCESS") {
+    //                 var body = component.get("v.inputs");
+    //                 body.push(newInput);
+    //                 component.set("v.inputs", body);
+    //             } else if (status === "INCOMPLETE") {
+    //                 console.log("No response from server or client is offline.")
+    //             } else if (status === "ERROR") {
+    //                 console.log("Error: " + errorMessage);
+    //             }
+    //         }
+    //     );
+    // },
     cloneInputs: function (component, event, helper) {
-        const asd = component.find('filter123');
-        $A.createComponent(
-            "c:Inputs",
-            {
-                "aura:id": "inpId",
-                "labelClass": "slds-form-element__label",
-                "placeholder": "Enter Some Text",
-                "label": "Enter some text",
-                "class": "slds-input"
-            },
-            function (newInp, status, errorMessage) {
+        $A.createComponents([
+                ["lightning:combobox", {
+                    "name": "field",
+                    "class": "picklist",
+                    "label": "Pick Field",
+                    "value": "inProgress",
+                    "placeholder": "Fields",
+                    "options": component.get("{!v.fieldList}"),
+                    "onchange": component.get("{!c.pickFieldForFilter}")
+                }],
+                ["lightning:combobox", {
+                    "name": "operator",
+                    "class": "picklist",
+                    "label": "Pick Operator",
+                    "value": "inProgress",
+                    "placeholder": "Operator",
+                    "options": component.get("{!v.operators}"),
+                    "onchange": component.get("{!c.pickOperator}")
+                }],
+                ["lightning:input", {
+                    "name": "value",
+                    "class": "picklist",
+                    "label": "Pick Value",
+                    "value": component.get("{!v.inputValue}"),
+                    "placeholder": "Value",
+                }]
+            ],
+            function (newInput, status, errorMessage) {
                 if (status === "SUCCESS") {
-                    console.log('1');
                     var body = component.get("v.inputs");
-                    console.log('2');
-                    body.push(newInp);
-                    console.log('3');
+                    newInput.forEach(function (item) {
+                        body.push(item);
+                    });
                     component.set("v.inputs", body);
-                    console.log('4');
                 } else if (status === "INCOMPLETE") {
                     console.log("No response from server or client is offline.")
                 } else if (status === "ERROR") {
@@ -77,6 +111,35 @@
                 }
             }
         );
+    },
+
+    // inpEvent: function (cmp, event) {
+    //     var cmpEvent = cmp.getEvent("inputEvent");
+    //     cmpEvent.setParams({
+    //         "fieldsInInput": cmp.get("v.inputvalue"),
+    //         "inputOperations": cmp.get("v.operators"),
+    //     });
+    //     cmpEvent.fire();
+    //     console.log("1");
+    //     $A.createComponent(
+    //         "c:Inputs",
+    //         {
+    //
+    //         },
+    //         function (newInput, status, errorMessage) {
+    //             if (status === "SUCCESS") {
+    //                 var body = component.get("v.inputs");
+    //                 body.push(newInput);
+    //                 console.log("2");
+    //                 component.set("v.inputs", body);
+    //             }
+    //         })
+    //     console.log("3");
+    //
+    // },
+
+    removeLastInputs :  function(cmp, event, helper){
+      cmp.find("inputsId").set("v.inputs", []);
     },
 
     executeQuery: function (component, event) {

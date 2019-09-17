@@ -1,0 +1,9 @@
+<!--
+ - Created by YaroslavDehtiar on 16.09.2019.
+ -->
+
+<aura:event type="COMPONENT" description="setInputs">
+    <aura:attribute name="fieldsInInput" type="SObject"/>
+    <aura:attribute name="inputOperations" type="String"/>
+    <aura:attribute name="inputValues" type="String"/>
+</aura:event>

@@ -3,5 +3,5 @@
  -->
 
 <aura:application description="App" extends="force:slds">
-    <c:QueryBuilder/>
+    <c:header/>
 </aura:application>
