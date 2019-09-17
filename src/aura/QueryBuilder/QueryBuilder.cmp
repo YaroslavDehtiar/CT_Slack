@@ -32,29 +32,6 @@
         <h3 style="font-size: large; margin-top: 10px">Filter</h3>
 
         <div id="filterList" class="divForPicklist" aura:id="filter123">
-            <lightning:combobox name="field" class="picklist" label="Pick Field"
-                                value="inProgress"
-                                placeholder="Fields"
-                                options="{!v.fieldList}"
-                                onchange="{!c.pickFieldForFilter}"
-            />
-            <lightning:combobox name="operator" class="picklist" label="Pick Operator"
-                                value="inProgress" placeholder="Operator"
-                                options="{!v.operators}"
-                                onchange="{!c.pickOperator}"
-            />
-            <lightning:input name="value" class="picklist" label="Pick Value"
-                             placeholder="Value" value="{!v.inputValue}"
-            />
-            <div id="'fs">
-                <lightning:button class="buttons" iconName="utility:add" title="Add Filter"
-                                  onclick="{!c.cloneInputs}"/>
-                <!--                                  onclick="{!c.inpEvent}"/>-->
-                <lightning:button class="buttons" iconName="utility:dash" title="Remove Filter"
-                                  onclick="{!c.removeLastInputs}"/>
-            </div>
-        </div>
-        <div class="divForPicklist" aura:id="inputsId">
             {!v.inputs}
         </div>
     </div>
