@@ -15,7 +15,6 @@
 
     inpPickedFieldsForFilter: function (component, event) {
         event.getParam("value");
-        console.log(event.getParam("value"));
         component.set("v.inpFieldsForFilter", event.getParam("value"));
     },
 

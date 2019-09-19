@@ -58,6 +58,9 @@
 
     executeQuery: function (component, event) {
         var action = component.get("c.finalExecute");
+        console.log(component.get("v.pickedFieldsForFilter"));
+        console.log(component.get("v.pickedFieldsForFilter"));
+        console.log(component.get("v.pickedFieldsForFilter"));
         action.setParams({
             objectName: component.get("v.mainObject"),
             fieldList: component.get("v.newFields"),
