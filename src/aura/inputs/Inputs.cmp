@@ -2,34 +2,44 @@
  - Created by YaroslavDehtiar on 12.09.2019.
  -->
 
-<aura:component description="inputs">
-    <aura:handler name="inputEvent" event="c:setInputs" action="{!c.handleComponent}"/>
-    <aura:attribute name="fieldsInInput" type="SObject"/>
-    <aura:attribute name="inputOperations" type="String"/>
+<aura:component description="inputs" implements="flexipage:availableForAllPageTypes,
+flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="inpFieldList" type="List" default="[]"/>
+    <aura:attribute name="inpPickedFieldsForFilter" type="Object" default="[]"/>
+    <aura:attribute name="operators" type="List" default="[]"/>
+    <aura:attribute name="pickOperators" type="String" default="[]"/>
+    <aura:attribute name="newInputValue" type="String"/>
+    <aura:attribute name="countId" type="Integer" default="0"/>
+    <aura:handler name="sampleComponentEvent" event="c:getFields" action="{!c.handleComponent}"/>
 
-    <div id="filterList" class="divForPicklist" aura:id="filter123">
+    <aura:method name="methodOnChild" action="{!c.executeFromParent}">
+        <aura:attribute name="data" type="List" default="[]"/>
+    </aura:method>
+
+    <div id="filterList" class="divForPicklist">
         <lightning:combobox name="field" class="picklist" label="Pick Field"
                             value="inProgress"
                             placeholder="Fields"
-                            options="{!v.fieldsInInput}"
-                            onchange="{!c.pickFieldForFilter}"
+                            options="{!v.inpFieldList}"
+                            onchange="{!c.inpPickedFieldsForFilter}"
                             aura:id="fieldsInput"
         />
         <lightning:combobox name="operator" class="picklist" label="Pick Operator"
                             value="inProgress" placeholder="Operator"
-                            options="{!v.inputOperations}"
+                            options="{!v.operators}"
                             onchange="{!c.pickOperator}"
                             aura:id="operatorsInput"
         />
         <lightning:input name="value" class="picklist" label="Pick Value"
-                         placeholder="Value" value="{!v.inputValue}"
+                         placeholder="Value" value="{!v.newInputValue}"
                          aura:id="valueInput"
         />
         <div id="'fs">
             <lightning:button class="buttons" iconName="utility:add" title="Add Filter"
-                              onclick="{!c.inpEvent}"/>
+                              onclick="{!c.cloneInputs}"/>
             <lightning:button class="buttons" iconName="utility:dash" title="Remove Filter"
-                              onclick="{!c.removeLastInputs}"/>
+                              onclick="{!c.removeLastInput}"/>
         </div>
     </div>
 

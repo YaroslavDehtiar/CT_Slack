@@ -9,12 +9,6 @@
                 options.push({value: el, label: el})
             });
             component.set('v.objects', options);
-            const operators = ["=", "!=", "<", "<=",
-                ">", ">=", "LIKE"];
-            const opers = operators.map(function (op) {
-                return {label: op, value: op}
-            });
-            component.set('v.operators', opers);
         });
         $A.enqueueAction(action);
     },
@@ -31,60 +25,26 @@
             component.set('v.fieldList', options);
         });
         component.set("v.mainObject", event.getParam("value"));
+        const button = component.find("button");
+        button.set("v.disabled", false);
         $A.enqueueAction(action);
     },
 
     choiceFields: function (component, event) {
         event.getParam("value");
         component.set("v.newFields", event.getParam("value"));
-        $A.enqueueAction(component.get('c.cloneInputs'));
     },
 
-    pickFieldForFilter: function (component, event) {
-        event.getParam("value");
-        component.set("v.pickedFieldsForFilter", event.getParam('value'));
-    },
-
-    pickOperator: function (component, event) {
-        event.getParam("value");
-        component.set("v.pickOperator", event.getParam('value'));
-    },
-
-    cloneInputs: function (component, event, helper) {
-        $A.createComponents([
-                ["lightning:combobox", {
-                    "name": "field", "class": "picklist", "label": "Pick Field",
-                    "value": "inProgress", "placeholder": "Fields",
-                    "options": component.get("{!v.fieldList}"),
-                    "onchange": component.get("{!c.pickFieldForFilter}")
-                }],
-                ["lightning:combobox", {
-                    "name": "operator", "class": "picklist", "label": "Pick Operator",
-                    "value": "inProgress", "placeholder": "Operator",
-                    "options": component.get("{!v.operators}"),
-                    "onchange": component.get("{!c.pickOperator}")
-                }],
-                ["lightning:input", {
-                    "name": "value", "class": "picklist", "label": "Pick Value",
-                    "value": component.get("{!v.inputValue}"),
-                    "placeholder": "Value",
-                }],
-                ["lightning:button", {
-                    "class": "buttons", "iconName": "utility:add", "title": "Add Filter",
-                    "onclick": component.get("{!c.cloneInputs}")
-                }],
-                ["lightning:button", {
-                    "class": "buttons", "iconName": "utility:dash", "title": "Remove Filter",
-                    "onclick": component.get("{!c.removeLastInput}")
-                }
-                ]
-            ],
+    createFilter: function (component, event, helper) {
+        $A.createComponent(
+            "c:Inputs",
+            {
+                "inpFieldList": component.get("v.fieldList")
+            },
             function (newInput, status, errorMessage) {
                 if (status === "SUCCESS") {
                     var body = component.get("v.inputs");
-                    newInput.forEach(function (item) {
-                        body.push(item);
-                    });
+                        body.push(newInput);
                     component.set("v.inputs", body);
                 } else if (status === "INCOMPLETE") {
                     console.log("No response from server or client is offline.")
@@ -93,17 +53,17 @@
                 }
             }
         );
+
     },
 
-    removeLastInput: function (cmp, event, helper) {
-        cmp.find("inputsId").set("v.inputs", []);
-    },
 
     executeQuery: function (component, event) {
         var action = component.get("c.finalExecute");
         action.setParams({
-            objectName: component.get("v.mainObject"), fieldList: component.get("v.newFields"),
-            filterField: component.get("v.pickedFieldsForFilter"), operator: component.get("v.pickOperator"),
+            objectName: component.get("v.mainObject"),
+            fieldList: component.get("v.newFields"),
+            filterField: component.get("v.pickedFieldsForFilter"),
+            operator: component.get("v.pickOperator"),
             value: component.get("v.inputValue")
         });
 
