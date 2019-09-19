@@ -6,16 +6,11 @@
 flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:attribute name="inpFieldList" type="List" default="[]"/>
-    <aura:attribute name="inpPickedFieldsForFilter" type="Object" default="[]"/>
+    <aura:attribute name="inpFieldsForFilter" type="Object" default="[]"/>
     <aura:attribute name="operators" type="List" default="[]"/>
     <aura:attribute name="pickOperators" type="String" default="[]"/>
     <aura:attribute name="newInputValue" type="String"/>
     <aura:attribute name="countId" type="Integer" default="0"/>
-    <aura:handler name="sampleComponentEvent" event="c:getFields" action="{!c.handleComponent}"/>
-
-    <aura:method name="methodOnChild" action="{!c.executeFromParent}">
-        <aura:attribute name="data" type="List" default="[]"/>
-    </aura:method>
 
     <div id="filterList" class="divForPicklist">
         <lightning:combobox name="field" class="picklist" label="Pick Field"

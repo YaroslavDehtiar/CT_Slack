@@ -39,7 +39,7 @@
         $A.createComponent(
             "c:Inputs",
             {
-                "inpFieldList": component.get("v.fieldList")
+                "inpFieldList": component.get("v.fieldList"),
             },
             function (newInput, status, errorMessage) {
                 if (status === "SUCCESS") {
@@ -53,7 +53,6 @@
                 }
             }
         );
-
     },
 
 
@@ -68,7 +67,6 @@
         });
 
         action.setCallback(this, function (resp) {
-            console.log(resp.getReturnValue());
             var data = resp.getReturnValue();
             var parentBranches = [];
             var parentKeys = Object.keys(data);
