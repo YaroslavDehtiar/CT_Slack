@@ -15,7 +15,6 @@ flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
     <aura:handler name="inputIds" action="{!c.getIds}" event="c:setInputs"/>
     <aura:handler name="sendInput" action="{!c.createFilter}" event="c:setInputs"/>
 
-
     <lightning:combobox name="progress" label="Pick Object" value="inProgress" placeholder="Objects"
                         options="{!v.objects}"
                         onchange="{!c.handleOptionSelected}"/>
