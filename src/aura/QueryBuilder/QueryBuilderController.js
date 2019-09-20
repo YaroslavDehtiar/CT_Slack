@@ -27,12 +27,20 @@
         component.set("v.mainObject", event.getParam("value"));
         const button = component.find("button");
         button.set("v.disabled", false);
+        const removeClass = component.find("inputClass");
+        $A.util.removeClass(removeClass, 'sendFields');
         $A.enqueueAction(action);
     },
 
     choiceFields: function (component, event) {
         event.getParam("value");
         component.set("v.newFields", event.getParam("value"));
+        const button = component.find("executeButton");
+        if (component.get("v.newFields") != '') {
+            button.set("v.disabled", false);
+        } else {
+            button.set("v.disabled", true);
+        }
     },
 
     createFilter: function (component, event, helper) {
@@ -53,14 +61,27 @@
                 }
             }
         );
+        const child = component.find("sendFields");
+        child.inputFieldsFromParent(component.get("v.fieldList"));
     },
-
+    // createFilter: function (component, event, helper) {
+    //     console.log("start");
+    //     const method = component.find("sendFields");
+    //     console.log("mid");
+    //     method.clown();
+    //     console.log("end");
+    // },
+    getIds: function (component, event) {
+        const Ids = event.getParam("inputIds");
+        const child = component.find("sendFields");
+        component.set("v.inputIds", Ids + 1);
+        console.log(component.get("v.inputIds") +" send");
+        child.getInputIds(component.get("v.inputIds"));
+        console.log(component.get("v.inputIds") +" end");
+    },
 
     executeQuery: function (component, event) {
         var action = component.get("c.finalExecute");
-        console.log(component.get("v.pickedFieldsForFilter"));
-        console.log(component.get("v.pickedFieldsForFilter"));
-        console.log(component.get("v.pickedFieldsForFilter"));
         action.setParams({
             objectName: component.get("v.mainObject"),
             fieldList: component.get("v.newFields"),
