@@ -3,5 +3,5 @@
  -->
 
 <aura:event type="COMPONENT" description="setInputs">
-    <aura:attribute name="inputIds" type="Integer" default="0"/>
+    <aura:attribute name="inputs" type="Aura.Component[]"/>
 </aura:event>

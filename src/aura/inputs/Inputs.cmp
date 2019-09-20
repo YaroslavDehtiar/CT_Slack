@@ -13,6 +13,7 @@ flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
     <aura:attribute name="newInputs" type="Aura.Component[]"/>
     <aura:attribute name="newInputIds" type="Integer" default="0"/>
     <aura:registerEvent name="inputIds" type="c:setInputs"/>
+    <aura:registerEvent name="sendInput" type="c:setInputs"/>
 
     <aura:method name="inputFieldsFromParent" action="{!c.updateFieldList}" access="public">
         <aura:attribute name="newFields" type="List" default="[]"/>
@@ -50,9 +51,6 @@ flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
             <lightning:button class="buttons" iconName="utility:dash" title="Remove Filter"
                               onclick="{!c.removeLastInput}"/>
         </div>
-    </div>
-    <div>
-        {!v.newInputs}
     </div>
 
 </aura:component>

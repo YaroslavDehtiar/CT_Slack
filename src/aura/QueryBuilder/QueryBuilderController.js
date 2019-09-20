@@ -64,13 +64,6 @@
         const child = component.find("sendFields");
         child.inputFieldsFromParent(component.get("v.fieldList"));
     },
-    // createFilter: function (component, event, helper) {
-    //     console.log("start");
-    //     const method = component.find("sendFields");
-    //     console.log("mid");
-    //     method.clown();
-    //     console.log("end");
-    // },
     getIds: function (component, event) {
         const Ids = event.getParam("inputIds");
         const child = component.find("sendFields");

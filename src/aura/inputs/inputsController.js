@@ -30,8 +30,6 @@
 
     removeLastInput: function (component, event, helper) {
         helper.closeMe(component, event, helper);
-        // let vac = component.get("v.newInputs");
-        // component.set("v.newInputs", vac);
 
     },
 
@@ -47,12 +45,6 @@
     },
 
     cloneInputs: function (component, event) {
-        const cmpEvent = component.getEvent("inputIds");
-        console.log(component.get("v.newInputIds") + " Id before");
-        cmpEvent.setParams({'inputIds': component.get("v.newInputIds")});
-        cmpEvent.fire();
-        console.log(component.get("v.newInputIds") + " Id after");
-
         $A.createComponent(
             "c:Inputs",
             {
@@ -73,8 +65,7 @@
                 }
             }
         );
+        const cmpEvent = component.getEvent("sendInput");
+        cmpEvent.fire();
     },
-    // clown: function (cmp, evt) {
-    //     alert("Woohoo");
-    // }
 });
