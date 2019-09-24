@@ -3,7 +3,6 @@
  */
 
 .THIS .picklist{
-    /*width: 24%;*/
     margin: 15px;
 }
 .THIS .divForPicklist{
@@ -19,6 +18,9 @@
 }
 
 .THIS #filterList lightning-input label{
+    display: none;
+}
+.THIS #filterList div label{
     display: none;
 }
 .THIS .sendFields {

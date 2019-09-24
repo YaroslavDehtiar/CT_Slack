@@ -9,7 +9,15 @@
         const opers = operators.map(function (op) {
             return {label: op, value: op}
         });
+        const dateOperators = ["Custom Date", "YESTERDAY", "TODAY", "TOMORROW", "LAST_WEEK",
+            "THIS_WEEK", "NEXT_WEEK", "LAST_MONTH", "NEXT_MONTH", "LAST_90_DAYS", "NEXT_90_DAYS"];
+        const dateOpers = dateOperators.map(function (op) {
+            return {label: op, value: op}
+        });
+        var today = new Date();
+        component.set('v.today', today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate());
         component.set('v.operators', opers);
+        component.set('v.operatorsDateValue', dateOpers);
 
     },
     updateFieldList: function (component, event, helper) {
@@ -21,13 +29,32 @@
     inpPickedFieldsForFilter: function (component, event) {
         event.getParam("value");
         component.set("v.inpFieldsForFilter", event.getParam("value"));
+        if(component.get("v.inpFieldsForFilter").includes("date")){
+            $A.util.removeClass(component.find('dateOperatorsInput'), 'slds-hide');
+            $A.util.addClass(component.find('valueInput'), 'slds-hide');
+        }else{
+            $A.util.addClass(component.find('calendar'), 'slds-hide');
+            $A.util.addClass(component.find('dateOperatorsInput'), 'slds-hide');
+            $A.util.removeClass(component.find('valueInput'), 'slds-hide');
+        }
         component.set("v.comboboxValue", event.getParam("value"));
     },
 
     pickOperator: function (component, event) {
         event.getParam("value");
-        component.set("v.pickOperators", event.getParam('value'));
-        component.set("v.operatorValue", event.getParam('value'));
+        // component.set("v.pickOperators", event.getParam('value'));
+        component.set("v.operatorsValue", event.getParam('value'));
+    },
+
+    pickDateOperator: function (component, event) {
+        event.getParam("value");
+        component.set("v.operatorDateValuesForExecute", event.getParam('value'));
+        // component.set("v.operatorDateValue", event.getParam('value'));
+        if(component.get("v.operatorDateValuesForExecute") === 'Custom Date'){
+            $A.util.removeClass(component.find('calendar'), 'slds-hide');
+        }else{
+            $A.util.addClass(component.find('calendar'), 'slds-hide');
+        }
     },
 
     removeLastInput: function (component, event, helper) {
@@ -39,19 +66,11 @@
         component.set("v.inputValue", event.getParam('value'));
     },
 
-    // setNewIds: function (components, event, helper) {
-    //     const params = event.getParam('arguments');
-    //     const something = params.newIds;
-    //     console.log("something " + something);
-    //     components.set("v.newInputIds", something);
-    // },
-
     cloneInputs: function (component, event) {
         $A.createComponent(
             "c:Inputs",
             {
                 "inpFieldList": component.get("v.inpFieldList"),
-                "aura:id": "auraId" + component.get("v.newInputIds")
             },
             function (newInput, status, errorMessage) {
                 if (status === "SUCCESS") {

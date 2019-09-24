@@ -83,14 +83,14 @@
             if (getComponentById) {
                 const getComboById = getComponentById.find("fieldsInput");
                 const getComboValue = getComboById.get("v.value");
-                console.log(getComboValue + " Combo Value");
+
                 const getOperatorById = getComponentById.find("operatorsInput");
                 const getOperatorValue = getOperatorById.get("v.value");
-                console.log(getOperatorValue + " Combo Value");
+
                 const getInputById = getComponentById.find("valueInput");
                 const getInputValue = getInputById.get("v.value");
-                console.log(getInputValue + " Value");
-                if(getComboValue && getOperatorValue && getInputValue){
+
+                if (getComboValue && getOperatorValue && getInputValue) {
                     const arr = component.get("v.finalString");
                     arr.push(getComboValue + ' ' + getOperatorValue + ' \''
                         + getInputValue + '\'');
