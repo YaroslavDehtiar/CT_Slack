@@ -30,18 +30,23 @@ public with sharing class QueryBuilder {
 
     @AuraEnabled
     public static List<Object> finalExecute(String objectName, List<String> fieldList,
-            String filterField, String operator, String value) {
+            List<String> filterStrings) {
         String allFields = '';
         for (String str : fieldList) {
             allFields += str + ',';
         }
         allFields = allFields.substring(0, allFields.length() - 1);
         String query;
-        if(filterField == null || operator == null || value == null){
+        if(filterStrings.size() == 0){
+            System.debug('if');
             query = 'Select ' + allFields + ' From ' + objectName;
         }else{
-            query = 'Select ' + allFields + ' From ' + objectName + ' Where '
-                + filterField + ' ' + operator + ' \'' + value + '\'';
+            System.debug('else');
+            for (String str : filterStrings) {
+                query = 'Select ' + allFields + ' From ' + objectName + ' Where '
+                        + str + ' AND ';
+            }
+            query = query.substring(0, query.length() - 4);
         }
         System.debug(query);
         List<Object> allPickedObjects = Database.query(query);

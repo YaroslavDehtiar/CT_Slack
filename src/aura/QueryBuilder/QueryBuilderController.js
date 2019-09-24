@@ -90,6 +90,13 @@
                 const getInputById = getComponentById.find("valueInput");
                 const getInputValue = getInputById.get("v.value");
                 console.log(getInputValue + " Value");
+                if(getComboValue && getOperatorValue && getInputValue){
+                    const arr = component.get("v.finalString");
+                    arr.push(getComboValue + ' ' + getOperatorValue + ' \''
+                        + getInputValue + '\'');
+                    component.set("v.finalString", arr);
+                }
+                console.log(component.get("v.finalString"));
             }
         }
 
@@ -97,9 +104,7 @@
         action.setParams({
             objectName: component.get("v.mainObject"),
             fieldList: component.get("v.newFields"),
-            filterField: component.get("v.pickedFieldsForFilter"),
-            operator: component.get("v.pickOperator"),
-            value: component.get("v.inputValue")
+            filterStrings: component.get("v.finalString")
         });
 
         action.setCallback(this, function (resp) {
@@ -129,6 +134,7 @@
             }
             component.set("v.fieldForExecute", parentBranches);
         });
+        component.set("v.finalString", []);
         $A.enqueueAction(action);
     }
 });
