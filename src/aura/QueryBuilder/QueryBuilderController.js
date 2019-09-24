@@ -101,12 +101,12 @@
                 const arr = component.get("v.finalString");
 
                 if (getComboValue && getOperatorValue) {
-                    if (getDateValue && !getCustomDateValue) {
+                    if (getDateValue && getDateValue !== 'Custom Date') {
                         arr.push(getComboValue + ' ' + getOperatorValue + ' ' + getDateValue);
                         component.set("v.finalString", arr);
                     } else if (getDateValue && getCustomDateValue) {
                         arr.push(getComboValue + ' ' + getOperatorValue + ' ' + getCustomDateValue
-                            + 'T01:02:03Z');
+                            + 'T00:00:00Z');
                         component.set("v.finalString", arr);
                     } else if (getInputValue) {
                         arr.push(getComboValue + ' ' + getOperatorValue + ' \''
@@ -114,8 +114,6 @@
                         component.set("v.finalString", arr);
                     }
                 }
-
-
                 console.log(component.get("v.finalString"));
             }
         }
