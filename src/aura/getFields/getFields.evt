@@ -2,6 +2,8 @@
  - Created by YaroslavDehtiar on 18.09.2019.
  -->
 
-<aura:event type="APPLICATION" description="getFields">
+<aura:event type="COMPONENT" description="getFields">
     <aura:attribute name="listOfFields" type="List" default="[]"/>
+    <aura:attribute name="listOfOperators" type="List" default="[]"/>
+    <aura:attribute name="listOfValues" type="List" default="[]"/>
 </aura:event>

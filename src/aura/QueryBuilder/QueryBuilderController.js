@@ -44,15 +44,18 @@
     },
 
     createFilter: function (component, event, helper) {
+        const getIds = component.get("v.inputIds");
+        console.log(component.get("v.inputIds"));
         $A.createComponent(
             "c:Inputs",
             {
                 "inpFieldList": component.get("v.fieldList"),
+                "aura:id": getIds + 1
             },
             function (newInput, status, errorMessage) {
                 if (status === "SUCCESS") {
                     var body = component.get("v.inputs");
-                        body.push(newInput);
+                    body.push(newInput);
                     component.set("v.inputs", body);
                 } else if (status === "INCOMPLETE") {
                     console.log("No response from server or client is offline.")
@@ -61,19 +64,35 @@
                 }
             }
         );
+        component.set("v.inputIds", getIds + 1);
+        const arr = component.get("v.setOfInputIds");
+        arr.push(getIds + 1);
+        console.log(arr + " Value");
+        component.set("v.setOfInputIds", arr);
         const child = component.find("sendFields");
         child.inputFieldsFromParent(component.get("v.fieldList"));
     },
-    getIds: function (component, event) {
-        const Ids = event.getParam("inputIds");
-        const child = component.find("sendFields");
-        component.set("v.inputIds", Ids + 1);
-        console.log(component.get("v.inputIds") +" send");
-        child.getInputIds(component.get("v.inputIds"));
-        console.log(component.get("v.inputIds") +" end");
-    },
+
 
     executeQuery: function (component, event) {
+        const getArrayOfIds = component.get("v.setOfInputIds");
+        console.log(getArrayOfIds + " Ids");
+        for (const getIds of getArrayOfIds) {
+            // const getIds = component.get("v.inputIds");
+            const getComponentById = component.find(getIds);
+            if (getComponentById) {
+                const getComboById = getComponentById.find("fieldsInput");
+                const getComboValue = getComboById.get("v.value");
+                console.log(getComboValue + " Combo Value");
+                const getOperatorById = getComponentById.find("operatorsInput");
+                const getOperatorValue = getOperatorById.get("v.value");
+                console.log(getOperatorValue + " Combo Value");
+                const getInputById = getComponentById.find("valueInput");
+                const getInputValue = getInputById.get("v.value");
+                console.log(getInputValue + " Value");
+            }
+        }
+
         var action = component.get("c.finalExecute");
         action.setParams({
             objectName: component.get("v.mainObject"),

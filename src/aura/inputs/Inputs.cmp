@@ -11,8 +11,10 @@ flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
     <aura:attribute name="pickOperators" type="String" default="[]"/>
     <aura:attribute name="newInputValue" type="String"/>
     <aura:attribute name="newInputs" type="Aura.Component[]"/>
-    <aura:attribute name="newInputIds" type="Integer" default="0"/>
-    <aura:registerEvent name="inputIds" type="c:setInputs"/>
+    <aura:attribute name="comboboxValue" type="String" default=""/>
+    <aura:attribute name="operatorsValue" type="String" default=""/>
+<!--    <aura:attribute name="newInputIds" type="Integer" default="0"/>-->
+<!--    <aura:registerEvent name="inputIds" type="c:setInputs"/>-->
     <aura:registerEvent name="sendInput" type="c:setInputs"/>
 
     <aura:method name="inputFieldsFromParent" action="{!c.updateFieldList}" access="public">
@@ -29,14 +31,14 @@ flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
 
     <div id="filterList" class="divForPicklist">
         <lightning:combobox name="field" class="picklist" label="Pick Field"
-                            value="inProgress"
+                            value="{!v.comboboxValue}"
                             placeholder="Fields"
                             options="{!v.inpFieldList}"
                             onchange="{!c.inpPickedFieldsForFilter}"
                             aura:id="fieldsInput"
         />
         <lightning:combobox name="operator" class="picklist" label="Pick Operator"
-                            value="inProgress" placeholder="Operator"
+                            value="{!v.operatorsValue}" placeholder="Operator"
                             options="{!v.operators}"
                             onchange="{!c.pickOperator}"
                             aura:id="operatorsInput"

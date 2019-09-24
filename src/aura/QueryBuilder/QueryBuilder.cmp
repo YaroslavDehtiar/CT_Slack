@@ -11,8 +11,10 @@ flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
     <aura:attribute name="fieldForExecute" type="Object"/>
     <aura:attribute name="inputs" type="Aura.Component[]"/>
     <aura:attribute name="inputIds" type="Integer" default="0"/>
+    <aura:attribute name="setOfInputIds" type="Integer[]" default=""/>
+    <aura:attribute name="inputValues" type="String" default="[]"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-    <aura:handler name="inputIds" action="{!c.getIds}" event="c:setInputs"/>
+<!--    <aura:handler name="inputIds" action="{!c.getIds}" event="c:setInputs"/>-->
     <aura:handler name="sendInput" action="{!c.createFilter}" event="c:setInputs"/>
 
     <lightning:combobox name="progress" label="Pick Object" value="inProgress" placeholder="Objects"

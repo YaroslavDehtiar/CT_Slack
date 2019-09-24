@@ -21,11 +21,13 @@
     inpPickedFieldsForFilter: function (component, event) {
         event.getParam("value");
         component.set("v.inpFieldsForFilter", event.getParam("value"));
+        component.set("v.comboboxValue", event.getParam("value"));
     },
 
     pickOperator: function (component, event) {
         event.getParam("value");
         component.set("v.pickOperators", event.getParam('value'));
+        component.set("v.operatorValue", event.getParam('value'));
     },
 
     removeLastInput: function (component, event, helper) {
@@ -37,12 +39,12 @@
         component.set("v.inputValue", event.getParam('value'));
     },
 
-    setNewIds: function (components, event, helper) {
-        const params = event.getParam('arguments');
-        const something = params.newIds;
-        console.log("something " + something);
-        components.set("v.newInputIds", something);
-    },
+    // setNewIds: function (components, event, helper) {
+    //     const params = event.getParam('arguments');
+    //     const something = params.newIds;
+    //     console.log("something " + something);
+    //     components.set("v.newInputIds", something);
+    // },
 
     cloneInputs: function (component, event) {
         $A.createComponent(
