@@ -29,10 +29,13 @@
     inpPickedFieldsForFilter: function (component, event) {
         event.getParam("value");
         component.set("v.inpFieldsForFilter", event.getParam("value"));
-        if(component.get("v.inpFieldsForFilter").includes("date")){
+        if (component.get("v.inpFieldsForFilter").includes("date")) {
+            if (component.get("v.operatorDateValuesForExecute") === 'Custom Date') {
+                $A.util.removeClass(component.find('calendar'), 'slds-hide');
+            }
             $A.util.removeClass(component.find('dateOperatorsInput'), 'slds-hide');
             $A.util.addClass(component.find('valueInput'), 'slds-hide');
-        }else{
+        } else {
             $A.util.addClass(component.find('calendar'), 'slds-hide');
             $A.util.addClass(component.find('dateOperatorsInput'), 'slds-hide');
             $A.util.removeClass(component.find('valueInput'), 'slds-hide');
@@ -50,9 +53,9 @@
         event.getParam("value");
         component.set("v.operatorDateValuesForExecute", event.getParam('value'));
         // component.set("v.operatorDateValue", event.getParam('value'));
-        if(component.get("v.operatorDateValuesForExecute") === 'Custom Date'){
+        if (component.get("v.operatorDateValuesForExecute") === 'Custom Date') {
             $A.util.removeClass(component.find('calendar'), 'slds-hide');
-        }else{
+        } else {
             $A.util.addClass(component.find('calendar'), 'slds-hide');
         }
     },

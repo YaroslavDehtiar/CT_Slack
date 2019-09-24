@@ -52,9 +52,9 @@ flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
                             aura:id="dateOperatorsInput"
         />
 
-        <div aura:id="calendar" class="slds-hide">
-            <ui:inputDate aura:id="expdate" label="Today's Date"
-                          class="field" value="{!v.today}" displayDatePicker="true"/>
+        <div aura:id="calendar" class="slds-hide picklist">
+            <lightning:input aura:id="expdate" label="Today's Date" type="date"
+                          class="field" value="{!v.today}"/>
         </div>
 
         <lightning:input name="value" class="picklist" label="Pick Value"

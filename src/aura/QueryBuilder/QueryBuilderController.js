@@ -90,12 +90,32 @@
                 const getInputById = getComponentById.find("valueInput");
                 const getInputValue = getInputById.get("v.value");
 
-                if (getComboValue && getOperatorValue && getInputValue) {
-                    const arr = component.get("v.finalString");
-                    arr.push(getComboValue + ' ' + getOperatorValue + ' \''
-                        + getInputValue + '\'');
-                    component.set("v.finalString", arr);
+                const getDateById = getComponentById.find("dateOperatorsInput");
+                const getDateValue = getDateById.get("v.value");
+
+                const getCustomDateById = getComponentById.find("expdate");
+                const getCustomDateValue = getCustomDateById.get("v.value");
+
+                console.log(getCustomDateValue);
+
+                const arr = component.get("v.finalString");
+
+                if (getComboValue && getOperatorValue) {
+                    if (getDateValue && !getCustomDateValue) {
+                        arr.push(getComboValue + ' ' + getOperatorValue + ' ' + getDateValue);
+                        component.set("v.finalString", arr);
+                    } else if (getDateValue && getCustomDateValue) {
+                        arr.push(getComboValue + ' ' + getOperatorValue + ' ' + getCustomDateValue
+                            + 'T01:02:03Z');
+                        component.set("v.finalString", arr);
+                    } else if (getInputValue) {
+                        arr.push(getComboValue + ' ' + getOperatorValue + ' \''
+                            + getInputValue + '\'');
+                        component.set("v.finalString", arr);
+                    }
                 }
+
+
                 console.log(component.get("v.finalString"));
             }
         }
