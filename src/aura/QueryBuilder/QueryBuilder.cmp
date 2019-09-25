@@ -2,40 +2,51 @@
  - Created by YaroslavDehtiar on 27.08.2019.
  -->
 
-<aura:component description="QueryBuilder" controller="QueryBuilder" implements="flexipage:availableForAllPageTypes">
+<aura:component description="QueryBuilder" controller="QueryBuilder" implements="flexipage:availableForAllPageTypes,
+flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
     <aura:attribute name="objects" type="List" default="[]"/>
     <aura:attribute name="fieldList" type="List" default="[]"/>
     <aura:attribute name="mainObject" type="String" default=""/>
     <aura:attribute name="newFields" type="List" default="[]"/>
     <aura:attribute name="fieldForExecute" type="Object"/>
+    <aura:attribute name="inputs" type="Aura.Component[]"/>
+    <aura:attribute name="inputIds" type="Integer" default="0"/>
+    <aura:attribute name="setOfInputIds" type="Integer[]" default=""/>
+    <aura:attribute name="inputValues" type="String" default="[]"/>
+    <aura:attribute name="finalString" type="List" default="[]"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+<!--    <aura:handler name="inputIds" action="{!c.getIds}" event="c:setInputs"/>-->
+    <aura:handler name="sendInput" action="{!c.createFilter}" event="c:setInputs"/>
 
     <lightning:combobox name="progress" label="Pick Object" value="inProgress" placeholder="Objects"
                         options="{!v.objects}"
                         onchange="{!c.handleOptionSelected}"/>
 
+    <div style="margin: auto">
+        <lightning:dualListbox aura:id="fields"
+                               name="fields"
+                               label="Select Fields"
+                               sourceLabel="Available"
+                               selectedLabel="Selected"
+                               options="{!v.fieldList}"
+                               onchange="{!c.choiceFields}"/>
 
-    <lightning:dualListbox aura:id="fields"
-                           name="fields"
-                           label="Select Fields"
-                           sourceLabel="Available"
-                           selectedLabel="Selected"
-                           options="{!v.fieldList}"
-                           onchange="{!c.choiceFields}"/>
-
-    <lightning:button variant="brand" label="Execute" title="Execute" onclick="{!c.executeQuery}"/>
+        <lightning:button name="filter" variant="brand" label="Create Filter" onclick="{!c.createFilter}"
+                          disabled="true" aura:id="button"/>
+        <h3 style="font-size: large; margin-top: 10px">Filter</h3>
 
 
-    <!--    Спочатку пробував так, не вийшло-->
-<!--    <tbody>-->
-<!--    <aura:iteration items="{!v.fieldForExecute}" var="obj">-->
-<!--        <tr>-->
-<!--            <td>{!obj}</td>-->
-<!--        </tr>-->
-<!--    </aura:iteration>-->
-<!--    </tbody>-->
+        <div id="filterList" class="divForPicklist" aura:id="filter123">
+            {!v.inputs}
+        </div>
+        <div class="sendFields" id="inputClass">
+            <c:inputs aura:id="sendFields" inpFieldList="{!v.fieldList}"/>
+        </div>
+    </div>
 
-    <!--    Так теж :(    -->
+    <lightning:button variant="brand" label="Execute" title="Execute"
+                      disabled="true" onclick="{!c.executeQuery}" aura:id="executeButton"/>
+
     <lightning:tree items="{!v.fieldForExecute}" header="Tree"/>
 
 </aura:component>

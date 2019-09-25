@@ -1,0 +1,72 @@
+<!--
+ - Created by YaroslavDehtiar on 12.09.2019.
+ -->
+
+<aura:component description="inputs" implements="flexipage:availableForAllPageTypes,
+flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="inpFieldList" type="List" default="[]"/>
+    <aura:attribute name="inpFieldsForFilter" type="Object" default="[]"/>
+    <aura:attribute name="operators" type="List" default="[]"/>
+    <aura:attribute name="operatorsDateValue" type="List" default="[]"/>
+    <aura:attribute name="pickOperators" type="String" default="[]"/>
+    <aura:attribute name="newInputValue" type="String"/>
+    <aura:attribute name="today" type="Date" default=""/>
+    <aura:attribute name="operatorDateValue" type="Object" default="[]"/>
+    <aura:attribute name="newInputs" type="Aura.Component[]"/>
+    <aura:attribute name="comboboxValue" type="String" default=""/>
+    <aura:attribute name="operatorsValue" type="String" default=""/>
+    <aura:attribute name="operatorDateValuesForExecute" type="String" default=""/>
+    <!--    <aura:attribute name="newInputIds" type="Integer" default="0"/>-->
+    <!--    <aura:registerEvent name="inputIds" type="c:setInputs"/>-->
+    <aura:registerEvent name="sendInput" type="c:setInputs"/>
+
+    <aura:method name="inputFieldsFromParent" action="{!c.updateFieldList}" access="public">
+        <aura:attribute name="newFields" type="List" default="[]"/>
+    </aura:method>
+    <aura:method name="getInputIds" action="{!c.setNewIds}" access="public">
+        <aura:attribute name="newIds" type="Integer"/>
+    </aura:method>
+    <aura:method name="cloneInp" action="{!c.cloneInputs}" access="public">
+        <aura:attribute name="newFields" type="List" default="[]"/>
+    </aura:method>
+
+
+    <div id="filterList" class="divForPicklist">
+        <lightning:combobox name="field" class="picklist" label="Pick Field"
+                            value="{!v.comboboxValue}" placeholder="Fields"
+                            options="{!v.inpFieldList}"
+                            onchange="{!c.inpPickedFieldsForFilter}"
+                            aura:id="fieldsInput"
+        />
+        <lightning:combobox name="operator" class="picklist" label="Pick Operator"
+                            value="{!v.operatorsValue}" placeholder="Operator"
+                            options="{!v.operators}"
+                            onchange="{!c.pickOperator}"
+                            aura:id="operatorsInput"
+        />
+        <lightning:combobox name="dateOperator" class="picklist slds-hide" label="Pick Date Operator"
+                            value="{!v.operatorDateValuesForExecute}" placeholder="Date Operator"
+                            options="{!v.operatorsDateValue}"
+                            onchange="{!c.pickDateOperator}"
+                            aura:id="dateOperatorsInput"
+        />
+
+        <div aura:id="calendar" class="slds-hide picklist">
+            <lightning:input aura:id="expdate" label="Today's Date" type="date"
+                          class="field" value="{!v.today}"/>
+        </div>
+
+        <lightning:input name="value" class="picklist" label="Pick Value"
+                         placeholder="Value" value="{!v.newInputValue}"
+                         aura:id="valueInput"
+        />
+        <div id="'fs">
+            <lightning:button class="buttons" iconName="utility:add" title="Add Filter"
+                              onclick="{!c.cloneInputs}"/>
+            <lightning:button class="buttons" iconName="utility:dash" title="Remove Filter"
+                              onclick="{!c.removeLastInput}"/>
+        </div>
+    </div>
+
+</aura:component>
