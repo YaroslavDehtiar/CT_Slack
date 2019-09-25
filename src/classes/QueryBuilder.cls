@@ -18,14 +18,26 @@ public with sharing class QueryBuilder {
     }
 
     @AuraEnabled
-    public static List<String> getFields(String objectName) {
-        List<String> fieldNames = new List<String>(
-                Schema.getGlobalDescribe().get(objectName).getDescribe().fields.getMap().keySet());
+    public static Map<String, String> getFields(String objectName) {
+        Map<String, Schema.SObjectField> mapOfObjects = new Map<String, Schema.SObjectField>
+                (Schema.getGlobalDescribe().get(objectName).getDescribe().fields.getMap());
+        List<String> typeOfFields = new List<String>();
+        for (SObjectField sObjectField : mapOfObjects.values()) {
+            typeOfFields.add(String.valueOf(sObjectField.getDescribe().getType()));
+        }
+        List<String> fieldNames = new List<String>();
+        for (String str : mapOfObjects.keySet()) {
+            fieldNames.add(str);
+        }
         List<String> fieldNamesToUpperCase = new List<String>();
         for (String str : fieldNames) {
             fieldNamesToUpperCase.add(str.substring(0, 1).toUpperCase() + str.substring(1, str.length()));
         }
-        return fieldNamesToUpperCase;
+        Map<String, String> returnObjects = new Map<String, String>();
+        for (Integer i = 0; i < fieldNamesToUpperCase.size(); i++) {
+            returnObjects.put(fieldNamesToUpperCase.get(i), typeOfFields.get(i));
+        }
+        return returnObjects;
     }
 
     @AuraEnabled
@@ -37,10 +49,10 @@ public with sharing class QueryBuilder {
         }
         allFields = allFields.substring(0, allFields.length() - 1);
         String query;
-        if(filterStrings.size() == 0){
+        if (filterStrings.size() == 0) {
             System.debug('if');
             query = 'Select ' + allFields + ' From ' + objectName;
-        }else{
+        } else {
             System.debug('else');
             for (String str : filterStrings) {
                 query = 'Select ' + allFields + ' From ' + objectName + ' Where '

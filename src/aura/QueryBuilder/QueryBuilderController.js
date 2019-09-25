@@ -19,12 +19,13 @@
         action.setParams({objectName: event.getParam("value")});
         action.setCallback(this, function (resp) {
             var arr = resp.getReturnValue();
-            arr.forEach(function (el) {
-                options.push({value: el, label: el})
-            });
+            for (const arrElement in arr) {
+                options.push({label: arrElement, value: arr[arrElement]});
+            }
             component.set('v.fieldList', options);
         });
         component.set("v.mainObject", event.getParam("value"));
+
         const button = component.find("button");
         button.set("v.disabled", false);
         const removeClass = component.find("inputClass");
