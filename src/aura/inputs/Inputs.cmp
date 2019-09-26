@@ -8,6 +8,7 @@ flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
     <aura:attribute name="inpFieldList" type="List" default="[]"/>
     <aura:attribute name="inpFieldsForFilter" type="List" default="[]"/>
     <aura:attribute name="types" type="List" default="[]"/>
+    <aura:attribute name="typesForValidate" type="List" default="[]"/>
     <aura:attribute name="operators" type="List" default="[]"/>
     <aura:attribute name="operatorsDateValue" type="List" default="[]"/>
     <aura:attribute name="pickOperators" type="String" default="[]"/>
@@ -61,6 +62,7 @@ flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
         <lightning:input name="value" class="picklist" label="Pick Value"
                          placeholder="Value" value="{!v.newInputValue}"
                          aura:id="valueInput"
+                         onchange="{!c.checkValidation}"
         />
         <div id="'fs">
             <lightning:button class="buttons" iconName="utility:add" title="Add Filter"

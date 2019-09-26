@@ -49,14 +49,10 @@ public with sharing class QueryBuilder {
         }
         allFields = allFields.substring(0, allFields.length() - 1);
         String query;
-        if (filterStrings.size() == 0) {
-            System.debug('if');
-            query = 'Select ' + allFields + ' From ' + objectName;
-        } else {
-            System.debug('else');
+        query = 'Select ' + allFields + ' From ' + objectName + ' Where ';
+        if (filterStrings.size() != 0) {
             for (String str : filterStrings) {
-                query = 'Select ' + allFields + ' From ' + objectName + ' Where '
-                        + str + ' AND ';
+                query +=  str + ' AND ';
             }
             query = query.substring(0, query.length() - 4);
         }

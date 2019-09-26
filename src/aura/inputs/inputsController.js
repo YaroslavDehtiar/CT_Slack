@@ -34,6 +34,7 @@
 
         component.set("v.inpFieldsForFilter", labelForValue);
         console.log(event.getParam("value") + ' event value');
+        component.set("v.typesForValidate", event.getParam("value"));
         if (event.getParam("value").includes("DATE")) {
             if (component.get("v.operatorDateValuesForExecute") === 'Custom Date') {
                 $A.util.removeClass(component.find('calendar'), 'slds-hide');
@@ -64,6 +65,29 @@
         } else {
             $A.util.addClass(component.find('calendar'), 'slds-hide');
         }
+    },
+
+    checkValidation: function (component, event) {
+        const value = event.getParam("value");
+        const type = component.get("v.typesForValidate");
+        const getInput = component.find('valueInput');
+
+        if (type.includes("ID")) {
+            if (value.length === 15 || value.length === 18 || value.length === 0) {
+                $A.util.removeClass(getInput, 'slds-has-error');
+            } else {
+                $A.util.addClass(getInput, 'slds-has-error');
+            }
+        }
+        if (type.includes("BOOLEAN")) {
+            console.log(value);
+            if (value.toLowerCase() == 'true' || value.toLowerCase() == 'false') {
+                $A.util.removeClass(getInput, 'slds-has-error');
+            } else {
+                $A.util.addClass(getInput, 'slds-has-error');
+            }
+        }
+
     },
 
     removeLastInput: function (component, event, helper) {
