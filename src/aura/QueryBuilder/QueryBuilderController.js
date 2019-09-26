@@ -102,19 +102,24 @@
                 const getCustomDateById = getComponentById.find("expdate");
                 const getCustomDateValue = getCustomDateById.get("v.value");
 
+                const getBooleanId = getComponentById.find("booleanValues");
+                const getBooleanValue = getBooleanId.get("v.value");
+
                 console.log(getCustomDateValue);
 
                 const arr = component.get("v.finalString");
 
-                if (labelForValue && getOperatorValue) {
-                    if (getDateValue && getDateValue !== 'Custom Date') {
+                if (labelForValue && getOperatorValue) {                    //field and operation true
+                    if (getDateValue && getDateValue !== 'Custom Date') {   // date value not custom
                         arr.push(labelForValue + ' ' + getOperatorValue + ' ' + getDateValue);
                         component.set("v.finalString", arr);
-                    } else if (getDateValue && getCustomDateValue) {
+                    } else if (getDateValue && getCustomDateValue) {        //custom date
                         arr.push(labelForValue + ' ' + getOperatorValue + ' ' + getCustomDateValue
                             + 'T00:00:00Z');
                         component.set("v.finalString", arr);
-                    } else if (getInputValue) {
+                    } else if (getBooleanValue) {                       //boolean
+                        arr.push(labelForValue + ' ' + getOperatorValue + ' ' + getBooleanValue);
+                    } else if (getInputValue) {                         //just value
                         arr.push(labelForValue + ' ' + getOperatorValue + ' \''
                             + getInputValue + '\'');
                         component.set("v.finalString", arr);

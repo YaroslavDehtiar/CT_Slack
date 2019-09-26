@@ -10,7 +10,10 @@ flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
     <aura:attribute name="types" type="List" default="[]"/>
     <aura:attribute name="typesForValidate" type="List" default="[]"/>
     <aura:attribute name="operators" type="List" default="[]"/>
+    <aura:attribute name="booleanValues" type="List" default="[{'label' : 'True', 'value' : 'True'},
+                                                        {'label' : 'False', 'value' : 'False'}]"/>
     <aura:attribute name="operatorsDateValue" type="List" default="[]"/>
+    <aura:attribute name="booleanValuesForExecute" type="String" default=""/>
     <aura:attribute name="pickOperators" type="String" default="[]"/>
     <aura:attribute name="newInputValue" type="String"/>
     <aura:attribute name="today" type="Date" default=""/>
@@ -19,8 +22,6 @@ flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
     <aura:attribute name="comboboxValue" type="String" default=""/>
     <aura:attribute name="operatorsValue" type="String" default=""/>
     <aura:attribute name="operatorDateValuesForExecute" type="String" default=""/>
-    <!--    <aura:attribute name="newInputIds" type="Integer" default="0"/>-->
-    <!--    <aura:registerEvent name="inputIds" type="c:setInputs"/>-->
     <aura:registerEvent name="sendInput" type="c:setInputs"/>
 
     <aura:method name="inputFieldsFromParent" action="{!c.updateFieldList}" access="public">
@@ -53,10 +54,16 @@ flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
                             onchange="{!c.pickDateOperator}"
                             aura:id="dateOperatorsInput"
         />
+        <lightning:combobox name="booleanValues" class="picklist slds-hide" label="True or False?"
+                            value="{!v.booleanValuesForExecute}" placeholder="Boolean Operator"
+                            options="{!v.booleanValues}"
+                            onchange="{!c.pickBoolean}"
+                            aura:id="booleanValues"
+        />
 
         <div aura:id="calendar" class="slds-hide picklist">
             <lightning:input aura:id="expdate" label="Today's Date" type="date"
-                          class="field" value="{!v.today}"/>
+                             class="field" value="{!v.today}"/>
         </div>
 
         <lightning:input name="value" class="picklist" label="Pick Value"
