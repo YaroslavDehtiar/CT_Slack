@@ -6,14 +6,15 @@
 flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:attribute name="inpFieldList" type="List" default="[]"/>
-    <aura:attribute name="inpFieldsForFilter" type="Object" default="[]"/>
+    <aura:attribute name="inpFieldsForFilter" type="List" default="[]"/>
+    <aura:attribute name="types" type="List" default="[]"/>
     <aura:attribute name="operators" type="List" default="[]"/>
     <aura:attribute name="operatorsDateValue" type="List" default="[]"/>
     <aura:attribute name="pickOperators" type="String" default="[]"/>
     <aura:attribute name="newInputValue" type="String"/>
     <aura:attribute name="today" type="Date" default=""/>
     <aura:attribute name="operatorDateValue" type="Object" default="[]"/>
-    <aura:attribute name="newInputs" type="Aura.Component[]"/>
+    <aura:attribute name="newInputs" type="List" default="[]"/>
     <aura:attribute name="comboboxValue" type="String" default=""/>
     <aura:attribute name="operatorsValue" type="String" default=""/>
     <aura:attribute name="operatorDateValuesForExecute" type="String" default=""/>
