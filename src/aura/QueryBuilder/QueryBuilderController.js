@@ -15,16 +15,24 @@
 
     handleOptionSelected: function (component, event) {
         var options = [];
+        var types = [];
         var action = component.get("c.getFields");
         action.setParams({objectName: event.getParam("value")});
+        console.log(event.getParam("value"));
         action.setCallback(this, function (resp) {
             var arr = resp.getReturnValue();
-            arr.forEach(function (el) {
-                options.push({value: el, label: el})
-            });
+            for (const arrElement in arr) {
+                options.push({label: arrElement, value: arrElement});
+                types.push({label: arrElement, value: arr[arrElement]});
+            }
             component.set('v.fieldList', options);
+            component.set('v.fieldsWithTypes', types);
         });
         component.set("v.mainObject", event.getParam("value"));
+
+        const findInp = component.find("sendFields");
+        findInp.inputFieldsFromParent(component.get("v.fieldsWithTypes"));
+
         const button = component.find("button");
         button.set("v.disabled", false);
         const removeClass = component.find("inputClass");
@@ -45,11 +53,10 @@
 
     createFilter: function (component, event, helper) {
         const getIds = component.get("v.inputIds");
-        console.log(component.get("v.inputIds"));
         $A.createComponent(
             "c:Inputs",
             {
-                "inpFieldList": component.get("v.fieldList"),
+                "inpFieldList": component.get("v.fieldsWithTypes"),
                 "aura:id": getIds + 1
             },
             function (newInput, status, errorMessage) {
@@ -67,7 +74,6 @@
         component.set("v.inputIds", getIds + 1);
         const arr = component.get("v.setOfInputIds");
         arr.push(getIds + 1);
-        console.log(arr + " Value");
         component.set("v.setOfInputIds", arr);
         const child = component.find("sendFields");
         child.inputFieldsFromParent(component.get("v.fieldList"));
@@ -76,13 +82,13 @@
 
     executeQuery: function (component, event) {
         const getArrayOfIds = component.get("v.setOfInputIds");
-        console.log(getArrayOfIds + " Ids");
         for (const getIds of getArrayOfIds) {
-            // const getIds = component.get("v.inputIds");
             const getComponentById = component.find(getIds);
             if (getComponentById) {
                 const getComboById = getComponentById.find("fieldsInput");
                 const getComboValue = getComboById.get("v.value");
+                const labelForValue = component.get("v.fieldsWithTypes")
+                    .reduce((acc, val) => acc || (val.value == getComboValue ? val.label : ""), "");
 
                 const getOperatorById = getComponentById.find("operatorsInput");
                 const getOperatorValue = getOperatorById.get("v.value");
@@ -100,16 +106,16 @@
 
                 const arr = component.get("v.finalString");
 
-                if (getComboValue && getOperatorValue) {
+                if (labelForValue && getOperatorValue) {
                     if (getDateValue && getDateValue !== 'Custom Date') {
-                        arr.push(getComboValue + ' ' + getOperatorValue + ' ' + getDateValue);
+                        arr.push(labelForValue + ' ' + getOperatorValue + ' ' + getDateValue);
                         component.set("v.finalString", arr);
                     } else if (getDateValue && getCustomDateValue) {
-                        arr.push(getComboValue + ' ' + getOperatorValue + ' ' + getCustomDateValue
+                        arr.push(labelForValue + ' ' + getOperatorValue + ' ' + getCustomDateValue
                             + 'T00:00:00Z');
                         component.set("v.finalString", arr);
                     } else if (getInputValue) {
-                        arr.push(getComboValue + ' ' + getOperatorValue + ' \''
+                        arr.push(labelForValue + ' ' + getOperatorValue + ' \''
                             + getInputValue + '\'');
                         component.set("v.finalString", arr);
                     }
