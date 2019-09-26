@@ -79,14 +79,6 @@
                 $A.util.addClass(getInput, 'slds-has-error');
             }
         }
-        if (type.includes("BOOLEAN")) {
-            console.log(value);
-            if (value.toLowerCase() == 'true' || value.toLowerCase() == 'false') {
-                $A.util.removeClass(getInput, 'slds-has-error');
-            } else {
-                $A.util.addClass(getInput, 'slds-has-error');
-            }
-        }
 
     },
 
