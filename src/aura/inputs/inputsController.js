@@ -18,13 +18,6 @@
         component.set('v.today', today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate());
         component.set('v.operators', opers);
         component.set('v.operatorsDateValue', dateOpers);
-//=====================================
-
-        var asd = component.find('filterList');
-        console.log(asd.value);
-
-
-        //=================================
     },
     updateFieldList: function (component, event, helper) {
         const params = event.getParam('arguments');
@@ -66,7 +59,7 @@
         $A.util.removeClass(component.find(newTypeId), 'slds-hide');
 
         component.set("v.oldType", newTypeId);
-        
+
         component.set("v.comboboxValue", event.getParam("value"));
     }
     ,
