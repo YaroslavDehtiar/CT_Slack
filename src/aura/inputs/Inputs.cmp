@@ -12,6 +12,7 @@ flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
     <aura:attribute name="operators" type="List" default="[]"/>
     <aura:attribute name="booleanValues" type="List" default="[{'label' : 'True', 'value' : 'True'},
                                                         {'label' : 'False', 'value' : 'False'}]"/>
+    <aura:attribute name="typeList" type="List" default="[]"/>
     <aura:attribute name="operatorsDateValue" type="List" default="[]"/>
     <aura:attribute name="booleanValuesForExecute" type="String" default=""/>
     <aura:attribute name="pickOperators" type="String" default="[]"/>
@@ -20,15 +21,13 @@ flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
     <aura:attribute name="operatorDateValue" type="Object" default="[]"/>
     <aura:attribute name="newInputs" type="List" default="[]"/>
     <aura:attribute name="comboboxValue" type="String" default=""/>
+    <aura:attribute name="typeForExecute" type="String" default=""/>
     <aura:attribute name="operatorsValue" type="String" default=""/>
     <aura:attribute name="operatorDateValuesForExecute" type="String" default=""/>
     <aura:registerEvent name="sendInput" type="c:setInputs"/>
 
     <aura:method name="inputFieldsFromParent" action="{!c.updateFieldList}" access="public">
         <aura:attribute name="newFields" type="List" default="[]"/>
-    </aura:method>
-    <aura:method name="getInputIds" action="{!c.setNewIds}" access="public">
-        <aura:attribute name="newIds" type="Integer"/>
     </aura:method>
     <aura:method name="cloneInp" action="{!c.cloneInputs}" access="public">
         <aura:attribute name="newFields" type="List" default="[]"/>
@@ -59,6 +58,12 @@ flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
                             options="{!v.booleanValues}"
                             onchange="{!c.pickBoolean}"
                             aura:id="booleanValues"
+        />
+        <lightning:combobox name="typeValues" class="picklist slds-hide" label="Types"
+                            value="{!v.typeForExecute}" placeholder="Type Operator"
+                            options="{!v.typeList}"
+                            onchange="{!c.pickType}"
+                            aura:id="typeValues"
         />
 
         <div aura:id="calendar" class="slds-hide picklist">

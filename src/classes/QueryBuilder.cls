@@ -60,4 +60,18 @@ public with sharing class QueryBuilder {
         List<Object> allPickedObjects = Database.query(query);
         return allPickedObjects;
     }
+
+    @AuraEnabled
+    public static List<String> getAllTypesFromObject(String getObject){
+        String field_name = 'Type';
+        String[] values = new String[]{};
+        String[] types = new String[]{getObject};
+        Schema.DescribeSObjectResult[] results = Schema.describeSObjects(types);
+        for(Schema.DescribeSObjectResult res : results) {
+            for (Schema.PicklistEntry entry : res.fields.getMap().get(field_name).getDescribe().getPicklistValues()) {
+                if (entry.isActive()) {values.add(entry.getValue());}
+            }
+        }
+        return values;
+    }
 }

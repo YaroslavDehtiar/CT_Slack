@@ -24,10 +24,12 @@
         const params = event.getParam('arguments');
         const something = params.newFields;
         component.set("v.types", something);
+        console.log(component.get("v.types") + " new types");
     },
 
     inpPickedFieldsForFilter: function (component, event) {
         const values = event.getSource().get("v.value");
+        console.log(component.get("v.types") + " old types");
         const labelForValue = component.get("v.inpFieldList")
             .reduce((acc, val) => acc || (val.value == values ? val.label : ""), "");
         component.set("v.inpFieldsForFilter", labelForValue);
@@ -43,17 +45,20 @@
         } else if (event.getParam("value").includes("BOOLEAN")) {
             $A.util.addClass(component.find('valueInput'), 'slds-hide');
             $A.util.removeClass(component.find('booleanValues'), 'slds-hide');
+        } else if (event.getParam("value").includes("PICKLIST")) {
+            $A.util.addClass(component.find('valueInput'), 'slds-hide');
+            $A.util.removeClass(component.find('typeValues'), 'slds-hide');
         } else {
             $A.util.addClass(component.find('calendar'), 'slds-hide');
             $A.util.addClass(component.find('dateOperatorsInput'), 'slds-hide');
             $A.util.removeClass(component.find('valueInput'), 'slds-hide');
             $A.util.addClass(component.find('booleanValues'), 'slds-hide');
+            $A.util.addClass(component.find('typeValues'), 'slds-hide');
         }
         component.set("v.comboboxValue", event.getParam("value"));
     },
 
     pickOperator: function (component, event) {
-        console.log(component.get("v.types") + ' oper');
         event.getParam("value");
         component.set("v.operatorsValue", event.getParam('value'));
     },
@@ -84,6 +89,11 @@
                 $A.util.addClass(getInput, 'slds-has-error');
             }
         }
+    },
+
+    pickType: function (component, event) {
+        event.getParam("value");
+        component.set("v.typeForExecute", event.getParam('value'));
     },
 
     removeLastInput: function (component, event, helper) {

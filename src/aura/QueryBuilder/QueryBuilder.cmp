@@ -9,6 +9,7 @@ flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
     <aura:attribute name="fieldsWithTypes" type="List" default="[]"/>
     <aura:attribute name="mainObject" type="String" default=""/>
     <aura:attribute name="newFields" type="List" default="[]"/>
+    <aura:attribute name="listOfTypes" type="List" default="[]"/>
     <aura:attribute name="fieldForExecute" type="Object"/>
     <aura:attribute name="inputs" type="Aura.Component[]"/>
     <aura:attribute name="inputIds" type="Integer" default="0"/>

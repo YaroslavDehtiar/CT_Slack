@@ -29,15 +29,26 @@
             component.set('v.fieldsWithTypes', types);
         });
         component.set("v.mainObject", event.getParam("value"));
+        $A.enqueueAction(action);
 
+        var typeOptions = [];
+        var typeAction = component.get('c.getAllTypesFromObject');
+        typeAction.setParams({getObject: event.getParam("value")});
+        typeAction.setCallback(this, function (resp) {
+            var array = resp.getReturnValue();
+            array.forEach(function (el) {
+                typeOptions.push({value: el, label: el})
+            });
+            component.set('v.listOfTypes', typeOptions);
+        });
+        $A.enqueueAction(typeAction);
         const findInp = component.find("sendFields");
-        findInp.inputFieldsFromParent(component.get("v.fieldsWithTypes"));
 
+        findInp.inputFieldsFromParent(component.get("v.fieldsWithTypes"));
         const button = component.find("button");
         button.set("v.disabled", false);
         const removeClass = component.find("inputClass");
         $A.util.removeClass(removeClass, 'sendFields');
-        $A.enqueueAction(action);
     },
 
     choiceFields: function (component, event) {
@@ -57,7 +68,8 @@
             "c:Inputs",
             {
                 "inpFieldList": component.get("v.fieldsWithTypes"),
-                "aura:id": getIds + 1
+                "aura:id": getIds + 1,
+                "typeList" : component.get("v.listOfTypes"),
             },
             function (newInput, status, errorMessage) {
                 if (status === "SUCCESS") {
@@ -105,7 +117,8 @@
                 const getBooleanId = getComponentById.find("booleanValues");
                 const getBooleanValue = getBooleanId.get("v.value");
 
-                console.log(getCustomDateValue);
+                const getTypeId = getComponentById.find("typeValues");
+                const getTypeValue = getTypeId.get("v.value");
 
                 const arr = component.get("v.finalString");
 
@@ -119,7 +132,10 @@
                         component.set("v.finalString", arr);
                     } else if (getBooleanValue) {                       //boolean
                         arr.push(labelForValue + ' ' + getOperatorValue + ' ' + getBooleanValue);
-                    } else if (getInputValue) {                         //just value
+                    } else if(getTypeValue){                            //Types
+                        arr.push(labelForValue + ' ' + getOperatorValue + ' \'' + getTypeValue + '\'');
+                    }
+                    else if (getInputValue) {                         //just value
                         arr.push(labelForValue + ' ' + getOperatorValue + ' \''
                             + getInputValue + '\'');
                         component.set("v.finalString", arr);
