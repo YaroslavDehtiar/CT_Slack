@@ -59,6 +59,7 @@ public with sharing class QueryBuilder {
         System.debug(query);
         List<Object> allPickedObjects = Database.query(query);
         return allPickedObjects;
+
     }
 
     @AuraEnabled

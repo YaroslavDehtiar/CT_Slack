@@ -18,7 +18,13 @@
         component.set('v.today', today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate());
         component.set('v.operators', opers);
         component.set('v.operatorsDateValue', dateOpers);
+//=====================================
 
+        var asd = component.find('filterList');
+        console.log(asd.value);
+
+
+        //=================================
     },
     updateFieldList: function (component, event, helper) {
         const params = event.getParam('arguments');
@@ -30,38 +36,46 @@
     inpPickedFieldsForFilter: function (component, event) {
         const values = event.getSource().get("v.value");
         console.log(component.get("v.types") + " old types");
-        const labelForValue = component.get("v.inpFieldList")
+        const labelFields = component.get("v.inpFieldList")
             .reduce((acc, val) => acc || (val.value == values ? val.label : ""), "");
-        component.set("v.inpFieldsForFilter", labelForValue);
+        console.log(labelFields + ' label');
+        component.set("v.inpFieldsForFilter", labelFields);
         console.log(event.getParam("value") + ' event value');
         component.set("v.typesForValidate", event.getParam("value"));
+        $A.util.addClass(component.find('calendar'), 'slds-hide');
 
-        if (event.getParam("value").includes("DATE")) {
+        if (event.getParam("value").includes("BOOLEAN")) {
+            component.set("v.newType", 'booleanValues');
+        }
+        else if (event.getParam("value").includes("PICKLIST")) {
+            component.set("v.newType", 'typeValues');
+        }
+        else if (event.getParam("value").includes("DATE")) {
             if (component.get("v.operatorDateValuesForExecute") === 'Custom Date') {
                 $A.util.removeClass(component.find('calendar'), 'slds-hide');
             }
-            $A.util.removeClass(component.find('dateOperatorsInput'), 'slds-hide');
-            $A.util.addClass(component.find('valueInput'), 'slds-hide');
-        } else if (event.getParam("value").includes("BOOLEAN")) {
-            $A.util.addClass(component.find('valueInput'), 'slds-hide');
-            $A.util.removeClass(component.find('booleanValues'), 'slds-hide');
-        } else if (event.getParam("value").includes("PICKLIST")) {
-            $A.util.addClass(component.find('valueInput'), 'slds-hide');
-            $A.util.removeClass(component.find('typeValues'), 'slds-hide');
+            component.set("v.newType", 'dateOperatorsInput');
         } else {
-            $A.util.addClass(component.find('calendar'), 'slds-hide');
-            $A.util.addClass(component.find('dateOperatorsInput'), 'slds-hide');
-            $A.util.removeClass(component.find('valueInput'), 'slds-hide');
-            $A.util.addClass(component.find('booleanValues'), 'slds-hide');
-            $A.util.addClass(component.find('typeValues'), 'slds-hide');
+            component.set("v.newType", 'valueInput');
         }
+
+        const oldTypeId = component.get("v.oldType");
+        const newTypeId = component.get("v.newType");
+
+        $A.util.addClass(component.find(oldTypeId), 'slds-hide');
+        $A.util.removeClass(component.find(newTypeId), 'slds-hide');
+
+        component.set("v.oldType", newTypeId);
+        
         component.set("v.comboboxValue", event.getParam("value"));
-    },
+    }
+    ,
 
     pickOperator: function (component, event) {
         event.getParam("value");
         component.set("v.operatorsValue", event.getParam('value'));
-    },
+    }
+    ,
 
     pickDateOperator: function (component, event) {
         event.getParam('value');
@@ -71,11 +85,13 @@
         } else {
             $A.util.addClass(component.find('calendar'), 'slds-hide');
         }
-    },
+    }
+    ,
     pickBoolean: function (component, event) {
         event.getParam('value');
         component.set("v.booleanValuesForExecute", event.getParam('value'));
-    },
+    }
+    ,
 
     checkValidation: function (component, event) {
         const value = event.getParam("value");
@@ -89,21 +105,25 @@
                 $A.util.addClass(getInput, 'slds-has-error');
             }
         }
-    },
+    }
+    ,
 
     pickType: function (component, event) {
         event.getParam("value");
         component.set("v.typeForExecute", event.getParam('value'));
-    },
+    }
+    ,
 
     removeLastInput: function (component, event, helper) {
         helper.closeMe(component, event, helper);
 
-    },
+    }
+    ,
 
     updateInputValue: function (component, event) {
         component.set("v.inputValue", event.getParam('value'));
-    },
+    }
+    ,
 
     cloneInputs: function (component, event) {
         $A.createComponent(
@@ -128,5 +148,6 @@
         );
         const cmpEvent = component.getEvent("sendInput");
         cmpEvent.fire();
-    },
+    }
+    ,
 });
