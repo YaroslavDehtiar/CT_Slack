@@ -15,7 +15,7 @@ flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
     <aura:attribute name="inputIds" type="Integer" default="0"/>
     <aura:attribute name="setOfInputIds" type="Integer[]" default=""/>
     <aura:attribute name="inputValues" type="String" default="[]"/>
-    <aura:attribute name="finalString" type="List" default="[]"/>
+    <aura:attribute name="finalString" type="List"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 <!--    <aura:handler name="inputIds" action="{!c.getIds}" event="c:setInputs"/>-->
     <aura:handler name="sendInput" action="{!c.createFilter}" event="c:setInputs"/>

@@ -121,6 +121,7 @@
                 const getTypeValue = getTypeId.get("v.value");
 
                 const arr = component.get("v.finalString");
+                console.log(component.get("v.finalString"));
 
                 if (labelForValue && getOperatorValue) {                    //field and operation true
                     if (getDateValue && getDateValue !== 'Custom Date') {   // date value not custom

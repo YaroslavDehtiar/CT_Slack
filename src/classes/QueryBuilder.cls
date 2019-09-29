@@ -49,8 +49,9 @@ public with sharing class QueryBuilder {
         }
         allFields = allFields.substring(0, allFields.length() - 1);
         String query;
-        query = 'Select ' + allFields + ' From ' + objectName + ' Where ';
+        query = 'Select ' + allFields + ' From ' + objectName;
         if (filterStrings.size() != 0) {
+            query += ' Where ';
             for (String str : filterStrings) {
                 query +=  str + ' AND ';
             }
