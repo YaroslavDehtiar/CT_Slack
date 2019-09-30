@@ -39,14 +39,9 @@
 
         if (event.getParam("value").includes("BOOLEAN")) {
             component.set("v.newType", 'booleanValues');
-            const bool = component.find('operatorsInput');
-            bool.set('v.options', [component.get("v.operators")[0], component.get("v.operators")[1]]);
-            console.log(component.get("v.operators")[0]);
-        }
-        else if (event.getParam("value").includes("PICKLIST")) {
+        } else if (event.getParam("value").includes("PICKLIST")) {
             component.set("v.newType", 'typeValues');
-        }
-        else if (event.getParam("value").includes("DATE")) {
+        } else if (event.getParam("value").includes("DATE")) {
             if (component.get("v.operatorDateValuesForExecute") === 'Custom Date') {
                 $A.util.removeClass(component.find('calendar'), 'slds-hide');
             }
@@ -64,14 +59,12 @@
         component.set("v.oldType", newTypeId);
 
         component.set("v.comboboxValue", event.getParam("value"));
-    }
-    ,
+    },
 
     pickOperator: function (component, event) {
         event.getParam("value");
         component.set("v.operatorsValue", event.getParam('value'));
-    }
-    ,
+    },
 
     pickDateOperator: function (component, event) {
         event.getParam('value');
@@ -81,13 +74,11 @@
         } else {
             $A.util.addClass(component.find('calendar'), 'slds-hide');
         }
-    }
-    ,
+    },
     pickBoolean: function (component, event) {
         event.getParam('value');
         component.set("v.booleanValuesForExecute", event.getParam('value'));
-    }
-    ,
+    },
 
     checkValidation: function (component, event) {
         const value = event.getParam("value");
@@ -101,25 +92,21 @@
                 $A.util.addClass(getInput, 'slds-has-error');
             }
         }
-    }
-    ,
+    },
 
     pickType: function (component, event) {
         event.getParam("value");
         component.set("v.typeForExecute", event.getParam('value'));
-    }
-    ,
+    },
 
     removeLastInput: function (component, event, helper) {
         helper.closeMe(component, event, helper);
 
-    }
-    ,
+    },
 
     updateInputValue: function (component, event) {
         component.set("v.inputValue", event.getParam('value'));
-    }
-    ,
+    },
 
     cloneInputs: function (component, event) {
         $A.createComponent(
