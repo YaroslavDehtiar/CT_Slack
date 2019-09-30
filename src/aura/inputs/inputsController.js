@@ -39,6 +39,9 @@
 
         if (event.getParam("value").includes("BOOLEAN")) {
             component.set("v.newType", 'booleanValues');
+            const bool = component.find('operatorsInput');
+            bool.set('v.options', [component.get("v.operators")[0], component.get("v.operators")[1]]);
+            console.log(component.get("v.operators")[0]);
         }
         else if (event.getParam("value").includes("PICKLIST")) {
             component.set("v.newType", 'typeValues');
