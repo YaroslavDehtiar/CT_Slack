@@ -90,10 +90,7 @@
                 if (status === "SUCCESS") {
                     const body = component.get("v.newInputs");
                     body.push(newInput);
-                    console.log(body);
-                    console.log("====================================");
                     component.set("v.newInputs", body);
-                    console.log(component.get("v.newInputs"));
                 } else if (status === "INCOMPLETE") {
                     console.log("No response from server or client is offline.")
                 } else if (status === "ERROR") {

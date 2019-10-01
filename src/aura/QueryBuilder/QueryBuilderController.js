@@ -18,7 +18,6 @@
         var types = [];
         var action = component.get("c.getFields");
         action.setParams({objectName: event.getParam("value")});
-        console.log(event.getParam("value"));
         action.setCallback(this, function (resp) {
             var arr = resp.getReturnValue();
             for (const arrElement in arr) {
@@ -145,8 +144,6 @@
                     }
                     arr.splice(0, 1);
                     comparisonArray.push(arr);
-                    console.log(arr);
-                    console.log(comparisonArray);
                 }
                 component.set("v.finalString", finalArr);
             }
