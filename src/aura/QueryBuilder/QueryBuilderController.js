@@ -18,7 +18,6 @@
         var types = [];
         var action = component.get("c.getFields");
         action.setParams({objectName: event.getParam("value")});
-        console.log(event.getParam("value"));
         action.setCallback(this, function (resp) {
             var arr = resp.getReturnValue();
             for (const arrElement in arr) {
@@ -29,15 +28,23 @@
             component.set('v.fieldsWithTypes', types);
         });
         component.set("v.mainObject", event.getParam("value"));
+        $A.enqueueAction(action);
 
-        const findInp = component.find("sendFields");
-        findInp.inputFieldsFromParent(component.get("v.fieldsWithTypes"));
-
+        var typeOptions = [];
+        var typeAction = component.get('c.getAllTypesFromObject');
+        typeAction.setParams({getObject: event.getParam("value")});
+        typeAction.setCallback(this, function (resp) {
+            var array = resp.getReturnValue();
+            array.forEach(function (el) {
+                typeOptions.push({value: el, label: el})
+            });
+            component.set('v.listOfTypes', typeOptions);
+        });
+        $A.enqueueAction(typeAction);
         const button = component.find("button");
         button.set("v.disabled", false);
         const removeClass = component.find("inputClass");
         $A.util.removeClass(removeClass, 'sendFields');
-        $A.enqueueAction(action);
     },
 
     choiceFields: function (component, event) {
@@ -52,12 +59,15 @@
     },
 
     createFilter: function (component, event, helper) {
+        const comparison = component.find("comparison");
+        comparison.set("v.disabled", false);
         const getIds = component.get("v.inputIds");
         $A.createComponent(
             "c:Inputs",
             {
                 "inpFieldList": component.get("v.fieldsWithTypes"),
-                "aura:id": getIds + 1
+                "aura:id": getIds + 1,
+                "typeList": component.get("v.listOfTypes"),
             },
             function (newInput, status, errorMessage) {
                 if (status === "SUCCESS") {
@@ -79,52 +89,89 @@
         child.inputFieldsFromParent(component.get("v.fieldList"));
     },
 
+    createComparisonOperator: function (component) {
+        $A.createComponent(
+            "lightning:input",
+            {
+                "aura:id": "comparisonInput",
+                "label": "Insert operators \"AND\", \"OR\"",
+            },
+            function (newField, status) {
+                if (status === "SUCCESS") {
+                    const body = component.get("v.comparisonField");
+                    body.push(newField);
+                    component.set("v.comparisonField", body);
+                }
+            }
+        )
+    },
+
 
     executeQuery: function (component, event) {
         const getArrayOfIds = component.get("v.setOfInputIds");
-        for (const getIds of getArrayOfIds) {
-            const getComponentById = component.find(getIds);
-            if (getComponentById) {
-                const getComboById = getComponentById.find("fieldsInput");
-                const getComboValue = getComboById.get("v.value");
-                const labelForValue = component.get("v.fieldsWithTypes")
-                    .reduce((acc, val) => acc || (val.value == getComboValue ? val.label : ""), "");
+        const finalArr = [];
+        let comparisonValue;
+        const comparisonArray = [];
+        const comparisonId = component.find("comparisonInput");
+        if (comparisonId) {
+            comparisonValue = comparisonId.get("v.value");
+            // console.log(comparisonValue);
+            for (const getIds of getArrayOfIds) {
+                const getComponentById = component.find(getIds);
 
-                const getOperatorById = getComponentById.find("operatorsInput");
-                const getOperatorValue = getOperatorById.get("v.value");
-
-                const getInputById = getComponentById.find("valueInput");
-                const getInputValue = getInputById.get("v.value");
-
-                const getDateById = getComponentById.find("dateOperatorsInput");
-                const getDateValue = getDateById.get("v.value");
-
-                const getCustomDateById = getComponentById.find("expdate");
-                const getCustomDateValue = getCustomDateById.get("v.value");
-
-                console.log(getCustomDateValue);
-
-                const arr = component.get("v.finalString");
-
-                if (labelForValue && getOperatorValue) {
-                    if (getDateValue && getDateValue !== 'Custom Date') {
-                        arr.push(labelForValue + ' ' + getOperatorValue + ' ' + getDateValue);
-                        component.set("v.finalString", arr);
-                    } else if (getDateValue && getCustomDateValue) {
-                        arr.push(labelForValue + ' ' + getOperatorValue + ' ' + getCustomDateValue
-                            + 'T00:00:00Z');
-                        component.set("v.finalString", arr);
-                    } else if (getInputValue) {
-                        arr.push(labelForValue + ' ' + getOperatorValue + ' \''
-                            + getInputValue + '\'');
-                        component.set("v.finalString", arr);
+                if (getComponentById) {
+                    const allComponents = getComponentById.find("fieldsInput");
+                    const arr = [];
+                    if (finalArr.length > 1) {
+                        finalArr.push('AND');
                     }
+                    for (let currentComponent of allComponents) {
+                        const getValue = currentComponent.get("v.value");
+                        const labelForValue = component.get("v.fieldsWithTypes")
+                            .reduce((acc, val) => acc || (val.value == getValue ? val.label : ""), "");
+                        if (getValue !== 'Custom Date') {
+                            arr.push(getValue);
+                        }
+                        if (labelForValue) {
+                            arr.push(labelForValue);
+                        }
+                    }
+                    if (arr[0] === 'DATETIME') {
+                        arr[3] = arr[3] + 'T00:00:00Z';
+                    }
+                    if (arr[0] !== "DATETIME" && arr[0] !== "BOOLEAN") {
+                        arr[3] = '\'' + arr[3] + '\'';
+                    }
+                    arr.splice(0, 1);
+                    comparisonArray.push(arr);
                 }
-                console.log(component.get("v.finalString"));
+                component.set("v.finalString", finalArr);
             }
         }
 
-        var action = component.get("c.finalExecute");
+        function replacer(match, p1, p2, p3) {
+            return [p1, p2, p3].join(' ');
+        }
+
+        if (comparisonValue) {
+            const newArr = [];
+            let newString = comparisonValue.replace(/([^\d]*)(\d*)([^\w]*)/gm, replacer).split(' ');
+            for (let newStringElement of newString) {
+                if (newStringElement !== '') {
+                    if (Number.isInteger(parseInt(newStringElement))) {
+                        for (let argument of comparisonArray[newStringElement - 1]) {
+                            newArr.push(argument)
+                        }
+                    } else {
+                        newArr.push(newStringElement);
+                    }
+                }
+            }
+            console.log(newArr);
+            component.set("v.finalString", newArr);
+        }
+
+        const action = component.get("c.finalExecute");
         action.setParams({
             objectName: component.get("v.mainObject"),
             fieldList: component.get("v.newFields"),
@@ -159,6 +206,7 @@
             component.set("v.fieldForExecute", parentBranches);
         });
         component.set("v.finalString", []);
+        console.log(component.get("v.finalString"));
         $A.enqueueAction(action);
     }
 });

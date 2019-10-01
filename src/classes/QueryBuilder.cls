@@ -47,17 +47,39 @@ public with sharing class QueryBuilder {
         for (String str : fieldList) {
             allFields += str + ',';
         }
+        String subQuery = '';
         allFields = allFields.substring(0, allFields.length() - 1);
         String query;
-        query = 'Select ' + allFields + ' From ' + objectName + ' Where ';
-        if (filterStrings.size() != 0) {
+        query = 'Select ' + allFields + ' From ' + objectName;
+        if(filterStrings.size() != 0) {
+            subQuery += 'Where ';
             for (String str : filterStrings) {
-                query +=  str + ' AND ';
+                subQuery += str + ' ';
             }
-            query = query.substring(0, query.length() - 4);
+            subQuery.trim();
+            query += ' ' + subQuery;
         }
         System.debug(query);
         List<Object> allPickedObjects = Database.query(query);
         return allPickedObjects;
+    }
+
+    @AuraEnabled
+    public static List<String> getAllTypesFromObject(String getObject) {
+        String field_name = 'Type';
+        String[] values = new String[]{
+        };
+        String[] types = new String[]{
+                getObject
+        };
+        Schema.DescribeSObjectResult[] results = Schema.describeSObjects(types);
+        for (Schema.DescribeSObjectResult res : results) {
+            for (Schema.PicklistEntry entry : res.fields.getMap().get(field_name).getDescribe().getPicklistValues()) {
+                if (entry.isActive()) {
+                    values.add(entry.getValue());
+                }
+            }
+        }
+        return values;
     }
 }

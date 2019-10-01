@@ -9,14 +9,16 @@ flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
     <aura:attribute name="fieldsWithTypes" type="List" default="[]"/>
     <aura:attribute name="mainObject" type="String" default=""/>
     <aura:attribute name="newFields" type="List" default="[]"/>
+    <aura:attribute name="listOfTypes" type="List" default="[]"/>
     <aura:attribute name="fieldForExecute" type="Object"/>
     <aura:attribute name="inputs" type="Aura.Component[]"/>
     <aura:attribute name="inputIds" type="Integer" default="0"/>
     <aura:attribute name="setOfInputIds" type="Integer[]" default=""/>
     <aura:attribute name="inputValues" type="String" default="[]"/>
-    <aura:attribute name="finalString" type="List" default="[]"/>
+    <aura:attribute name="components" type="Aura.Component[]"/>
+    <aura:attribute name="comparisonField" type="Aura.Component[]"/>
+    <aura:attribute name="finalString" type="List"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-<!--    <aura:handler name="inputIds" action="{!c.getIds}" event="c:setInputs"/>-->
     <aura:handler name="sendInput" action="{!c.createFilter}" event="c:setInputs"/>
 
     <lightning:combobox name="progress" label="Pick Object" value="inProgress" placeholder="Objects"
@@ -34,6 +36,9 @@ flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
 
         <lightning:button name="filter" variant="brand" label="Create Filter" onclick="{!c.createFilter}"
                           disabled="true" aura:id="button"/>
+        <lightning:button name="comparison" variant="brand" label="Create Comparison Operators" onclick="{!c.createComparisonOperator}"
+                          disabled="true" aura:id="comparison"/>
+        {!v.comparisonField}
         <h3 style="font-size: large; margin-top: 10px">Filter</h3>
 
 
