@@ -15,7 +15,11 @@
             return {label: op, value: op}
         });
         var today = new Date();
-        component.set('v.today', today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate());
+        let day;
+        if(today.getDate() < 10){
+           day = '0' + today.getDate();
+        }
+        component.set('v.today', today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + day);
         component.set('v.operators', opers);
         component.set('v.operatorsDateValue', dateOpers);
     },
