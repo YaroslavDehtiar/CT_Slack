@@ -42,9 +42,6 @@
             component.set('v.listOfTypes', typeOptions);
         });
         $A.enqueueAction(typeAction);
-        const findInp = component.find("sendFields");
-
-        findInp.inputFieldsFromParent(component.get("v.fieldsWithTypes"));
         const button = component.find("button");
         button.set("v.disabled", false);
         const removeClass = component.find("inputClass");
@@ -69,7 +66,7 @@
             {
                 "inpFieldList": component.get("v.fieldsWithTypes"),
                 "aura:id": getIds + 1,
-                "typeList" : component.get("v.listOfTypes"),
+                "typeList": component.get("v.listOfTypes"),
             },
             function (newInput, status, errorMessage) {
                 if (status === "SUCCESS") {
@@ -94,59 +91,45 @@
 
     executeQuery: function (component, event) {
         const getArrayOfIds = component.get("v.setOfInputIds");
+        const finalArr = [];
         for (const getIds of getArrayOfIds) {
             const getComponentById = component.find(getIds);
+
             if (getComponentById) {
-                const getComboById = getComponentById.find("fieldsInput");
-                const getComboValue = getComboById.get("v.value");
-                const labelForValue = component.get("v.fieldsWithTypes")
-                    .reduce((acc, val) => acc || (val.value == getComboValue ? val.label : ""), "");
-
-                const getOperatorById = getComponentById.find("operatorsInput");
-                const getOperatorValue = getOperatorById.get("v.value");
-
-                const getInputById = getComponentById.find("valueInput");
-                const getInputValue = getInputById.get("v.value");
-
-                const getDateById = getComponentById.find("dateOperatorsInput");
-                const getDateValue = getDateById.get("v.value");
-
-                const getCustomDateById = getComponentById.find("expdate");
-                const getCustomDateValue = getCustomDateById.get("v.value");
-
-                const getBooleanId = getComponentById.find("booleanValues");
-                const getBooleanValue = getBooleanId.get("v.value");
-
-                const getTypeId = getComponentById.find("typeValues");
-                const getTypeValue = getTypeId.get("v.value");
-
-                const arr = component.get("v.finalString");
-                console.log(component.get("v.finalString"));
-
-                if (labelForValue && getOperatorValue) {                    //field and operation true
-                    if (getDateValue && getDateValue !== 'Custom Date') {   // date value not custom
-                        arr.push(labelForValue + ' ' + getOperatorValue + ' ' + getDateValue);
-                        component.set("v.finalString", arr);
-                    } else if (getDateValue && getCustomDateValue) {        //custom date
-                        arr.push(labelForValue + ' ' + getOperatorValue + ' ' + getCustomDateValue
-                            + 'T00:00:00Z');
-                        component.set("v.finalString", arr);
-                    } else if (getBooleanValue) {                       //boolean
-                        arr.push(labelForValue + ' ' + getOperatorValue + ' ' + getBooleanValue);
-                    } else if(getTypeValue){                            //Types
-                        arr.push(labelForValue + ' ' + getOperatorValue + ' \'' + getTypeValue + '\'');
+                const allComponents = getComponentById.find("fieldsInput");
+                const arr = [];
+                if(finalArr.length > 1){
+                    finalArr.push('AND');
+                }
+                for (let currentComponent of allComponents) {
+                    const getValue = currentComponent.get("v.value");
+                    const labelForValue = component.get("v.fieldsWithTypes")
+                        .reduce((acc, val) => acc || (val.value == getValue ? val.label : ""), "");
+                    console.log(getValue + ' get value');
+                    if(getValue !== 'Custom Date'){
+                        arr.push(getValue);
                     }
-                    else if (getInputValue) {                         //just value
-                        arr.push(labelForValue + ' ' + getOperatorValue + ' \''
-                            + getInputValue + '\'');
-                        component.set("v.finalString", arr);
+                    if (labelForValue) {
+                        arr.push(labelForValue);
                     }
                 }
-                console.log(component.get("v.finalString"));
+                if (arr[0] === 'DATETIME') {
+                    arr[3] = arr[3] + 'T00:00:00Z';
+                }
+                if(arr[0] !== "DATETIME" && arr[0] !== "BOOLEAN"){
+                    arr[3] = '\'' + arr[3] + '\'';
+                }
+                arr.splice(0,1);
+                console.log(arr);
+                for (let arrElement of arr) {
+                    finalArr.push(arrElement);
+                }
             }
+            component.set("v.finalString", finalArr);
+            console.log(component.get("v.finalString"));
         }
 
-        var action = component.get("c.finalExecute");
+        const action = component.get("c.finalExecute");
         action.setParams({
             objectName: component.get("v.mainObject"),
             fieldList: component.get("v.newFields"),
@@ -181,6 +164,7 @@
             component.set("v.fieldForExecute", parentBranches);
         });
         component.set("v.finalString", []);
+        console.log(component.get("v.finalString"));
         $A.enqueueAction(action);
     }
 });

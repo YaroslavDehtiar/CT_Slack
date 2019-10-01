@@ -19,45 +19,13 @@
         component.set('v.operators', opers);
         component.set('v.operatorsDateValue', dateOpers);
     },
-    updateFieldList: function (component, event, helper) {
-        const params = event.getParam('arguments');
-        const something = params.newFields;
-        component.set("v.types", something);
-        console.log(component.get("v.types") + " new types");
-    },
 
     inpPickedFieldsForFilter: function (component, event) {
         const values = event.getSource().get("v.value");
-        console.log(component.get("v.types") + " old types");
         const labelFields = component.get("v.inpFieldList")
             .reduce((acc, val) => acc || (val.value == values ? val.label : ""), "");
-        console.log(labelFields + ' label');
         component.set("v.inpFieldsForFilter", labelFields);
-        console.log(event.getParam("value") + ' event value');
         component.set("v.typesForValidate", event.getParam("value"));
-        $A.util.addClass(component.find('calendar'), 'slds-hide');
-
-        if (event.getParam("value").includes("BOOLEAN")) {
-            component.set("v.newType", 'booleanValues');
-        } else if (event.getParam("value").includes("PICKLIST")) {
-            component.set("v.newType", 'typeValues');
-        } else if (event.getParam("value").includes("DATE")) {
-            if (component.get("v.operatorDateValuesForExecute") === 'Custom Date') {
-                $A.util.removeClass(component.find('calendar'), 'slds-hide');
-            }
-            component.set("v.newType", 'dateOperatorsInput');
-        } else {
-            component.set("v.newType", 'valueInput');
-        }
-
-        const oldTypeId = component.get("v.oldType");
-        const newTypeId = component.get("v.newType");
-
-        $A.util.addClass(component.find(oldTypeId), 'slds-hide');
-        $A.util.removeClass(component.find(newTypeId), 'slds-hide');
-
-        component.set("v.oldType", newTypeId);
-
         component.set("v.comboboxValue", event.getParam("value"));
     },
 
@@ -131,6 +99,5 @@
         );
         const cmpEvent = component.getEvent("sendInput");
         cmpEvent.fire();
-    }
-    ,
+    },
 });

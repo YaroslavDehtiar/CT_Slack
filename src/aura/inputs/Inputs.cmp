@@ -28,9 +28,6 @@ flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
     <aura:attribute name="operatorDateValuesForExecute" type="String" default=""/>
     <aura:registerEvent name="sendInput" type="c:setInputs"/>
 
-    <aura:method name="inputFieldsFromParent" action="{!c.updateFieldList}" access="public">
-        <aura:attribute name="newFields" type="List" default="[]"/>
-    </aura:method>
     <aura:method name="cloneInp" action="{!c.cloneInputs}" access="public">
         <aura:attribute name="newFields" type="List" default="[]"/>
     </aura:method>
@@ -47,37 +44,48 @@ flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
                             value="{!v.operatorsValue}" placeholder="Operator"
                             options="{!v.operators}"
                             onchange="{!c.pickOperator}"
-                            aura:id="operatorsInput"
+                            aura:id="fieldsInput"
         />
-        <lightning:combobox name="dateOperator" class="picklist slds-hide" label="Pick Date Operator"
-                            value="{!v.operatorDateValuesForExecute}" placeholder="Date Operator"
-                            options="{!v.operatorsDateValue}"
-                            onchange="{!c.pickDateOperator}"
-                            aura:id="dateOperatorsInput"
-        />
-        <lightning:combobox name="booleanValues" class="picklist slds-hide" label="True or False?"
-                            value="{!v.booleanValuesForExecute}" placeholder="Boolean Operator"
-                            options="{!v.booleanValues}"
-                            onchange="{!c.pickBoolean}"
-                            aura:id="booleanValues"
-        />
-        <lightning:combobox name="typeValues" class="picklist slds-hide" label="Types"
-                            value="{!v.typeForExecute}" placeholder="Type Operator"
-                            options="{!v.typeList}"
-                            onchange="{!c.pickType}"
-                            aura:id="typeValues"
-        />
-
-        <div aura:id="calendar" class="slds-hide picklist">
-            <lightning:input aura:id="expdate" label="Today's Date" type="date"
-                             class="field" value="{!v.today}"/>
-        </div>
-
-        <lightning:input name="value" class="picklist" label="Pick Value"
-                         placeholder="Value" value="{!v.newInputValue}"
-                         aura:id="valueInput"
-                         onchange="{!c.checkValidation}"
-        />
+        <aura:if isTrue="{!v.comboboxValue}">
+            <aura:if isTrue="{!v.comboboxValue == 'DATETIME'}">
+                <lightning:combobox name="dateOperator" class="picklist " label="Pick Date Operator"
+                                    value="{!v.operatorDateValuesForExecute}" placeholder="Date Operator"
+                                    options="{!v.operatorsDateValue}"
+                                    onchange="{!c.pickDateOperator}"
+                                    aura:id="fieldsInput"
+                />
+                <aura:if isTrue="{!v.operatorDateValuesForExecute == 'Custom Date'}">
+                    <div aura:id="calendar" class=" picklist">
+                        <lightning:input aura:id="fieldsInput" label="Today's Date" type="date"
+                                         class="field" value="{!v.today}"/>
+                    </div>
+                </aura:if>
+            </aura:if>
+            <aura:if isTrue="{!v.comboboxValue == 'BOOLEAN'}">
+                <lightning:combobox name="booleanValues" class="picklist" label="True or False?"
+                                    value="{!v.booleanValuesForExecute}" placeholder="Boolean Operator"
+                                    options="{!v.booleanValues}"
+                                    onchange="{!c.pickBoolean}"
+                                    aura:id="fieldsInput"
+                />
+            </aura:if>
+            <aura:if isTrue="{!v.comboboxValue == 'PICKLIST'}">
+                <lightning:combobox name="typeValues" class="picklist" label="Types"
+                                    value="{!v.typeForExecute}" placeholder="Type Operator"
+                                    options="{!v.typeList}"
+                                    onchange="{!c.pickType}"
+                                    aura:id="fieldsInput"
+                />
+            </aura:if>
+            <aura:if isTrue="{!and(and(v.comboboxValue != 'BOOLEAN', v.comboboxValue != 'PICKLIST'),
+                                        v.comboboxValue != 'DATETIME')}">
+                <lightning:input name="value" class="picklist" label="Pick Value"
+                                 placeholder="Value" value="{!v.newInputValue}"
+                                 onchange="{!c.checkValidation}"
+                                 aura:id="fieldsInput"
+                />
+            </aura:if>
+        </aura:if>
         <div id="'fs">
             <lightning:button class="buttons" iconName="utility:add" title="Add Filter"
                               onclick="{!c.cloneInputs}"/>
