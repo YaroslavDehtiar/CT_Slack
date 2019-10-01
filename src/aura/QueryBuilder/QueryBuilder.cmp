@@ -16,6 +16,7 @@ flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
     <aura:attribute name="setOfInputIds" type="Integer[]" default=""/>
     <aura:attribute name="inputValues" type="String" default="[]"/>
     <aura:attribute name="components" type="Aura.Component[]"/>
+    <aura:attribute name="comparisonField" type="Aura.Component[]"/>
     <aura:attribute name="finalString" type="List"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler name="sendInput" action="{!c.createFilter}" event="c:setInputs"/>
@@ -35,6 +36,9 @@ flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
 
         <lightning:button name="filter" variant="brand" label="Create Filter" onclick="{!c.createFilter}"
                           disabled="true" aura:id="button"/>
+        <lightning:button name="comparison" variant="brand" label="Create Comparison Operators" onclick="{!c.createComparisonOperator}"
+                          disabled="true" aura:id="comparison"/>
+        {!v.comparisonField}
         <h3 style="font-size: large; margin-top: 10px">Filter</h3>
 
 

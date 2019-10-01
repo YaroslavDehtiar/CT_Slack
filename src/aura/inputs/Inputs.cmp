@@ -23,8 +23,6 @@ flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
     <aura:attribute name="comboboxValue" type="String" default=""/>
     <aura:attribute name="typeForExecute" type="String" default=""/>
     <aura:attribute name="operatorsValue" type="String" default=""/>
-    <aura:attribute name="oldType" type="String" default="valueInput"/>
-    <aura:attribute name="newType" type="String" default="valueInput"/>
     <aura:attribute name="operatorDateValuesForExecute" type="String" default=""/>
     <aura:registerEvent name="sendInput" type="c:setInputs"/>
 

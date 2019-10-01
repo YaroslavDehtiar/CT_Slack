@@ -44,6 +44,8 @@
         $A.enqueueAction(typeAction);
         const button = component.find("button");
         button.set("v.disabled", false);
+        const comparison = component.find("comparison");
+        comparison.set("v.disabled", false);
         const removeClass = component.find("inputClass");
         $A.util.removeClass(removeClass, 'sendFields');
     },
@@ -88,25 +90,45 @@
         child.inputFieldsFromParent(component.get("v.fieldList"));
     },
 
+    createComparisonOperator: function (component) {
+        $A.createComponent(
+            "lightning:input",
+            {
+                "aura:id" : "comparisonInput",
+                "label" : "Insert operators \"AND\", \"OR\"",
+            },
+            function (newField, status) {
+                if(status === "SUCCESS"){
+                    const body = component.get("v.comparisonField");
+                    body.push(newField);
+                    component.set("v.comparisonField", body);
+                }
+            }
+        )
+    },
+
 
     executeQuery: function (component, event) {
         const getArrayOfIds = component.get("v.setOfInputIds");
         const finalArr = [];
+        const comparisonArray = [];
+        const comparisonId = component.find("comparisonInput");
+        const comparisonValue = comparisonId.get("v.value");
+        // console.log(comparisonValue);
         for (const getIds of getArrayOfIds) {
             const getComponentById = component.find(getIds);
 
             if (getComponentById) {
                 const allComponents = getComponentById.find("fieldsInput");
                 const arr = [];
-                if(finalArr.length > 1){
+                if (finalArr.length > 1) {
                     finalArr.push('AND');
                 }
                 for (let currentComponent of allComponents) {
                     const getValue = currentComponent.get("v.value");
                     const labelForValue = component.get("v.fieldsWithTypes")
                         .reduce((acc, val) => acc || (val.value == getValue ? val.label : ""), "");
-                    console.log(getValue + ' get value');
-                    if(getValue !== 'Custom Date'){
+                    if (getValue !== 'Custom Date') {
                         arr.push(getValue);
                     }
                     if (labelForValue) {
@@ -116,17 +138,35 @@
                 if (arr[0] === 'DATETIME') {
                     arr[3] = arr[3] + 'T00:00:00Z';
                 }
-                if(arr[0] !== "DATETIME" && arr[0] !== "BOOLEAN"){
+                if (arr[0] !== "DATETIME" && arr[0] !== "BOOLEAN") {
                     arr[3] = '\'' + arr[3] + '\'';
                 }
-                arr.splice(0,1);
+                arr.splice(0, 1);
+                comparisonArray.push(arr);
                 console.log(arr);
-                for (let arrElement of arr) {
-                    finalArr.push(arrElement);
-                }
+                console.log(comparisonArray);
             }
             component.set("v.finalString", finalArr);
-            console.log(component.get("v.finalString"));
+        }
+        function replacer(match, p1, p2, p3, offset, string) {
+            return [p1, p2, p3].join(' ');
+        }
+        if(comparisonValue){
+            const newArr = [];
+            let newString = comparisonValue.replace(/([^\d]*)(\d*)([^\w]*)/gm, replacer).split(' ');
+            for (let newStringElement of newString) {
+                if(newStringElement !== '') {
+                    if (Number.isInteger(parseInt(newStringElement))) {
+                        for (let argument of comparisonArray[newStringElement - 1]) {
+                            newArr.push(argument)
+                        }
+                    } else {
+                        newArr.push(newStringElement);
+                    }
+                }
+            }
+            console.log(newArr);
+            component.set("v.finalString", newArr);
         }
 
         const action = component.get("c.finalExecute");
