@@ -1472,6 +1472,18 @@
                       <option name="wildcard" value="false" />
                     </MetadataType>
                     <MetadataType>
+                      <option name="entries">
+                        <list>
+                          <MetadataEntry>
+                            <option name="name" value="filters" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="querySelector" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                        </list>
+                      </option>
                       <option name="name" value="LightningComponentBundle" />
                       <option name="wildcard" value="false" />
                     </MetadataType>
@@ -2753,7 +2765,7 @@
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
     </content>
-    <orderEntry type="jdk" jdkName="IlluminatedCloud (Org/Org)" jdkType="IlluminatedCloud" />
+    <orderEntry type="jdk" jdkName="IlluminatedCloud (CT_Slack/Org)" jdkType="IlluminatedCloud" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

@@ -1,0 +1,51 @@
+<!--
+ - Created by YaroslavDehtiar on 16.10.2019.
+ -->
+
+<!-- Query Selector -->
+<template>
+    <template if:true={objects}>
+        <lightning-combobox name="progress"
+                            label="Pick Object"
+                            value="inProgress"
+                            placeholder="Objects"
+                            options={objectOptions}
+                            onchange={handleOptionSelected}>
+        </lightning-combobox>
+    </template>
+
+    <div style="margin: auto">
+        <lightning-dual-Listbox id="fields"
+                                name="fields"
+                                label="Select Fields"
+                                source-label="Available"
+                                selected-label="Selected"
+                                options={fieldListOptions}
+                                onchange={choiceFields}>
+        </lightning-dual-Listbox>
+
+        <lightning-button name="filter" variant="brand" label="Create Filter" onclick={createFilter}
+                          disabled={disabledFilterButton} id="button">
+        </lightning-button>
+        <lightning-button name="comparison" variant="brand" label="Create Comparison Operators"
+                          onclick={createComparisonOperator}
+                          disabled="" id="comparison">
+        </lightning-button>
+        {comparisonField}
+        <h3 style="font-size: large; margin-top: 10px">Filter</h3>
+
+
+        <div id="filterList" class="divForPicklist">
+            {inputs}
+        </div>
+        <div class="sendFields" id="inputClass">
+                        <c-filters>Hello from filters</c-filters>
+        </div>
+    </div>
+
+    <lightning-button variant="brand" label="Execute" title="Execute"
+                      disabled={disabledExecuteButton} onclick={executeQuery} id="executeButton">
+    </lightning-button>
+
+        <lightning-tree items={fieldsFromExecute} header="Tree"></lightning-tree>
+</template>

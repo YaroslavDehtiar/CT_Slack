@@ -4,7 +4,7 @@
 
 public with sharing class QueryBuilder {
 
-    @AuraEnabled
+    @AuraEnabled(Cacheable = true)
     public static List<String> getObjects() {
         Map<String, Schema.SObjectType> allObjects = Schema.getGlobalDescribe();
         List<String> getAllObjectLabels = new List<String>();
@@ -51,7 +51,7 @@ public with sharing class QueryBuilder {
         allFields = allFields.substring(0, allFields.length() - 1);
         String query;
         query = 'Select ' + allFields + ' From ' + objectName;
-        if(filterStrings.size() != 0) {
+        if (filterStrings.size() != 0) {
             subQuery += 'Where ';
             for (String str : filterStrings) {
                 subQuery += str + ' ';
@@ -67,11 +67,8 @@ public with sharing class QueryBuilder {
     @AuraEnabled
     public static List<String> getAllTypesFromObject(String getObject) {
         String field_name = 'Type';
-        String[] values = new String[]{
-        };
-        String[] types = new String[]{
-                getObject
-        };
+        String[] values = new String[]{};
+        String[] types = new String[]{getObject};
         Schema.DescribeSObjectResult[] results = Schema.describeSObjects(types);
         for (Schema.DescribeSObjectResult res : results) {
             for (Schema.PicklistEntry entry : res.fields.getMap().get(field_name).getDescribe().getPicklistValues()) {
