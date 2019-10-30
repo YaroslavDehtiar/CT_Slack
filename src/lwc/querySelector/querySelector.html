@@ -4,48 +4,48 @@
 
 <!-- Query Selector -->
 <template>
-    <template if:true={objects}>
-        <lightning-combobox name="progress"
-                            label="Pick Object"
-                            value="inProgress"
-                            placeholder="Objects"
-                            options={objectOptions}
-                            onchange={handleOptionSelected}>
-        </lightning-combobox>
-    </template>
+    <table class="slds-table slds-table_cell-buffer slds-no-row-hover">
+        <tr>
+            <td>
+                <template if:true={objects}>
+                    <lightning-combobox name="progress" label="Pick Object" class="objectDiv"
+                                        value="inProgress" placeholder="Objects"
+                                        options={objectOptions} onchange={handleOptionSelected}>
+                    </lightning-combobox>
+                </template>
 
-    <div style="margin: auto">
-        <lightning-dual-Listbox id="fields"
-                                name="fields"
-                                label="Select Fields"
-                                source-label="Available"
-                                selected-label="Selected"
-                                options={fieldListOptions}
-                                onchange={choiceFields}>
-        </lightning-dual-Listbox>
+                <div style="margin: auto">
+                    <lightning-dual-Listbox id="fields" name="fields" style="margin-bottom: 1em"
+                                            label="Select Fields" source-label="Available"
+                                            selected-label="Selected"
+                                            options={fieldListOptions} onchange={choiceFields}>
+                    </lightning-dual-Listbox>
 
-        <lightning-button name="filter" variant="brand" label="Create Filter" onclick={createFilter}
-                          disabled={disabledFilterButton} id="button">
-        </lightning-button>
-        <lightning-button name="comparison" variant="brand" label="Create Comparison Operators"
-                          onclick={createComparisonOperator}
-                          disabled="" id="comparison">
-        </lightning-button>
-        {comparisonField}
-        <h3 style="font-size: large; margin-top: 10px">Filter</h3>
+                    <lightning-button name="filter" variant="brand" label="Create Filter" onclick={createFilter}
+                                      disabled={disabledFilterButton} id="button" style="margin: 1em">
+                    </lightning-button>
+                    <lightning-button name="comparison" variant="brand" label="Create Comparison Operators"
+                                      onclick={createComparisonOperator}
+                                      disabled="" id="comparison">
+                    </lightning-button>
+                    {comparisonField}
+                    <h3 style="font-size: large; margin-top: 10px">Filter</h3>
 
 
-        <div id="filterList" class="divForPicklist">
-            {inputs}
-        </div>
-        <div class="sendFields" id="inputClass">
-                        <c-filters>Hello from filters</c-filters>
-        </div>
-    </div>
+                    <div id="filterList" class="divForPicklist">
+                        {inputs}
+                    </div>
+                    <div class="sendFields" id="inputClass">
+                        <c-filters
+                        inp-field-list={fieldListOptions}></c-filters>
+                    </div>
+                </div>
+                <lightning-button variant="brand" label="Execute" title="Execute" class="executeButton"
+                                  disabled={disabledExecuteButton} onclick={executeQuery}>
+                </lightning-button>
 
-    <lightning-button variant="brand" label="Execute" title="Execute"
-                      disabled={disabledExecuteButton} onclick={executeQuery} id="executeButton">
-    </lightning-button>
-
-        <lightning-tree items={fieldsFromExecute} header="Tree"></lightning-tree>
+                <lightning-tree items={fieldsFromExecute} header="Tree"></lightning-tree>
+            </td>
+        </tr>
+    </table>
 </template>

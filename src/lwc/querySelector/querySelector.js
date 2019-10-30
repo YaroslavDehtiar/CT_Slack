@@ -11,7 +11,7 @@ import finalExecute from '@salesforce/apex/QueryBuilder.finalExecute';
 export default class QuerySelector extends LightningElement {
 
     @track objects = [];
-    @track fieldList = [];
+    @track fields = [];
     @track fieldsWithTypes = [];
     @track disabledFilterButton = true;
     @track disabledExecuteButton = true;
@@ -47,7 +47,7 @@ export default class QuerySelector extends LightningElement {
         getFields({objectName: this.mainObject})
             .then(result => {
                 for (let resultElement in result) {
-                    this.fieldList = [...this.fieldList,
+                    this.fields = [...this.fields,
                         {value: resultElement, label: resultElement}];
                     this.fieldsWithTypes = [...this.fieldsWithTypes,
                         {value: result[resultElement], label: resultElement}];
@@ -71,7 +71,7 @@ export default class QuerySelector extends LightningElement {
     }
 
     get fieldListOptions(){
-        return this.fieldList;
+        return this.fieldsWithTypes;
     }
 
     choiceFields(event){
