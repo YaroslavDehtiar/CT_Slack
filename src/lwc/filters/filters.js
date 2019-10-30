@@ -64,7 +64,7 @@ export default class Filters extends LightningElement {
         }));
     }
 
-    //todo tododooooo
+    //todo
 //
 //     inpPickedFieldsForFilter: function (component, event) {
 //         const values = event.getSource().get("v.value");
