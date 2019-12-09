@@ -1,7 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d3bb7c65-6976-41aa-8cc1-f4ce626e65fc" name="Default Changelist" comment="" />
+    <list default="true" id="d3bb7c65-6976-41aa-8cc1-f4ce626e65fc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowConfigurationDto.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowConfigurationDto.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowConfigurationDtoTest.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowConfigurationDtoTest.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowContextConfigurationController.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowContextConfigurationController.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowObjectPrototype.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowObjectPrototype.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowObjectPrototypeTest.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowObjectPrototypeTest.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPath.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPath.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathActionService.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathActionService.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathActionServiceTest.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathActionServiceTest.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathAssociation.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathAssociation.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathAssociationHandler.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathAssociationHandler.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathAssociationHandlerTest.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathAssociationHandlerTest.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathAssociationService.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathAssociationService.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathAssociationServiceTest.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathAssociationServiceTest.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathConfigurationController.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathConfigurationController.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathConfigurationControllerTest.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathConfigurationControllerTest.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathConfigurationService.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathConfigurationService.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathConfigurationServiceTest.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathConfigurationServiceTest.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathController.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathController.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathControllerTest.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathControllerTest.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathException.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathException.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathMeetingAdapter.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathMeetingAdapter.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathMeetingAdapterTest.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathMeetingAdapterTest.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathNode.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathNode.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathObjectRecordType.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathObjectRecordType.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathObjectRecordTypeTest.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathObjectRecordTypeTest.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathOfflineAssociationHandler.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathOfflineAssociationHandler.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathOfflineAssociationHndlrTest.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathOfflineAssociationHndlrTest.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathOfflineAssociationService.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathOfflineAssociationService.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathOfflineAssociationSrvcTest.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathOfflineAssociationSrvcTest.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathPermissionsHandler.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathPermissionsHandler.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathPermissionsHandlerTest.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathPermissionsHandlerTest.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathService.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathService.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathServiceStubProvider.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathServiceStubProvider.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathServiceTest.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathServiceTest.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathTest.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathTest.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathsListViewController.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathsListViewController.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathsListViewControllerTest.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathsListViewControllerTest.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathsListViewCreateCntrllrTest.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathsListViewCreateCntrllrTest.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathsListViewCreateController.cls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkflowPathsListViewCreateController.cls-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/customDatatable/checkboxInput.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/customDatatable/contextActionOrder.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/customDatatable/customDatatable.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/customDatatable/customDatatable.js-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/customDatatable/toggleInput.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/datatableCheckbox/datatableCheckbox.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/datatableCheckbox/datatableCheckbox.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/datatableCheckbox/datatableCheckbox.js-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/datatableOrder/datatableOrder.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/datatableOrder/datatableOrder.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/datatableOrder/datatableOrder.js-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/datatableToggle/__tests__/datatableToggle.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/datatableToggle/datatableToggle.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/datatableToggle/datatableToggle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/datatableToggle/datatableToggle.js-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/modal/modal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/modal/modal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/modal/modal.js-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/newActionModal/newActionModal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/newActionModal/newActionModal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/newActionModal/newActionModal.js-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/newWorkflowPathModal/newWorkflowPathModal.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/newWorkflowPathModal/newWorkflowPathModal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/newWorkflowPathModal/newWorkflowPathModal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/newWorkflowPathModal/newWorkflowPathModal.js-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowConfigurationPath/workflowConfigurationPath.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowConfigurationPath/workflowConfigurationPath.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowConfigurationPath/workflowConfigurationPath.js-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowContextActions/workflowContextActions.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowContextActions/workflowContextActions.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowContextActions/workflowContextActions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowContextActions/workflowContextActions.js-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowContextConditions/workflowContextConditions.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowContextConditions/workflowContextConditions.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowContextConditions/workflowContextConditions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowContextConditions/workflowContextConditions.js-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowContextConfiguration/workflowContextConfiguration.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowContextConfiguration/workflowContextConfiguration.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowContextConfiguration/workflowContextConfiguration.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowContextConfiguration/workflowContextConfiguration.js-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowContextsTree/workflowContextsTree.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowContextsTree/workflowContextsTree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowContextsTree/workflowContextsTree.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowContextsTree/workflowContextsTree.js-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowPath/workflowPath.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowPath/workflowPath.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowPath/workflowPath.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowPath/workflowPath.js-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowPathActions/workflowPathActions.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowPathActions/workflowPathActions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowPathActions/workflowPathActions.js-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowPathConfiguration/workflowPathConfiguration.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowPathConfiguration/workflowPathConfiguration.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowPathConfiguration/workflowPathConfiguration.js-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowPathsListView/workflowPathsListView.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowPathsListView/workflowPathsListView.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowPathsListView/workflowPathsListView.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowPathsListView/workflowPathsListView.js-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowPathsListViewCreateModal/workflowPathsListViewCreateModal.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowPathsListViewCreateModal/workflowPathsListViewCreateModal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowPathsListViewCreateModal/workflowPathsListViewCreateModal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowPathsListViewCreateModal/workflowPathsListViewCreateModal.js-meta.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowPathsListViewEditModal/workflowPathsListViewEditModal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowPathsListViewEditModal/workflowPathsListViewEditModal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lwc/workflowPathsListViewEditModal/workflowPathsListViewEditModal.js-meta.xml" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +164,9 @@
         <option value="Lightning Web Component Test JavaScript" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IlluminatedCloudWorkspaceSettings">
     <option name="moduleWorkspaceSettings">
@@ -1446,6 +1595,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1UCiklQsyeHpXPZ2fRbQevyRq72" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
     <option name="STATE" value="1" />
   </component>
@@ -1456,6 +1606,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jsx.switch.disabled" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/node_modules/jest" />
@@ -1511,7 +1662,7 @@
       <workItem from="1575466048732" duration="1498000" />
       <workItem from="1575469136805" duration="601000" />
       <workItem from="1575879078583" duration="2581000" />
-      <workItem from="1575900132604" duration="1014000" />
+      <workItem from="1575900132604" duration="1881000" />
     </task>
     <servers />
   </component>
@@ -1539,21 +1690,21 @@
       <screen x="-1920" y="13" width="1920" height="1040" />
     </state>
     <state x="-1181" y="287" key="FileChooserDialogImpl/0.0.1536.824/-1920.13.1920.1040@-1920.13.1920.1040" timestamp="1575891737799" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1575901155887">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1575901975713">
       <screen x="-1920" y="13" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.13.1920.1040@-1920.13.1920.1040" timestamp="1575901155887" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1575901155887">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.13.1920.1040@-1920.13.1920.1040" timestamp="1575901975713" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1575901975713">
       <screen x="-1920" y="13" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1536.824/-1920.13.1920.1040@-1920.13.1920.1040" timestamp="1575901155887" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1575901155887">
+    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1536.824/-1920.13.1920.1040@-1920.13.1920.1040" timestamp="1575901975713" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1575901975713">
       <screen x="-1920" y="13" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1536.824/-1920.13.1920.1040@-1920.13.1920.1040" timestamp="1575901155887" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1575901155887">
+    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1536.824/-1920.13.1920.1040@-1920.13.1920.1040" timestamp="1575901975713" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1575901975713">
       <screen x="-1920" y="13" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1536.824/-1920.13.1920.1040@-1920.13.1920.1040" timestamp="1575901155887" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1536.824/-1920.13.1920.1040@-1920.13.1920.1040" timestamp="1575901975713" />
   </component>
 </project>
