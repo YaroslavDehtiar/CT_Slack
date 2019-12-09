@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Action</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Actions</value>
+    </caseValues>
+    <fields>
+        <help><!-- Relationship to define an Action with a particular Context Type. --></help>
+        <label><!-- Context Type --></label>
+        <name>ContextType__c</name>
+        <relationshipLabel><!-- Context Type Actions --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- API Name of Custom Label which contains translatable name for current action. --></help>
+        <label><!-- Translation Label Name --></label>
+        <name>CustomLabelApiName__c</name>
+    </fields>
+    <fields>
+        <help><!-- API name for the field that is used to update a record. --></help>
+        <label><!-- Field --></label>
+        <name>Field__c</name>
+    </fields>
+    <fields>
+        <help><!-- Value to update a record field. --></help>
+        <label><!-- New Value --></label>
+        <name>NewValue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parameters --></label>
+        <name>Parameters__c</name>
+    </fields>
+    <fields>
+        <help><!-- The type of Action, such as a record update. --></help>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Platform Event</masterLabel>
+            <translation><!-- Platform Event --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Record Update</masterLabel>
+            <translation><!-- Record Update --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

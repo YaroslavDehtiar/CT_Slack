@@ -1,0 +1,35 @@
+.condition-Roll-Number,
+.new-condition-button-container {
+    vertical-align: top;
+}
+
+td {
+    padding: 5px;
+    padding-top: 0;
+    vertical-align: top;
+}
+
+th {
+    padding: 5px;
+}
+
+.new-condition-button-container {
+    padding-top: 20px;
+}
+
+table {
+    counter-reset: rowNumber;
+}
+
+.condition-Row {
+    counter-increment: rowNumber;
+}
+
+table tr td:first-child::before {
+    content: counter(rowNumber);
+    min-width: 1em;
+}
+
+.narrow-column {
+    width: 4.1666666666%;
+}

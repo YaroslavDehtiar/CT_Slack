@@ -1,0 +1,69 @@
+<!--
+ - Created by YaroslavDehtiar on 12.09.2019.
+ -->
+
+<template>
+
+    <!--    <lightning-method name="cloneInp" action="{!c.cloneInputs}" access="public">-->
+    <!--        <aura:attribute name="newFields" type="List" default="[]"/>-->
+    <!--    </li:method>-->
+
+
+    <div id="filterList" class="filterList slds-grid slds-wrap">
+        <lightning-combobox name="field" class="picklist" label="Pick Field"
+                            value={comboboxValue} placeholder="Fields"
+                            options={inpFieldList} variant="label-hidden"
+                            onchange={inpPickedFieldsForFilter}>
+        </lightning-combobox>
+        <lightning-combobox name="operator" class="picklist" label="Pick Operator"
+                            value={operatorsValue} placeholder="Operator"
+                            options={operators} variant="label-hidden"
+                            onchange={pickOperator}>
+        </lightning-combobox>
+        <lightning-combobox name="dateOperator" class="picklist " label="Pick Date Operator"
+                            value={operatorDateValuesForExecute} placeholder="Date Operator"
+                            options={operatorDateValue} variant="label-hidden"
+                            onchange={pickDateOperator}>
+        </lightning-combobox>
+        <template if:true={operatorDateValuesForExecute}>  <!--== 'Custom Date'}-->
+            <div id="calendar" class=" picklist">
+                <lightning-input id="fieldsInput" label="Today's Date" type="date"
+                                 class="field" value={today}>
+                </lightning-input>
+            </div>
+        </template>
+        <template if:true={comboboxValue}>  <!--== 'BOOLEAN'-->
+            <lightning-combobox name="booleanValues" class="picklist" label="True or False?"
+                                value={booleanValuesForExecute} placeholder="Boolean Operator"
+                                options={booleanValues} variant="label-hidden"
+                                onchange={pickBoolean}>
+            </lightning-combobox>
+        </template>
+        <template if:true={comboboxValue}> <!--== 'PICKLIST'-->
+            <lightning-combobox name="typeValues" class="picklist" label="Types"
+                                value={typeForExecute} placeholder="Type Operator"
+                                options={typeList} variant="label-hidden"
+                                onchange={pickType}>
+
+            </lightning-combobox>
+        </template>
+        <template if:true={blabla}> <!--{!and(and(v.comboboxValue != 'BOOLEAN', v.comboboxValue != 'PICKLIST'),
+                v.comboboxValue != 'DATETIME')}-->
+            <lightning-input name="value" class="picklist" label="Pick Value"
+                             placeholder="Value" value={newInputValue}
+                             onchange={checkValidation}>
+            </lightning-input>
+        </template>
+        <div class="divButtons">
+            <lightning-button-icon icon-name="utility:add" alternative-text=""
+                                   class="buttons" title="Add Filter"
+                                   onclick={cloneInputs}>
+            </lightning-button-icon>
+            <lightning-button-icon icon-name="utility:dash" alternative-text=""
+                                   class="buttons" title="Remove Filter"
+                                   onclick={removeLastInput}>
+            </lightning-button-icon>
+        </div>
+    </div>
+
+</template>

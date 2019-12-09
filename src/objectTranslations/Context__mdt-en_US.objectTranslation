@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Context</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Contexts</value>
+    </caseValues>
+    <fields>
+        <help><!-- Context Type (object type) that this context belongs to. --></help>
+        <label><!-- Context Type --></label>
+        <name>ContextType__c</name>
+        <relationshipLabel><!-- Contexts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Indicates whether there is permission to create a record of the given Context. --></help>
+        <label><!-- Create --></label>
+        <name>Create__c</name>
+    </fields>
+    <fields>
+        <help><!-- Indicates whether there is permission to delete a record of the given Context. --></help>
+        <label><!-- Delete --></label>
+        <name>Delete__c</name>
+    </fields>
+    <fields>
+        <help><!-- Indicates whether there is permission to update a record of the given Context. --></help>
+        <label><!-- Edit --></label>
+        <name>Edit__c</name>
+    </fields>
+    <fields>
+        <help><!-- Parent Context defined for the child sObject based on Context Type relationship --></help>
+        <label><!-- Parent Context --></label>
+        <name>ParentContext__c</name>
+    </fields>
+    <fields>
+        <help><!-- Type of the context, e.g. Rule, Workflow Path, etc. --></help>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+    </fields>
+    <fields>
+        <help><!-- The node of the path where the Context will be available to compile. --></help>
+        <label><!-- Workflow Path Node --></label>
+        <name>WorkflowPathNode__c</name>
+        <relationshipLabel><!-- Contexts --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

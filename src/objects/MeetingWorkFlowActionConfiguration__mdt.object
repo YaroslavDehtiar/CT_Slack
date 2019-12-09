@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Defines the next status in the workflow.</description>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <description>Determines if &apos;Comments&apos; field will be required to fill in when selecting an action. Selecting no option means &apos;Comments&apos; will not display at all</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Comments</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Required</fullName>
+                    <default>false</default>
+                    <label>Required</label>
+                </value>
+                <value>
+                    <fullName>Not Required</fullName>
+                    <default>false</default>
+                    <label>Not Required</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>MeetingWorkFlowNode__c</fullName>
+        <description>Stores the name of the status node that the particular button action should appear on. This is a lookup to the Meeting Work Flow Node Configuration metadata object, from where we get the status name.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Stores the name of the status node that the particular button action should appear on. This is a lookup to the Meeting Work Flow Node Configuration metadata object, from where we get the status name.</inlineHelpText>
+        <label>Meeting Work Flow Node</label>
+        <referenceTo>MeetingWorkFlowNodeConfiguration__mdt</referenceTo>
+        <relationshipName>MeetingWorkFlowNodeAction</relationshipName>
+        <required>true</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NextWorkFlowNode__c</fullName>
+        <description>Stores the name of the status node that will appear after pressing an action button. This is a lookup to the Meeting Work Flow Node Configuration metadata object.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Stores the name of the status node that will appear after pressing an action button. This is a lookup to the Meeting Work Flow Node Configuration metadata object.</inlineHelpText>
+        <label>Next Work Flow Node</label>
+        <referenceTo>MeetingWorkFlowNodeConfiguration__mdt</referenceTo>
+        <relationshipName>NextWorkFlowNodeAction</relationshipName>
+        <required>true</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ReasonValues__c</fullName>
+        <description>Stores the list of custom labels that will display in the &apos;Reason&apos; field when selecting an action</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Reason Values</label>
+        <length>131072</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Reason__c</fullName>
+        <description>Determines if &apos;Reason&apos; field will be required to fill in when selecting an action. Selecting no option means &apos;Reason&apos; will not display at all</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Reason</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Required</fullName>
+                    <default>false</default>
+                    <label>Required</label>
+                </value>
+                <value>
+                    <fullName>Not Required</fullName>
+                    <default>false</default>
+                    <label>Not Required</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Workflow Path Node Action</label>
+    <pluralLabel>Workflow Path Node Actions</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

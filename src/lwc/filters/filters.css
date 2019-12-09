@@ -1,0 +1,15 @@
+/**
+ * Created by YaroslavDehtiar on 17.10.2019.
+ */
+.filterList {
+    position: relative;
+}
+.picklist{
+    margin-bottom: 1em;
+    margin-left: 1em;
+}
+
+.divButtons {
+    margin-left: 1em;
+    margin-bottom: 1em;
+}

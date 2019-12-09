@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Workflow Path</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Workflow Paths</value>
+    </caseValues>
+    <fields>
+        <help><!-- The Context Type that defines a relationship of the workflow record to an sObject type. --></help>
+        <label><!-- Context Type --></label>
+        <name>ContextType__c</name>
+        <relationshipLabel><!-- Workflow Paths --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The Context Type sObject picklist field name to define the path steps. --></help>
+        <label><!-- Controlling Field --></label>
+        <name>ControllingField__c</name>
+    </fields>
+    <fields>
+        <help><!-- Determines if the Meeting user&apos;s manager will be automatically added as an approver of the Meeting. --></help>
+        <label><!-- Create Manager As Approver --></label>
+        <name>CreateManagerAsApprover__c</name>
+    </fields>
+    <fields>
+        <help><!-- The name of the sObject Record Type that the workflow is configured for. --></help>
+        <label><!-- Record Type Name --></label>
+        <name>MeetingRecordTypeName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Stores a list of Meeting Statuses to determine the field used in Meeting Budget 2 calculations. If the Meeting status is mentioned MeetingActualAmount_c is used in the Meeting Budget. If a Meeting status is not mentioned MeetingEstimatedAmount_c is used. --></help>
+        <label><!-- Status to Calculate Actuals --></label>
+        <name>StatusToCalculateActuals__c</name>
+    </fields>
+    <fields>
+        <help><!-- The status of the Workflow Path. --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

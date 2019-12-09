@@ -1,0 +1,7 @@
+<!--
+ - Created by YaroslavDehtiar on 16.09.2019.
+ -->
+
+<aura:event type="APPLICATION" description="setInputs">
+    <aura:attribute name="inputs" type="Aura.Component[]"/>
+</aura:event>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Conclusion</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Conclusions</value>
+    </caseValues>
+    <fields>
+        <label><!-- Diagnosis --></label>
+        <name>D__c</name>
+    </fields>
+    <fields>
+        <label><!-- MD --></label>
+        <name>MD__c</name>
+        <relationshipLabel><!-- Conclusions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Patient --></label>
+        <name>Patient__c</name>
+        <relationshipLabel><!-- Conclusions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Treatment --></label>
+        <name>Treatment__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

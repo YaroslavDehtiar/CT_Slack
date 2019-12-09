@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <interviewLabel>New Lead {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>New Lead</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>Create_Lead</name>
+        <label>Create Lead</label>
+        <locationX>332</locationX>
+        <locationY>50</locationY>
+        <assignRecordIdToReference>leadId</assignRecordIdToReference>
+        <connector>
+            <targetReference>Component_Screen</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Company</field>
+            <value>
+                <elementReference>Company_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LastName</field>
+            <value>
+                <elementReference>Last_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Lead</object>
+    </recordCreates>
+    <screens>
+        <name>Component_Screen</name>
+        <label>Component Screen</label>
+        <locationX>475</locationX>
+        <locationY>50</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Upload_File</name>
+            <extensionName>forceContent:fileUpload</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <stringValue>Upload Related Files</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>recordId</name>
+                <value>
+                    <elementReference>leadId</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>multiple</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </inputParameters>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Lead_Screen</name>
+        <label>Lead Screen</label>
+        <locationX>189</locationX>
+        <locationY>50</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Create_Lead</targetReference>
+        </connector>
+        <fields>
+            <name>Last_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Last Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Company_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Company Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <startElementReference>Lead_Screen</startElementReference>
+    <status>Obsolete</status>
+    <variables>
+        <name>leadId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

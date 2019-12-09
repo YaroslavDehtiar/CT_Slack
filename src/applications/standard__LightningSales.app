@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <formFactors>Small</formFactors>
+    <formFactors>Medium</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Sales</label>
+    <navType>Standard</navType>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>Sales_Home</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Custom: Sales Profile</profile>
+    </profileActionOverrides>
+    <tabs>standard-home</tabs>
+    <tabs>standard-Opportunity</tabs>
+    <tabs>QuerySelector</tabs>
+    <tabs>standard-Lead</tabs>
+    <tabs>standard-Task</tabs>
+    <tabs>standard-File</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Contact</tabs>
+    <tabs>standard-Campaign</tabs>
+    <tabs>standard-Dashboard</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Feed</tabs>
+    <tabs>standard-CollaborationGroup</tabs>
+    <tabs>standard-Event</tabs>
+    <tabs>standard-OtherUserProfile</tabs>
+    <tabs>standard-Case</tabs>
+    <tabs>standard-Forecasting3</tabs>
+    <tabs>standard-Quote</tabs>
+    <tabs>Drink_Order__c</tabs>
+    <tabs>TestObject__c</tabs>
+    <tabs>Slack__c</tabs>
+    <tabs>GrandChild__c</tabs>
+    <tabs>Conclusion__c</tabs>
+    <tabs>MD__c</tabs>
+    <tabs>Patient__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Sales_UtilityBar</utilityBar>
+</CustomApplication>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuthProvider xmlns="http://soap.sforce.com/2006/04/metadata">
+    <authorizeUrl>https://slack.com/oauth/authorize</authorizeUrl>
+    <consumerKey>782315697829.782318397904</consumerKey>
+    <consumerSecret>VTHQOcn4d/O3XskYwmDeRm3wTx2piHbkX9e1YcZEh1BwQRj3Ygtq1w==</consumerSecret>
+    <friendlyName>SlackProvider</friendlyName>
+    <includeOrgIdInIdentifier>false</includeOrgIdInIdentifier>
+    <providerType>OpenIdConnect</providerType>
+    <sendAccessTokenInHeader>true</sendAccessTokenInHeader>
+    <sendClientCredentialsInHeader>false</sendClientCredentialsInHeader>
+    <sendSecretInApis>true</sendSecretInApis>
+    <tokenUrl>https://slack.com/api/oauth.access</tokenUrl>
+</AuthProvider>

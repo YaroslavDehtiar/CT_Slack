@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Defines a step in the workflow.</description>
+    <fields>
+        <fullName>AddActualExpenseAllocation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Actual Expense Allocations can be added.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Actual Expense Allocations can be added.</inlineHelpText>
+        <label>Add Actual Expense Allocation</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AddAttendee__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Attendees can be added.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Attendees can be added.</inlineHelpText>
+        <label>Add Attendee</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AddColleague__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Colleagues can be added.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Colleagues can be added.</inlineHelpText>
+        <label>Add Colleague</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AddEstimatedExpenseAllocation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Estimated Expense Allocations can be added.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Estimated Expense Allocations can be added.</inlineHelpText>
+        <label>Add Estimated Expense Allocation</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AddLocation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Locations can be added.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Locations can be added.</inlineHelpText>
+        <label>Add Location</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AddMeetingBudget__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Meeting Budgets can be added.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Meeting Budgets can be added.</inlineHelpText>
+        <label>Add Meeting Budget</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AddMeetingExpenseBudgetAllocation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Meeting Expense Budget Allocation can be added.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Meeting Expense Budget Allocation can be added.</inlineHelpText>
+        <label>Add Meeting Expense Budget Allocation</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AddNotesAttachments__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>DEPRECATED. Determines if Notes and Attachments can be added.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>DEPRECATED. Determines if Notes and Attachments can be added.</inlineHelpText>
+        <label>DEPRECATED. Add Notes Attachments</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AddSpeaker__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Speakers can be added.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Speakers can be added.</inlineHelpText>
+        <label>Add Speaker</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AddToDos__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>DEPRECATED. Determines if To Dos can be added.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>DEPRECATED. Determines if To Dos can be added.</inlineHelpText>
+        <label>DEPRECATED. Add To Dos</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AddTopic__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Topics can be added.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Topics can be added.</inlineHelpText>
+        <label>Add Topic</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DeleteActualExpenseAllocation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Actual Expense Allocations can be deleted.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Actual Expense Allocations can be deleted.</inlineHelpText>
+        <label>Delete Actual Expense Allocation</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DeleteAttendee__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Attendees can be deleted.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Attendees can be deleted.</inlineHelpText>
+        <label>Delete Attendee</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DeleteColleague__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Colleagues can be deleted.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Colleagues can be deleted.</inlineHelpText>
+        <label>Delete Colleague</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DeleteEstimatedExpenseAllocation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Estimated Expense Allocations can be deleted.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Estimated Expense Allocations can be deleted.</inlineHelpText>
+        <label>Delete Estimated Expense Allocation</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DeleteLocation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Locations can be deleted.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Locations can be deleted.</inlineHelpText>
+        <label>Delete Location</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DeleteMeetingBudget__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Meeting Budgets can be deleted.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Meeting Budgets can be deleted.</inlineHelpText>
+        <label>Delete Meeting Budget</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DeleteMeetingExpenseBudgetAllocation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Meeting Expense Budget Allocation can be deleted.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Meeting Expense Budget Allocation can be deleted.</inlineHelpText>
+        <label>Delete Meeting Expense Budget Allocation</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DeleteMeetingProduct__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Meeting Products can be deleted.</inlineHelpText>
+        <label>Delete Meeting Product</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DeleteMeeting__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Meetings can be deleted. Meetings can only be deleted in Draft status.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Meetings can be deleted. Meetings can only be deleted in Draft status.</inlineHelpText>
+        <label>Delete Meeting</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DeleteNotesAttachments__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>DEPRECATED. Determines if Notes and Attachments can be deleted.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>DEPRECATED. Determines if Notes and Attachments can be deleted.</inlineHelpText>
+        <label>DEPRECATED. Delete Notes Attachments</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DeleteSpeaker__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Speakers can be deleted.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Speakers can be deleted.</inlineHelpText>
+        <label>Delete Speaker</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DeleteToDos__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>DEPRECATED. Determines if To Dos can be deleted.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>DEPRECATED. Determines if To Dos can be deleted.</inlineHelpText>
+        <label>DEPRECATED. Delete To Dos</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DeleteTopic__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Topics can be deleted.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Topics can be deleted.</inlineHelpText>
+        <label>Delete Topic</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>EditActualExpenseAllocation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Actual Expense Allocations will be editable.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Actual Expense Allocations will be editable.</inlineHelpText>
+        <label>Edit Actual Expense Allocation</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>EditAttendee__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Attendees will be editable.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Attendees will be editable.</inlineHelpText>
+        <label>Edit Attendee</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>EditColleague__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Colleagues will be editable.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Colleagues will be editable.</inlineHelpText>
+        <label>Edit Colleague</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>EditEstimatedExpenseAllocation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Estimated Expense Allocations will be editable.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Estimated Expense Allocations will be editable.</inlineHelpText>
+        <label>Edit Estimated Expense Allocation</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>EditLocation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Locations will be editable.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Locations will be editable.</inlineHelpText>
+        <label>Edit Location</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>EditMeetingBudget__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Meeting Budgets can be edited.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Meeting Budgets can be edited.</inlineHelpText>
+        <label>Edit Meeting Budget</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>EditMeetingExpenseBudgetAllocation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Meeting Expense Budget Allocation can be edited.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Meeting Expense Budget Allocation can be edited.</inlineHelpText>
+        <label>Edit Meeting Expense Budget Allocation</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>EditMeeting__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Meetings will be editable.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Meetings will be editable.</inlineHelpText>
+        <label>Edit Meeting</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>EditNotesAttachments__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>DEPRECATED. Determines if Notes and Attachments will be editable.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>DEPRECATED. Determines if Notes and Attachments will be editable.</inlineHelpText>
+        <label>DEPRECATED. Edit Notes Attachments</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>EditSpeaker__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Speakers will be editable.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Speakers will be editable.</inlineHelpText>
+        <label>Edit Speaker</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>EditToDos__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>DEPRECATED. Determines if To Dos will be editable.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>DEPRECATED. Determines if To Dos will be editable.</inlineHelpText>
+        <label>DEPRECATED. Edit To Dos</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>EditTopic__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines if Topics can be edited.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if Topics can be edited.</inlineHelpText>
+        <label>Edit Topic</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>MeetingRole__c</fullName>
+        <description>The role of the Meeting Member that the rule applies. Maps to the Type__c field of Meeting Member object.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>The role of the Meeting Member that the rule applies. Maps to the Type__c field of Meeting Member object.</inlineHelpText>
+        <label>Meeting Role</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MeetingStatus__c</fullName>
+        <description>Values related to the Workflow Path Controlling Field.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Values related to the Workflow Path Controlling Field.</inlineHelpText>
+        <label>Controlling Field Values</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MeetingWorkFlowConfiguration__c</fullName>
+        <description>The Workflow Path definition.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>The Workflow Path definition.</inlineHelpText>
+        <label>Workflow Path</label>
+        <referenceTo>MeetingWorkFlowConfiguration__mdt</referenceTo>
+        <relationshipLabel>Workflow Path Nodes</relationshipLabel>
+        <relationshipName>MeetingWorkFlowNodeConfigurations</relationshipName>
+        <required>true</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <label>Workflow Path Node</label>
+    <pluralLabel>Workflow Path Nodes</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,31 @@
+<template>
+
+    <lightning-card title={masterLabel}>
+
+        <div slot="actions">
+            <lightning-button label="Deploy" onclick={onDeploy} class="deploy_button"></lightning-button>
+        </div>
+
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="12">
+                <c-workflow-configuration-path onselect={onNodeSelect}>
+                </c-workflow-configuration-path>
+            </lightning-layout-item>
+
+            <lightning-layout-item size="12" if:true={showContextConfiguration}>
+                <c-workflow-context-configuration context-data={currentWorkFlowPathNode}
+                                                  object-api-name={objectApiName}
+                                                  context-types={contextTypes}
+                                                  actions={actions}
+                                                  oncontextschanged={onContextChanged}
+                                                  oncontexttypechanged={onContextTypeChanged}
+                >
+                </c-workflow-context-configuration>
+            </lightning-layout-item>
+        </lightning-layout>
+
+        <lightning-spinner if:true={showSpinner}></lightning-spinner>
+
+    </lightning-card>
+
+</template>

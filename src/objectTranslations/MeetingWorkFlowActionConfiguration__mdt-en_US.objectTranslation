@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Workflow Path Node Action</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Workflow Path Node Actions</value>
+    </caseValues>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+        <picklistValues>
+            <masterLabel>Not Required</masterLabel>
+            <translation><!-- Not Required --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Required</masterLabel>
+            <translation><!-- Required --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Stores the name of the status node that the particular button action should appear on. This is a lookup to the Meeting Work Flow Node Configuration metadata object, from where we get the status name. --></help>
+        <label><!-- Meeting Work Flow Node --></label>
+        <name>MeetingWorkFlowNode__c</name>
+        <relationshipLabel><!-- Workflow Path Node Actions (Meeting Work Flow Node) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Stores the name of the status node that will appear after pressing an action button. This is a lookup to the Meeting Work Flow Node Configuration metadata object. --></help>
+        <label><!-- Next Work Flow Node --></label>
+        <name>NextWorkFlowNode__c</name>
+        <relationshipLabel><!-- Workflow Path Node Actions (Next Work Flow Node) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Reason Values --></label>
+        <name>ReasonValues__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reason --></label>
+        <name>Reason__c</name>
+        <picklistValues>
+            <masterLabel>Not Required</masterLabel>
+            <translation><!-- Not Required --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Required</masterLabel>
+            <translation><!-- Required --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

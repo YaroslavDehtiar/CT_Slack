@@ -1,0 +1,90 @@
+<template>
+    <table>
+        <tbody>
+
+        <!--            ##### TABLE HEADER FIELDS #####-->
+        <tr>
+            <th class="narrow-column">
+                <!--                    blank space for autonumber-->
+            </th>
+            <th class="slds-size--5-of-12">
+                <h4>Field</h4>
+            </th>
+            <th class="slds-size--2-of-12">
+                <h4>Operator</h4>
+            </th>
+            <th class="slds-size--4-of-12">
+                <h4>Value</h4>
+            </th>
+            <th class="narrow-column">
+                <!--                    blank space for delete button-->
+            </th>
+        </tr>
+
+        <template for:each={contextConditionsLocal} for:item="condition">
+
+            <!--                ##### CONDITION ROW #####-->
+            <tr key={condition.name} data-name={condition.name}
+                class="condition-Row">
+                <td class="condition-Roll-Number narrow-column">
+                    .
+                </td>
+                <td class="slds-size--5-of-12">
+                    <lightning-combobox name="field"
+                        value={condition.field}
+                        options={fieldsPicklist}
+                        required
+                        variant="label-hidden"
+                        onchange={handleValueChange}
+                        data-name={condition.name}
+                        class="condition-required-field"
+                    >
+                    </lightning-combobox>
+                </td>
+                <td class="slds-size--2-of-12">
+                    <lightning-combobox
+                        name="operator"
+                        label=""
+                        value={condition.operator}
+                        options={contextOperatorData}
+                        required
+                        variant="label-hidden"
+                        onchange={handleValueChange}
+                        data-name={condition.name}
+                        class="condition-required-field"
+                    >
+                    </lightning-combobox>
+                </td>
+                <td class="slds-size--4-of-12">
+                    <lightning-input name="value"
+                         value={condition.value}
+                         variant="label-hidden"
+                         onchange={handleValueChange}
+                         data-name={condition.name}
+                    >
+                    </lightning-input>
+                </td>
+                <td class="narrow-column">
+                    <lightning-button-icon if:false={condition.id}
+                        name="deleteConditionButton"
+                        alternative-text="Delete Context Condition"
+                        icon-name="utility:clear"
+                        variant="container"
+                        size="large"
+                        onclick={deleteCondition}
+                        data-name={condition.name}>
+                    </lightning-button-icon>
+                </td>
+            </tr>
+        </template>
+
+        <tr>
+            <th class="new-condition-button-container">
+                <lightning-button-icon icon-name="utility:add" name="addNewConditionButton"
+                                       alternative-text="Add new Context Condition"
+                                       onclick={addCondition}></lightning-button-icon>
+            </th>
+        </tr>
+        </tbody>
+    </table>
+</template>

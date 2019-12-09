@@ -1,0 +1,28 @@
+<template>
+    <div class={container}>
+        <template for:each={actions} for:item="action">
+
+            <button value={action.id} key={action.id} onclick={onListActionButtonClick}
+                    variant="brand" class="slds-button slds-path__mark-complete slds-button_brand">{action.label}
+            </button>
+        </template>
+    </div>
+
+    <tempate if:true={isGroupOfActions}>
+        <div class={actionMenu}>
+            <button value={firstAction.id}
+                    class="slds-path__mark-complete slds-path__mark-complete-first slds-button_brand"
+                    onclick={onListActionButtonClick}>{firstAction.label}
+            </button>
+            <lightning-button-menu variant="container" alternative-text="Show menu"
+                                   menu-alignment="right" class="slds-shadow-disabled"
+                                   onselect={onMenuActionItemSelect}>
+                <template for:each={actionsExceptFirst} for:item="action">
+
+                    <lightning-menu-item label={action.label} value={action.id} key={action.id}></lightning-menu-item>
+                </template>
+            </lightning-button-menu>
+        </div>
+
+    </tempate>
+</template>

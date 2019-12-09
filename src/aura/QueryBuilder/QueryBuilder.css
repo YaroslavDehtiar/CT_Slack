@@ -1,0 +1,28 @@
+/**
+ * Created by YaroslavDehtiar on 12.09.2019.
+ */
+
+.THIS .picklist{
+    margin: 15px;
+}
+.THIS .divForPicklist{
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    flex-wrap: wrap;
+    float: left;
+}
+
+.THIS #filterList lightning-combobox label{
+    display: none;
+}
+
+.THIS #filterList lightning-input label{
+    display: none;
+}
+.THIS #filterList div label{
+    display: none;
+}
+.THIS .sendFields {
+    display: none;
+}

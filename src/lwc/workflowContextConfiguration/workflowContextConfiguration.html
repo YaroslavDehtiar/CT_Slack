@@ -1,0 +1,87 @@
+<template>
+    <div if:true={fields} class="slds-grid">
+        <div class="slds-col slds-size--1-of-2 slds-m-around--small configuration-column">
+            <c-workflow-contexts-tree contexts={contextsDataLocal.contexts}
+                                      current-context={currentContext}
+                                      oncreatenewcontext={createNewContext} oncontextselected={handleContextSelection}>
+            </c-workflow-contexts-tree>
+        </div>
+        <div class="slds-col slds-size--1-of-2 slds-m-around--small configuration-column">
+            <!--Context details-->
+            <div class="context-name-container slds-m-bottom--small">
+                <template if:true={currentContext}>
+                    <div class="slds-m-right--xx-small">
+                        {currentContext.label} -
+                    </div>
+                    <div if:true={currentContext.create} class="slds-m-right--medium">Create</div>
+                    <div if:true={currentContext.edit} class="slds-m-right--medium">Edit</div>
+                    <div if:true={currentContext.deletex} class="slds-m-right--medium">Delete</div>
+                    <lightning-button-icon onclick={editContext}
+                                           icon-name="utility:edit"
+                                           alternative-text="Edit Context"
+                                           class="edit-context-button slds-m-right--xx-small"
+                    ></lightning-button-icon>
+                    <lightning-button-icon onclick={deleteContext}
+                                           icon-name="utility:delete"
+                                           alternative-text="Delete Context"
+                                           class="delete-context-button"
+                    ></lightning-button-icon>
+                </template>
+            </div>
+            <!--Context conditions and context actions-->
+            <lightning-tabset variant="scoped">
+                <lightning-tab label="Context Conditions">
+                    <!--<c-workflow-context-conditions if:true={currentContext} context-name={currentContext.name}
+                                                   fields={fields} context-conditions={currentContext.contextConditions}
+                                                   oncontextconditionschanged={handleContextConditionsChanged}
+                    >
+                    </c-workflow-context-conditions>-->
+                </lightning-tab>
+                <lightning-tab if:true={areContextActionsAvailable} label="Context Actions">
+                    <template if:true={currentContext}>
+                        <c-workflow-context-actions actions={filteredActions} context-actions={currentContext.contextActions}
+                                                    context-name={currentContext.name}
+                                                    oncontextactionschanged={handleContextActionsChanged}>
+                        </c-workflow-context-actions>
+                    </template>
+                </lightning-tab>
+            </lightning-tabset>
+            <div></div>
+        </div>
+    </div>
+    <!--    Create/edit Context modal form-->
+    <c-modal>
+        <h2 slot="header" class="slds-text-heading--medium">
+            <template if:true={isEditContextMode}>Edit Context</template>
+            <template if:false={isEditContextMode}>New Context</template>
+        </h2>
+        <div if:true={contextBeingEdited} slot="body" style="min-height: 40vh;">
+            <lightning-input label="Name" name="label" required value={contextBeingEdited.label}
+                             type="text" class="slds-m-bottom--small" data-required-field="true"
+                             onchange={editModalFieldChange}
+            ></lightning-input>
+            <lightning-combobox if:true={contextBeingEdited.parentContext} label="Object Name" name="contextTypeDeveloperName"
+                                options={contextTypesPicklist} value={contextBeingEdited.contextTypeDeveloperName}
+                                class="slds-m-bottom--small" required data-required-field="true"
+                                onchange={editModalFieldChange}
+            >
+            </lightning-combobox>
+            <div class="slds-grid">
+                <lightning-input label="Create" type="checkbox" checked={contextBeingEdited.create} name="create"
+                                 onchange={editModalFieldChange}></lightning-input>
+                <lightning-input label="Edit" type="checkbox" checked={contextBeingEdited.edit} name="edit"
+                                 onchange={editModalFieldChange}></lightning-input>
+                <lightning-input label="Delete" type="checkbox" checked={contextBeingEdited.deletex} name="deletex"
+                                 onchange={editModalFieldChange}></lightning-input>
+            </div>
+        </div>
+        <div slot="footer">
+            <lightning-button data-id="cancelButton" class="slds-m-around--xx-small" label="Cancel" onclick={closeModal}></lightning-button>
+            <lightning-button data-id="submitButton" class="slds-m-around--xx-small" label="Save" onclick={handleEditComplete} variant="brand"></lightning-button>
+        </div>
+    </c-modal>
+    <!--SPINNER-->
+    <template if:true={showSpinner}>
+        <lightning-spinner alternative-text="Processing" size="small"></lightning-spinner>
+    </template>
+</template>

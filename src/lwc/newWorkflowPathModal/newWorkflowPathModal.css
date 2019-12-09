@@ -1,0 +1,15 @@
+/**
+ * Created by joel.smith on 11/5/19.
+ */
+
+.new-path-modal-header-text {
+    padding: 20px;
+}
+
+.new-path-modal-body * {
+    margin-bottom: 20px;
+}
+
+.new-path-modal-footer lightning-button {
+    margin-left: 10px;
+}

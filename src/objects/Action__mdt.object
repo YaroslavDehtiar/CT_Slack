@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Defines the master list of actions available for a Context Type.</description>
+    <fields>
+        <fullName>ContextType__c</fullName>
+        <description>Relationship to define an Action with a particular Context Type.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Relationship to define an Action with a particular Context Type.</inlineHelpText>
+        <label>Context Type</label>
+        <referenceTo>ContextType__mdt</referenceTo>
+        <relationshipLabel>Context Type Actions</relationshipLabel>
+        <relationshipName>ContextTypeActions</relationshipName>
+        <required>false</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CustomLabelApiName__c</fullName>
+        <description>API Name of Custom Label which contains translatable name for current action.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API Name of Custom Label which contains translatable name for current action.</inlineHelpText>
+        <label>Translation Label Name</label>
+        <length>90</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Field__c</fullName>
+        <description>API name for the field that is used to update a record.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the field that is used to update a record.</inlineHelpText>
+        <label>Field</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NewValue__c</fullName>
+        <description>Value to update a record field.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Value to update a record field.</inlineHelpText>
+        <label>New Value</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Parameters__c</fullName>
+        <description>Addition parameters of Action</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Parameters</label>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>15</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <description>The type of Action, such as a record update.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>The type of Action, such as a record update.</inlineHelpText>
+        <label>Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Record Update</fullName>
+                    <default>true</default>
+                    <label>Record Update</label>
+                </value>
+                <value>
+                    <fullName>Platform Event</fullName>
+                    <default>false</default>
+                    <label>Platform Event</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Action</label>
+    <pluralLabel>Actions</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

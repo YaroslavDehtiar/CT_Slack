@@ -1,0 +1,15 @@
+<!-- Workflow Paths List View Edit Modal -->
+<template>
+    <c-modal class="edit-modal">
+        <span slot="header">
+            Edit {editedPathLabel}
+        </span>
+        <span slot="body">
+            <lightning-input if:true={isModalOpened} label="Name" class="path-name" max-length="40" value={editedPathLabel} required></lightning-input>
+        </span>
+        <span slot="footer">
+            <lightning-button label="Cancel" variant="neutral" class="cancel slds-m-right--x-small" onclick={handleCloseModal}></lightning-button>
+            <lightning-button label="Next" variant="brand" class="next" onclick={handlePathEdit}></lightning-button>
+        </span>
+    </c-modal>
+</template>

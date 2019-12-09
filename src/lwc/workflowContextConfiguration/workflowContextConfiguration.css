@@ -1,0 +1,23 @@
+.context-name-container {
+    background: #f3f2f2;
+    border-radius: 0.25rem;
+    display: flex;
+    height: 63px;
+    justify-content: space-between;
+    padding: 10px;
+    flex-direction: row;
+}
+
+.context-tree-container {
+    margin: 5px;
+    margin-top: 20px;
+    width: 50%;
+}
+
+.edit-context-button {
+    margin-left: auto
+}
+
+.configuration-column {
+    flex: auto;
+}

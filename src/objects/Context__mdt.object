@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>A set of criteria for a Context Type</description>
+    <fields>
+        <fullName>ContextType__c</fullName>
+        <description>Context Type (object type) that this context belongs to.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Context Type (object type) that this context belongs to.</inlineHelpText>
+        <label>Context Type</label>
+        <referenceTo>ContextType__mdt</referenceTo>
+        <relationshipLabel>Contexts</relationshipLabel>
+        <relationshipName>Contexts</relationshipName>
+        <required>true</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Create__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates whether there is permission to create a record of the given Context.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Indicates whether there is permission to create a record of the given Context.</inlineHelpText>
+        <label>Create</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Delete__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates whether there is permission to delete a record of the given Context.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Indicates whether there is permission to delete a record of the given Context.</inlineHelpText>
+        <label>Delete</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Edit__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates whether there is permission to update a record of the given Context.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Indicates whether there is permission to update a record of the given Context.</inlineHelpText>
+        <label>Edit</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ParentContext__c</fullName>
+        <description>Parent Context defined for the child sObject based on Context Type relationship</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Parent Context defined for the child sObject based on Context Type relationship</inlineHelpText>
+        <label>Parent Context</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <description>Type of the context, e.g. Rule, Workflow Path, etc.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Type of the context, e.g. Rule, Workflow Path, etc.</inlineHelpText>
+        <label>Type</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WorkflowPathNode__c</fullName>
+        <description>The node of the path where the Context will be available to compile.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>The node of the path where the Context will be available to compile.</inlineHelpText>
+        <label>Workflow Path Node</label>
+        <referenceTo>MeetingWorkFlowNodeConfiguration__mdt</referenceTo>
+        <relationshipLabel>Contexts</relationshipLabel>
+        <relationshipName>Contexts</relationshipName>
+        <required>false</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <label>Context</label>
+    <pluralLabel>Contexts</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

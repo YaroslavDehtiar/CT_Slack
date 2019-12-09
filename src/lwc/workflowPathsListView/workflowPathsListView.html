@@ -1,0 +1,31 @@
+<!-- Workflow Paths List View -->
+<template>
+    <lightning-layout horizontal-align="end" class="slds-p-bottom--medium button-header">
+        <lightning-layout-item>
+            <lightning-button label="New" name="new" title="New Workflow Path" onclick={handleNew} variant="brand"></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+
+    <c-custom-datatable
+            key-field="id"
+            columns={columns}
+            data={data}
+            sorted-by={sortedBy}
+            sorted-direction={sortDirection}
+            errors={errors}
+            onrowaction={handleRowAction}
+            onsort={handleSort}
+            hide-checkbox-column
+    ></c-custom-datatable>
+
+    <c-workflow-paths-list-view-edit-modal
+            onedit={handlePathEdit}
+    ></c-workflow-paths-list-view-edit-modal>
+    <c-workflow-paths-list-view-create-modal
+            oncreate={handlePathCreate}
+    ></c-workflow-paths-list-view-create-modal>
+
+    <lightning-spinner
+            if:true={showSpinner}
+    ></lightning-spinner>
+</template>

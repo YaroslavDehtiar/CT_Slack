@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Defines the path the workflow will follow by using a controlling field to determine the steps.</description>
+    <fields>
+        <fullName>ContextType__c</fullName>
+        <description>The Context Type that defines a relationship of the workflow record to an sObject type.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>The Context Type that defines a relationship of the workflow record to an sObject type.</inlineHelpText>
+        <label>Context Type</label>
+        <referenceTo>ContextType__mdt</referenceTo>
+        <relationshipLabel>Workflow Paths</relationshipLabel>
+        <relationshipName>WorkflowPaths</relationshipName>
+        <required>false</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ControllingField__c</fullName>
+        <description>The Context Type sObject picklist field name to define the path steps.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>The Context Type sObject picklist field name to define the path steps.</inlineHelpText>
+        <label>Controlling Field</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CreateManagerAsApprover__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Determines if the Meeting user&apos;s manager will be automatically added as an approver of the Meeting.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines if the Meeting user&apos;s manager will be automatically added as an approver of the Meeting.</inlineHelpText>
+        <label>Create Manager As Approver</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>MeetingRecordTypeName__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <description>The name of the sObject Record Type that the workflow is configured for.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>The name of the sObject Record Type that the workflow is configured for.</inlineHelpText>
+        <label>Record Type Name</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>StatusToCalculateActuals__c</fullName>
+        <description>Stores the list of Meeting Statuses that will be used to determine when Actual Expenses are to be considered in Meeting Budget 2 calculations. MeetingEstimatedAmount__c and MeetingActualAmount__c fields on Meeting Budget 2 will be impacted based on this. If a Meeting is not in a status mentioned in this field, it means only Estimated Expenses are being used in the Meeting Budget. If the Meeting is in a status mentioned in this field, it means only Actual Expenses are being used in the Meeting Budget. Use semicolon separated list of statuses without spaces. Example: Draft;PendingApproval;Closed</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Stores a list of Meeting Statuses to determine the field used in Meeting Budget 2 calculations. If the Meeting status is mentioned MeetingActualAmount_c is used in the Meeting Budget. If a Meeting status is not mentioned MeetingEstimatedAmount_c is used.</inlineHelpText>
+        <label>Status to Calculate Actuals</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>The status of the Workflow Path.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>The status of the Workflow Path.</inlineHelpText>
+        <label>Status</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>true</default>
+                    <label>Active</label>
+                </value>
+                <value>
+                    <fullName>Inactive</fullName>
+                    <default>false</default>
+                    <label>Inactive</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Workflow Path</label>
+    <pluralLabel>Workflow Paths</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

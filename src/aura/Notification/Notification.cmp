@@ -1,0 +1,21 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="Notification">
+    <lightning:empApi aura:id="empApi"/>
+    <aura:attribute name="channel" type="String" default="/event/Notification__e"/>
+    <aura:attribute name="subscription" type="Map"/>
+    <aura:attribute name="notifications" type="List"/>
+    <aura:attribute name="isMuted" type="Boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:registerEvent name="toastEvent" type="force:showToast"/>
+    <div class="container">
+        <!-- Notification list -->
+        <div class="slds-container_fluid slds-scrollable_y content">
+            <aura:iteration items="{!v.notifications}" var="notification">
+                <div class="slds-p-around_small slds-border_top">
+                    <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                        <p>{!notification}</p>
+                    </div>
+                </div>
+            </aura:iteration>
+        </div>
+    </div>
+</aura:component>

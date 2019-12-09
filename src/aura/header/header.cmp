@@ -1,0 +1,9 @@
+<!--
+ - Created by YaroslavDehtiar on 17.09.2019.
+ -->
+
+<aura:component description="header">
+
+    <c:QueryBuilder/>
+
+</aura:component>
